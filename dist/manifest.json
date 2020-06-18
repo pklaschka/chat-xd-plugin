@@ -1,0 +1,24 @@
+{
+    "id": "YOUR_ID_HERE",
+    "name": "My plugin",
+    "version": "0.0.1",
+    "icons": [
+        { "width": 24, "height": 24, "path": "icons/icon@1x.png" },
+        { "width": 48, "height": 48, "path": "icons/icon@2x.png" }
+    ],
+    "host": {
+        "app": "XD",
+        "minVersion": "25.0"
+    },
+    "uiEntryPoints": [
+        {
+            "type": "menu",
+            "label": "My plugin",
+            "commandId": "myCommand",
+            "shortcut": {
+                "mac": "Cmd+Shift+P",
+                "win": "Ctrl+Shift+P"
+            }
+        }
+    ]
+}
