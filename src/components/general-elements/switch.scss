@@ -1,0 +1,33 @@
+.switch {
+    * {
+        display: inline-block;
+    }
+    .switch-outer {
+        width: 1.8rem;
+        height: 1rem;
+        background: #EAEAEA;
+        border-radius: 0.5rem;
+    }
+
+    .switch-inner {
+        border: 2px solid #959595;
+        background: #fff;
+        border-radius: 0.5rem;
+        width: 1rem;
+        height: 1rem;
+    }
+
+    .switch-label {
+        padding-left: 0.7rem;
+    }
+
+    &.active {
+        .switch-outer {
+            background: #747474;
+            text-align: right;
+        }
+        .switch-inner {
+            border-color: #747474;
+        }
+    }
+}

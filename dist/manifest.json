@@ -1,10 +1,18 @@
 {
-    "id": "YOUR_ID_HERE",
-    "name": "My plugin",
+    "id": "de.pabloklaschka.xdplugins.chat",
+    "name": "Document Chat",
     "version": "0.0.1",
     "icons": [
-        { "width": 24, "height": 24, "path": "icons/icon@1x.png" },
-        { "width": 48, "height": 48, "path": "icons/icon@2x.png" }
+        {
+            "width": 24,
+            "height": 24,
+            "path": "icons/icon@1x.png"
+        },
+        {
+            "width": 48,
+            "height": 48,
+            "path": "icons/icon@2x.png"
+        }
     ],
     "host": {
         "app": "XD",
@@ -12,13 +20,9 @@
     },
     "uiEntryPoints": [
         {
-            "type": "menu",
-            "label": "My plugin",
-            "commandId": "myCommand",
-            "shortcut": {
-                "mac": "Cmd+Shift+P",
-                "win": "Ctrl+Shift+P"
-            }
+            "type": "panel",
+            "label": "Document Chat",
+            "panelId": "chatPanel"
         }
     ]
 }
