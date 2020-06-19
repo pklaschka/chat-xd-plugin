@@ -5,7 +5,6 @@
   "private": true,
   "scripts": {
     "start": "npm run debug:watch",
-    "test": "jest --coverage",
     "build": "npm run compile && xdpm package dist",
     "compile": "webpack --config webpack.config.js --mode production",
     "debug:install": "webpack --config webpack.config.js --mode production && xdpm install dist -o",
