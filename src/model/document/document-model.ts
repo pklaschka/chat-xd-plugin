@@ -16,7 +16,7 @@ export type EditModelCallback = (model: DocumentModel) => DocumentModel;
  */
 export default class DocumentModel {
     public messages: Message[] = [];
-    public authors: Author[] = [];
+    public authors: {[uuid: string]: Author} = {};
 
     public constructor() {
         this.refresh();
@@ -28,8 +28,8 @@ export default class DocumentModel {
      * Refreshes the model data from the document values. If document values aren't available, the current values get used.
      */
     public refresh(): void {
-        this.messages = root.pluginData?.messages || this.messages;
-        this.authors = root.pluginData?.authors || this.authors;
+        this.messages = root.pluginData?.messages.map((obj: any) => new Message(obj)) || this.messages;
+        this.authors = root.pluginData?.authors.map((obj: any) => new Author(obj)) || this.authors;
     }
 
     /**

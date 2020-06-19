@@ -1,5 +1,5 @@
 import './react-shim';
-import DocumentModel from './model/document-model';
+import DocumentModel from './model/document/document-model';
 import { render } from 'react-dom';
 import Chat from './components/chat';
 import React = require('react');

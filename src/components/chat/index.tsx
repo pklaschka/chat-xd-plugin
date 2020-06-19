@@ -1,39 +1,38 @@
-import DocumentModel from '../../model/document-model';
-import React, { useState, useCallback } from 'react';
+import DocumentModel from '../../model/document/document-model';
+import React, {useState, useCallback, useLayoutEffect} from 'react';
 import Switch from '../general-elements/switch';
 import iconLaunch from '../../assets/icons/Smock_Launch_18_N.svg';
-import Message from "../../model/message";
+import Message from "../../model/document/message";
+import ChatMessageEditor from "./editor/editor";
+import './index.scss'
+import ScrollContainer from "../scroll-container/scroll-container";
 
-export default function Chat({ model, dialog }: { model: DocumentModel, dialog?: HTMLDialogElement }) {
+export default function Chat({model, dialog}: { model: DocumentModel, dialog?: HTMLDialogElement }) {
     const [switchState, setSwitchState] = useState<boolean>(true);
-    const [message, setMessage] = useState<string>('');
 
-    const onSubmit = useCallback((evt) => {
-        evt.preventDefault();
+    useLayoutEffect(() => {
+        console.log((document.querySelector('.wrapper') || {}).scrollHeight)
+    })
 
-        model.update((model) => {
-            model.messages.push(new Message({content: message, authorUUID: 'abc'}));
-            return model;
-        });
-        setMessage('')
-    }, [message]);
-
-    return <>
-        {/* <pre>
-            <code>{JSON.stringify(model, null, 4)}</code>
-        </pre> */}
-        <img src={iconLaunch} alt="Launch" />
-        <ul>
-            {model.messages.map((message, index) =>
-                <li key={index}>{message.content}</li>
-            )}
-        </ul>
-        <Switch onChange={setSwitchState} value={switchState}>My Setting</Switch>
-        <form onSubmit={onSubmit}>
-            <input autoFocus={true} value={message} onChange={(evt) => setMessage(evt.target.value)} type="text" name="message" />
-            <button onClick={onSubmit}>Send</button>
-        </form>
-        {dialog &&
+    return <div className="wrapper">
+        <header>
+            <h1>Document Chat</h1>
+            <img src={iconLaunch} alt="Launch"/>
+        </header>
+        <main>
+            <ScrollContainer>
+                <ul>
+                    {model.messages.map((message, index) =>
+                        <li key={index}>{message.content} &nbsp;<a onClick={() => {message.scrollTo()}}>Viewport</a></li>
+                    )}
+                </ul>
+            </ScrollContainer>
+        </main>
+        {/*<Switch onChange={setSwitchState} value={switchState}>My Setting</Switch>*/}
+        <footer>
+            <ChatMessageEditor model={model}/>
+            {dialog &&
             <button onClick={() => dialog.close()}>Close</button>}
-    </>
+        </footer>
+    </div>
 }
