@@ -1,9 +1,10 @@
+import uuid from 'v4-uuid';
+
 export default class Author {
-    public guid = '';
+    public readonly uuid: string = uuid();
     public name = '';
     public gravatarMail? = '';
 
     constructor() {
-
     }
 }

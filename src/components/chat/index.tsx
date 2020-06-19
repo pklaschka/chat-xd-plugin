@@ -1,6 +1,8 @@
 import DocumentModel from '../../model/document-model';
 import React, { useState, useCallback } from 'react';
 import Switch from '../general-elements/switch';
+import iconLaunch from '../../assets/icons/Smock_Launch_18_N.svg';
+import Message from "../../model/message";
 
 export default function Chat({ model, dialog }: { model: DocumentModel, dialog?: HTMLDialogElement }) {
     const [switchState, setSwitchState] = useState<boolean>(true);
@@ -10,7 +12,7 @@ export default function Chat({ model, dialog }: { model: DocumentModel, dialog?:
         evt.preventDefault();
 
         model.update((model) => {
-            model.messages.push({ authorGUID: 'abc', content: message });
+            model.messages.push(new Message({content: message, authorUUID: 'abc'}));
             return model;
         });
         setMessage('')
@@ -20,6 +22,7 @@ export default function Chat({ model, dialog }: { model: DocumentModel, dialog?:
         {/* <pre>
             <code>{JSON.stringify(model, null, 4)}</code>
         </pre> */}
+        <img src={iconLaunch} alt="Launch" />
         <ul>
             {model.messages.map((message, index) =>
                 <li key={index}>{message.content}</li>

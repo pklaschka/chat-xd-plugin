@@ -20,6 +20,7 @@
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "v4-uuid": "^1.1.0",
     "xd-storage-helper": "^1.2.3"
   },
   "devDependencies": {
@@ -29,6 +30,7 @@
     "@types/react-dom": "^16.9.8",
     "css-loader": "^3.6.0",
     "eslint": "^7.2.0",
+    "file-loader": "^6.0.0",
     "jest": "^26.0.1",
     "jsdoc": "^3.6.4",
     "sass": "^1.26.8",
