@@ -33,7 +33,7 @@
     "file-loader": "^6.0.0",
     "jest": "^26.0.1",
     "jsdoc": "^3.6.4",
-    "sass": "^1.26.8",
+    "sass": "^1.26.9",
     "sass-loader": "^8.0.2",
     "sloc": "^0.2.1",
     "source-map-loader": "^1.0.0",
