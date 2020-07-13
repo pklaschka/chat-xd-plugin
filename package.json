@@ -26,7 +26,7 @@
   "devDependencies": {
     "@adobe/xdpm": "^4.0.0",
     "@types/adobe-xd": "AdobeXD/typings",
-    "@types/react": "^16.9.41",
+    "@types/react": "^16.9.43",
     "@types/react-dom": "^16.9.8",
     "css-loader": "^3.6.0",
     "eslint": "^7.4.0",
