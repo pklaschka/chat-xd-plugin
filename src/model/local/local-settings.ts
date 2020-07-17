@@ -10,7 +10,7 @@ export default class LocalSettings {
         return new Author((await storageHelper.get('me', undefined)));
     }
 
-    static async setAuthor(author: Author): Promise<void> {
+    static async setAuthor(author?: Author): Promise<void> {
         return storageHelper.set('me', author);
     }
 }

@@ -1,0 +1,9 @@
+.MessageBubble {
+  img {
+    border-radius: 100%;
+  }
+
+  > * + * {
+    margin-top: 16px;
+  }
+}

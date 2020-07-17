@@ -10,6 +10,7 @@ export default class Message {
     public readonly uuid: string = uuid();
     public content: string = '';
     public authorUUID: string = '';
+    public readonly date: number = Date.now();
     public viewportCenter: Bounds;
 
     public constructor(object: any = {}) {
@@ -18,6 +19,7 @@ export default class Message {
         this.uuid = object['uuid'] ?? this.uuid;
         this.content = object['content'] ?? this.content;
         this.authorUUID = object['authorUUID'] ?? this.authorUUID;
+        this.date = object['date'] ?? this.date;
         this.viewportCenter = object['viewportCenter'] ?? this.viewportCenter;
     }
 
