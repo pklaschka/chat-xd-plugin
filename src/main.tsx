@@ -5,10 +5,26 @@ import Chat from './components/chat';
 import {Link, MemoryRouter, Route, Switch} from 'react-router-dom';
 import localSettings from './model/local/local-settings';
 import Author from "./model/document/author";
+import {useState} from "react";
 import React = require('react');
 
 let panel: HTMLElement | null = null;
 let model = new DocumentModel();
+
+function DebugAuthorSetup() {
+    const [name, setName] = useState<string>('Pablo');
+    const [gravatarMail, setGravatarMail] = useState<string>('contact@pabloklaschka.de');
+    return <form style={{background: "white"}}
+                 onSubmit={() => localSettings.setAuthor(new Author({name, gravatarMail}))}>
+        <input type="text" value={name} onChange={evt => setName(evt.target.value)} name={"name"} placeholder="Name"/>
+        <br/>
+        <input type="text" value={gravatarMail} onChange={evt => setGravatarMail(evt.target.value)}
+               name={"gravatarMail"} placeholder="Gravatar Email"/>
+        <br/>
+
+        <button type={"submit"}>Set Author</button>
+    </form>;
+}
 
 function renderApp() {
     render(
@@ -18,7 +34,13 @@ function renderApp() {
                     <p>Test /</p>
                     <p><Link to="/chat">Chat</Link></p>
                     <p>
-                        <button onClick={() => localSettings.setAuthor(new Author({name: 'Pablo', gravatarMail: 'contact@pabloklaschka.de'}))}>Set Author</button>
+                        <DebugAuthorSetup />
+
+                        <button onClick={() => localSettings.setAuthor(new Author({
+                            name: 'Pablo',
+                            gravatarMail: 'contact@pabloklaschka.de'
+                        }))}>Set Author
+                        </button>
                     </p>
                     <p>
                         <button onClick={() => localSettings.setAuthor(undefined)}>Unset Author</button>
