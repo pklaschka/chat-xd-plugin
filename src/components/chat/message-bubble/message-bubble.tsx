@@ -5,6 +5,11 @@ import React from "react";
 import './message-bubble.scss';
 import {Avatar} from "./avatar";
 
+import '@formatjs/intl-relativetimeformat/polyfill';
+import '@formatjs/intl-relativetimeformat/locale-data/de';
+import '@formatjs/intl-relativetimeformat/locale-data/en';
+import {IntlProvider, FormattedRelativeTime} from "react-intl";
+
 interface MessageBubbleParams {
     message: Message;
     model: DocumentModel;
@@ -13,14 +18,22 @@ interface MessageBubbleParams {
 export default function MessageBubble(props: MessageBubbleParams) {
     const {content, date, authorUUID} = props.message;
 
+
     return <li className="MessageBubble">
-        <Avatar author={props.model.authors[authorUUID]} />
-        <h4>{props.model.authors[authorUUID].name} -- {date}:</h4>
-        <p>{content}</p>
-        <p>
-            <a onClick={() => props.message.scrollTo()}>
-                <img src={iconCrosshair} alt={"Viewport location"}/>
-            </a>
-        </p>
+        <IntlProvider locale={'en'}>
+            <Avatar author={props.model.authors[authorUUID]}/>
+            <h4>
+                {props.model.authors[authorUUID].name}
+                &nbsp;&ndash;&nbsp;
+                <FormattedRelativeTime value={(date - Date.now())/1000}
+                                        unit={'second'} numeric="auto" updateIntervalInSeconds={10} />
+            </h4>
+            <p>{content}</p>
+            <p>
+                <a onClick={() => props.message.scrollTo()}>
+                    <img src={iconCrosshair} alt={"Viewport location"}/>
+                </a>
+            </p>
+        </IntlProvider>
     </li>;
 }

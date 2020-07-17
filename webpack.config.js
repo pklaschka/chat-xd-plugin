@@ -47,6 +47,7 @@ module.exports = {
             },
         ],
     },
+    performance: {maxEntrypointSize: 10000000, maxAssetSize: 100000000},
     resolve: {
         extensions: ['.tsx', '.ts', '.js', '.jsx'],
     },
