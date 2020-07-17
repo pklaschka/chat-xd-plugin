@@ -13,8 +13,14 @@ export default function useAsyncRenderer<T>(promise: Promise<T>,
     const [state, setState] = useState<LoadingState>(0)
 
     promise
-        .then((v) => {setValue(v); setState(LoadingState.success)})
-        .catch((v) => {setValue(v); setState(LoadingState.failure)});
+        .then((v) => {
+            setValue(v);
+            setState(LoadingState.success)
+        })
+        .catch((v) => {
+            setValue(v);
+            setState(LoadingState.failure)
+        });
 
     return (
         <>

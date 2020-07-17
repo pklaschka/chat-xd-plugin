@@ -6,19 +6,22 @@ if (window.setTimeout == null) {
 }
 
 if (window.clearTimeout == null) {
-    window.clearTimeout = function () { };
+    window.clearTimeout = function () {
+    };
 }
 
 if (window.cancelAnimationFrame == null) {
-    window.cancelAnimationFrame = function () { };
+    window.cancelAnimationFrame = function () {
+    };
 }
 if (window.requestAnimationFrame == null) {
     // @ts-ignore
     window.requestAnimationFrame = function () {
-        console.log("requestAnimationFrame is not supported yet");
+        console.log('requestAnimationFrame is not supported yet');
     };
 }
 if (window.HTMLIFrameElement == null) {
     // @ts-ignore
-    window.HTMLIFrameElement = class HTMLIFrameElement { };
+    window.HTMLIFrameElement = class HTMLIFrameElement {
+    };
 }

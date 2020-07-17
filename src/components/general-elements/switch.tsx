@@ -6,7 +6,7 @@ export default function Switch({onChange, value, children}: {
     value: boolean,
     children: React.ReactNode
 }) {
-    return <div className={`switch ${value ? 'active' : ''}`} onClick={()=>onChange(!value)}>
+    return <div className={`switch ${value ? 'active' : ''}`} onClick={() => onChange(!value)}>
         <span className="switch-outer"><span className="switch-inner"></span></span>
         <span className="switch-label label">{children}</span>
     </div>

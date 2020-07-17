@@ -1,11 +1,22 @@
-import React, {ReactNode, useState} from 'react';
+import React, {ReactNode, useCallback, useRef, useState} from 'react';
 import './scroll-container.scss';
 
 export default function ScrollContainer({children}: { children: ReactNode }) {
     const [pos, setPos] = useState(0);
 
-    return <div className="scroll-container">
-        <div className="scroll-container-inner">
+    const innerContainer = useRef<HTMLDivElement>(null);
+    const outerContainer = useRef<HTMLDivElement>(null);
+
+    const applyWheel = useCallback((e: React.WheelEvent<HTMLElement>) => {
+        const min = (outerContainer.current?.clientHeight || 0) - (innerContainer.current?.clientHeight || 0);
+
+        const newPos = Math.max(Math.min(pos + e.deltaY, 0), min);
+        setPos(newPos);
+    }, [pos, setPos, innerContainer, outerContainer])
+
+
+    return <div className="scroll-container" ref={outerContainer} onWheel={applyWheel}>
+        <div className="scroll-container-inner" ref={innerContainer} style={{bottom: pos}}>
             {children}
         </div>
     </div>

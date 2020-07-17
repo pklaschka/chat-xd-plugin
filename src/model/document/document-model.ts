@@ -9,14 +9,14 @@ import {root, RootNode} from 'scenegraph';
  * @param model The current model value
  * @returns the modified model value.
  */
-export type EditModelCallback = (model: DocumentModel) => DocumentModel;
+export type EditModelCallback = (model: DocumentModel) => DocumentModel | Promise<DocumentModel>;
 
 /**
  * The document model storing the document's message and author data. Gets stored in the `RootNode`'s `pluginData` field.
  */
 export default class DocumentModel {
     public messages: Message[] = [];
-    public authors: {[uuid: string]: Author} = {};
+    public authors: { [uuid: string]: Author } = {};
 
     public constructor() {
         this.refresh();
@@ -29,7 +29,11 @@ export default class DocumentModel {
      */
     public refresh(): void {
         this.messages = root.pluginData?.messages.map((obj: any) => new Message(obj)) || this.messages;
-        this.authors = root.pluginData?.authors.map((obj: any) => new Author(obj)) || this.authors;
+        this.authors = root.pluginData?.authors || this.authors;
+
+        for (let key in this.authors) {
+            this.authors[key] = new Author(this.authors[key]);
+        }
     }
 
     /**
@@ -40,8 +44,8 @@ export default class DocumentModel {
      */
     public update(cb: EditModelCallback): void {
         this.refresh();
-        editDocument((selection: Selection, root: RootNode) => {
-            root.pluginData = cb(this);
+        editDocument(async (selection: Selection, root: RootNode) => {
+            root.pluginData = await cb(this);
         });
     }
 }
