@@ -25,7 +25,7 @@
     "pure-md5": "^0.1.13",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-intl": "^5.4.3",
+    "react-intl": "^5.4.5",
     "react-router-dom": "^5.2.0",
     "v4-uuid": "^1.1.0",
     "xd-storage-helper": "^1.2.3"
