@@ -46,7 +46,7 @@
     "jest": "^26.2.2",
     "jsdoc": "^3.6.5",
     "sass": "^1.26.10",
-    "sass-loader": "^9.0.2",
+    "sass-loader": "^9.0.3",
     "sloc": "^0.2.1",
     "source-map-loader": "^1.0.1",
     "style-loader": "^1.2.1",
