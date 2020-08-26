@@ -33,7 +33,7 @@
   "devDependencies": {
     "@adobe/xdpm": "^4.1.0",
     "@types/adobe-xd": "AdobeXD/typings",
-    "@types/react": "^16.9.46",
+    "@types/react": "^16.9.47",
     "@types/react-dom": "^16.9.8",
     "@types/react-intl": "^3.0.0",
     "@types/react-router-dom": "^5.1.5",
