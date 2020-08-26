@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@adobexd/typings": "github:AdobeXD/typings",
-    "@formatjs/intl-relativetimeformat": "^7.2.3",
+    "@formatjs/intl-relativetimeformat": "^7.2.4",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.1.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
