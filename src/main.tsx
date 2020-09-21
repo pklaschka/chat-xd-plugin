@@ -35,12 +35,6 @@ function renderApp() {
                     <p><Link to="/chat">Chat</Link></p>
                     <p>
                         <DebugAuthorSetup />
-
-                        <button onClick={() => localSettings.setAuthor(new Author({
-                            name: 'Pablo',
-                            gravatarMail: 'contact@pabloklaschka.de'
-                        }))}>Set Author
-                        </button>
                     </p>
                     <p>
                         <button onClick={() => localSettings.setAuthor(undefined)}>Unset Author</button>
