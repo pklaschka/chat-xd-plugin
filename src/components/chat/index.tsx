@@ -10,10 +10,8 @@ import MessageBubble from "./message-bubble/message-bubble";
 export default function Chat({model, dialog}: { model: DocumentModel, dialog?: HTMLDialogElement }) {
     const location = useLocation();
 
-    useEffect(() => console.log(location), [location]);
-
     return <div className="wrapper">
-        <Header/>
+        <Header title={'Document Chat (Beta)'} toLink={'/settings'} />
         <main>
             <ScrollContainer>
                 <ul>

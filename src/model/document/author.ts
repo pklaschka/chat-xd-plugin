@@ -1,4 +1,5 @@
 import uuid from 'v4-uuid';
+import useLogger from "../../hooks/useLogger";
 
 export default class Author {
     public readonly uuid: string = uuid();

@@ -1,0 +1,16 @@
+.wrapper {
+  > header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    > .spacer {
+      flex-grow: 1000;
+    }
+
+    > :not(.spacer) {
+      flex-grow: 0;
+    }
+  }
+}
+

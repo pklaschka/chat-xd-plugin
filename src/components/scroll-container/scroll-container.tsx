@@ -1,7 +1,10 @@
 import React, {ReactNode, useCallback, useRef, useState} from 'react';
 import './scroll-container.scss';
+import useLogger from "../../hooks/useLogger";
 
 export default function ScrollContainer({children}: { children: ReactNode }) {
+    const logger = useLogger('ScrollContainer');
+
     const [pos, setPos] = useState(0);
 
     const innerContainer = useRef<HTMLDivElement>(null);
@@ -11,6 +14,7 @@ export default function ScrollContainer({children}: { children: ReactNode }) {
         const min = (outerContainer.current?.clientHeight || 0) - (innerContainer.current?.clientHeight || 0);
 
         const newPos = Math.max(Math.min(pos + e.deltaY, 0), min);
+        logger.debug('New scroll position:', newPos);
         setPos(newPos);
     }, [pos, setPos, innerContainer, outerContainer])
 
