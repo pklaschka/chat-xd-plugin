@@ -1,16 +1,14 @@
 import React, {useCallback, useEffect, useState} from "react";
-import DocumentModel from "../model/document/document-model";
 import {Header} from "./general-elements/header/header";
-import iconRocket from '../assets/icons/Smock_Launch_18_N.svg';
 import useLogger from "../hooks/useLogger";
 import Switch from "./general-elements/switch";
-import {useHistory, useLocation } from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import LocalSettings from "../model/local/local-settings";
 import Author from "../model/document/author";
 
 const numberOfSteps = 4;
 
-export default function Onboarding({model}: { model: DocumentModel }) {
+export default function Onboarding() {
     const logger = useLogger('Onboarding screen');
     const [currentStep, setCurrentStep] = useState(0);
     const [state, setState] = useState({name: '', gravatarMail: '', gravatar: false, privacyPolicy: false});
