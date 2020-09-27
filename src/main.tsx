@@ -56,7 +56,7 @@ function renderApp() {
                 </Route>
                 <Route exact path="/onboarding">
                     <div className="wrapper">
-                        <Onboarding model={model} />
+                        <Onboarding/>
                     </div>
                 </Route>
                 <Route exact path="/chat">
