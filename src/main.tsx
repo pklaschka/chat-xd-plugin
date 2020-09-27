@@ -50,7 +50,7 @@ function renderApp() {
                             return model;
                         })}>Reset Document
                         </button>
-                        <Redirect to={'/chat'}/>
+                        {/*<Redirect to={'/chat'}/>*/}
                     </p>
                 </Route>
                 <Route exact path="/chat">

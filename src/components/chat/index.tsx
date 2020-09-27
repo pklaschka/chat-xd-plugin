@@ -13,7 +13,7 @@ export default function Chat({model, dialog}: { model: DocumentModel, dialog?: H
     return <div className="wrapper">
         <Header title={'Document Chat (Beta)'} toLink={'/settings'} />
         <main>
-            <ScrollContainer>
+            <ScrollContainer model={JSON.stringify(model)}>
                 <ul>
                     {model.messages.map((message, index) =>
                         <MessageBubble key={index} message={message} model={model} />
