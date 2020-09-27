@@ -4,6 +4,7 @@ import Message from "../../../model/document/message";
 import localSettings from '../../../model/local/local-settings';
 import './editor.scss';
 import {Redirect} from 'react-router-dom';
+import useLogger from "../../../hooks/useLogger";
 
 /**
  * State of the editor component. This determines whether it's ready to chat based on whether the author data is set up.
@@ -23,6 +24,8 @@ enum LoadedState {
     READY,
 }
 
+const logger = useLogger('Chat Message Editor');
+
 export default function ChatMessageEditor({model}: { model: DocumentModel }) {
     const [message, setMessage] = useState<string>('');
     const [loadedState, setLoadedState] = useState<LoadedState>(LoadedState.LOADING);
@@ -31,6 +34,7 @@ export default function ChatMessageEditor({model}: { model: DocumentModel }) {
      * Update/add author data to document and append current message
      */
     const onSubmit = useCallback((evt) => {
+        logger.debug('Submitting message');
         evt.preventDefault();
 
         model.update(async (model) => {

@@ -1,45 +1,52 @@
-import React, {ReactNode, useCallback, useEffect, useLayoutEffect, useRef, useState} from 'react';
+import React, {ReactNode, useCallback, useLayoutEffect, useRef, useState} from 'react';
 import './scroll-container.scss';
 import useLogger from "../../hooks/useLogger";
+import cap from "../../lib/cap";
 
-export default function ScrollContainer({children, model}: { children: ReactNode, model: any }) {
+export default function ScrollContainer({children}: { children: ReactNode, model: any }) {
     const logger = useLogger('ScrollContainer');
 
-    const [pos, setPos] = useState(0);
-    const [oldHeight, setOldHeight] = useState(0);
+    const [x, setX] = useState(0);
+    const [deltaX, setDeltaX] = useState(0);
+    const [oldDeltaH, setOldDeltaH] = useState(0);
 
     const innerContainer = useRef<HTMLDivElement>(null);
     const outerContainer = useRef<HTMLDivElement>(null);
 
-    const applyWheel = useCallback((e: React.WheelEvent<HTMLElement>) => {
-        const min = (outerContainer.current?.clientHeight || 0) - (innerContainer.current?.clientHeight || 0);
-
-        const newPos = Math.max(Math.min(pos + e.deltaY, 0), min);
-        logger.debug('New scroll position:', newPos);
-        setPos(newPos);
-    }, [pos, setPos, innerContainer, outerContainer])
+    const scrollDelta = useCallback((deltaDeltaX: number) => {
+        setDeltaX(deltaX + deltaDeltaX);
+    }, [x])
 
     useLayoutEffect(() => {
-        const min = (outerContainer.current?.clientHeight || 0) - (innerContainer.current?.clientHeight || 0);
+        const deltaH = (innerContainer.current?.scrollHeight || 0) - (outerContainer.current?.clientHeight || 0);
+        const newX = x + deltaX;
 
-        const newPos = Math.max(Math.min(pos, 0), min);
-        logger.debug('Initial scroll position:', newPos);
-        setPos(newPos);
-        setOldHeight(innerContainer.current?.clientHeight ?? 0);
+        logger.info('deltaH at event', deltaH);
+
+        setTimeout(() => logger.info('deltaH after 100ms', (innerContainer.current?.scrollHeight || 0) - (outerContainer.current?.clientHeight || 0)), 100)
+
+        if (newX === oldDeltaH) {
+            logger.debug('Layout effect: cap, branch latest', cap(0, deltaH, deltaH), deltaH)
+            setX(cap(0, deltaH, deltaH));
+        } else {
+            logger.debug('Layout effect: cap, branch history', cap(0, newX, deltaH), deltaH)
+            setX(cap(0, newX, deltaH));
+        }
+        setOldDeltaH(deltaH);
+        setDeltaX(0);
+    })
+
+    useLayoutEffect(() => {
+        setTimeout(() => {
+            logger.debug('Layout Effect: Initial old deltaH')
+            const deltaH = (innerContainer.current?.scrollHeight || 0) - (outerContainer.current?.clientHeight || 0);
+            setOldDeltaH(deltaH);
+            setX(cap(0, deltaH, deltaH));
+        }, 100);
     }, [innerContainer, outerContainer])
 
-    useLayoutEffect(() => {
-        // Inner container height has changed
-        if (pos !== 0) {
-            const newPos = pos + oldHeight - (innerContainer.current?.clientHeight ?? 0);
-            logger.debug('Adjust position as user is not on the latest message. Previous position:', pos, 'New position:', newPos);
-            setPos(newPos);
-        }
-        setOldHeight(innerContainer.current?.clientHeight ?? 0);
-    }, [model])
-
-    return <div className="scroll-container" ref={outerContainer} onWheel={applyWheel}>
-        <div className="scroll-container-inner" ref={innerContainer} style={{bottom: pos}}>
+    return <div className="scroll-container" ref={outerContainer} onWheel={e => scrollDelta(e.deltaY)}>
+        <div className="scroll-container-inner" ref={innerContainer} style={{top: `${-x}px`}}>
             {children}
         </div>
     </div>

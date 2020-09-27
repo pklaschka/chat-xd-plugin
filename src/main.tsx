@@ -2,7 +2,7 @@ import './react-shim';
 import DocumentModel from './model/document/document-model';
 import {render} from 'react-dom';
 import Chat from './components/chat';
-import {Link, MemoryRouter, Redirect, Route, Switch} from 'react-router-dom';
+import {Link, MemoryRouter, Route, Switch} from 'react-router-dom';
 import localSettings from './model/local/local-settings';
 import Author from "./model/document/author";
 import {useState} from "react";
@@ -15,6 +15,9 @@ import Onboarding from "./components/onboarding";
 
 let panel: HTMLElement | null = null;
 let model = new DocumentModel();
+
+const logger = useLogger('Plugin');
+logger.debug('Plugin loaded')
 
 function DebugAuthorSetup() {
     const [name, setName] = useState<string>('Pablo');
@@ -32,6 +35,7 @@ function DebugAuthorSetup() {
 }
 
 function renderApp() {
+    logger.debug('renderApp()')
     render(
         <MemoryRouter>
             <Switch>
@@ -51,7 +55,7 @@ function renderApp() {
                             return model;
                         })}>Reset Document
                         </button>
-                        <Redirect to={'/onboarding'}/>
+                        {/*<Redirect to={'/chat'}/>*/}
                     </p>
                 </Route>
                 <Route exact path="/onboarding">

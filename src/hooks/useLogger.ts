@@ -5,5 +5,5 @@ const logger = new Logger({
 });
 
 export default function useLogger(component: string) {
-    return logger.getComponentLogger(component);
+    return logger.getComponentLogger('Document Chat: ' + component);
 }
