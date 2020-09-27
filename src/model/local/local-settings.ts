@@ -17,4 +17,17 @@ export default class LocalSettings {
         logger.debug('setAuthor', author);
         return storageHelper.set('me', author);
     }
+
+    static async setGravatar(gravatar: boolean): Promise<void> {
+        logger.debug('setGravatar', gravatar);
+        return storageHelper.set('gravatar', gravatar);
+    }
+
+    static async getGravatar(): Promise<boolean> {
+        return storageHelper.get('gravatar', false);
+    }
+
+    static async acceptPrivacyPolicy(): Promise<void> {
+        return storageHelper.set('privacyPolicy', true);
+    }
 }

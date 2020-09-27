@@ -1,5 +1,6 @@
 .wrapper {
-  > header {
+  > header,
+  .flex {
     display: flex;
     justify-content: flex-start;
     align-items: center;

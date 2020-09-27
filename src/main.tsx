@@ -11,6 +11,7 @@ import {Header} from "./components/general-elements/header/header";
 import useLogger from "./hooks/useLogger";
 import packageJSON from '../package.json';
 import UserSwitch from './components/general-elements/switch';
+import Onboarding from "./components/onboarding";
 
 let panel: HTMLElement | null = null;
 let model = new DocumentModel();
@@ -50,8 +51,13 @@ function renderApp() {
                             return model;
                         })}>Reset Document
                         </button>
-                        {/*<Redirect to={'/chat'}/>*/}
+                        <Redirect to={'/onboarding'}/>
                     </p>
+                </Route>
+                <Route exact path="/onboarding">
+                    <div className="wrapper">
+                        <Onboarding model={model} />
+                    </div>
                 </Route>
                 <Route exact path="/chat">
                     <Chat model={model}/>
@@ -75,7 +81,6 @@ function renderApp() {
 
 function create() {
     panel = document.createElement("div");
-
     return panel;
 }
 
