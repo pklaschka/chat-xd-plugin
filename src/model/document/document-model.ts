@@ -17,10 +17,18 @@ export type EditModelCallback = (
 const logger = useLogger('Document Model');
 
 /**
- * The document model storing the document's message and author data. Gets stored in the `RootNode`'s `pluginData` field.
+ * The document model storing the document's message and author data. Gets
+ * stored in the `RootNode`'s `pluginData` field.
  */
 export default class DocumentModel {
+	/**
+	 * the document's messages
+	 */
 	public messages: Message[] = [];
+	/**
+	 * the document's authors in a key-value object where the author's `uuid` is
+	 * the key
+	 */
 	public authors: { [uuid: string]: Author } = {};
 
 	public constructor() {
@@ -47,7 +55,12 @@ export default class DocumentModel {
 	}
 
 	/**
-	 * Updates the model value stored in the document. As this edits the document, it **can only be called from a supported UI event.**
+	 * Updates the model value stored in the document.
+	 *
+	 * As this edits the document, it
+	 * **can only be called from a supported UI event.**
+	 *
+	 * calls `require('application').editDocument()`
 	 *
 	 * @see https://adobexdplatform.com/plugin-docs/reference/core/lifecycle.html#initiating-an-edit-operation-from-panel-ui
 	 * @param cb The callback in which the model value gets edited.
