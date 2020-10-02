@@ -7,7 +7,8 @@ import { Redirect } from 'react-router-dom';
 import useLogger from '../../../hooks/useLogger';
 
 /**
- * State of the editor component. This determines whether it's ready to chat based on whether the author data is set up.
+ * State of the editor component. This determines whether it's ready to chat
+ * based on whether the author data is set up.
  */
 enum LoadedState {
 	/**
