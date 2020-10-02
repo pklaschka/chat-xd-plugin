@@ -1,66 +1,69 @@
 .wrapper {
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow: hidden;
 
-  header, main, footer {
-    display: block;
-    margin: 0;
-  }
+	header,
+	main,
+	footer {
+		display: block;
+		margin: 0;
+	}
 
-  header, footer {
-    background: white;
-    padding: 0.75rem;
-  }
+	header,
+	footer {
+		background: white;
+		padding: 0.75rem;
+	}
 
-  header {
-    &:before {
-      display: block;
-      content: '';
-      background: #2D4E64;
-      height: .25rem;
-      width: 100%;
-      position: absolute;
-      left: 0;
-      top: 0;
-      right: 0;
-    }
+	header {
+		&:before {
+			display: block;
+			content: '';
+			background: #2d4e64;
+			height: 0.25rem;
+			width: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+		}
 
-    background: white;
-    flex-shrink: 0;
-    border-bottom: 1px solid #ddd;
-  }
+		background: white;
+		flex-shrink: 0;
+		border-bottom: 1px solid #ddd;
+	}
 
-  main {
-    //overflow: auto;
-    flex-grow: 1000;
-    flex-basis: 100px;
-    overflow: hidden;
+	main {
+		//overflow: auto;
+		flex-grow: 1000;
+		flex-basis: 100px;
+		overflow: hidden;
 
-    ul {
-      padding: 0.75rem;
-    }
+		ul {
+			padding: 0.75rem;
+		}
 
-    ul li {
-      display: block;
-      background: white;
-      padding: 0.75rem;
-      border-radius: 0.75rem 0.75rem 0.75rem 0;
+		ul li {
+			display: block;
+			background: white;
+			padding: 0.75rem;
+			border-radius: 0.75rem 0.75rem 0.75rem 0;
 
-      + li {
-        margin-top: 0.75rem;
-      }
-    }
-  }
+			+ li {
+				margin-top: 0.75rem;
+			}
+		}
+	}
 
-  footer {
-    height: auto;
-    flex-shrink: 0;
-    border-top: 1px solid #ddd;
-  }
+	footer {
+		height: auto;
+		flex-shrink: 0;
+		border-top: 1px solid #ddd;
+	}
 }
