@@ -11,11 +11,11 @@
 	}
 
 	.switch-inner {
-		border: 2px solid #959595;
-		background: #fff;
-		border-radius: 0.5rem;
 		width: 1rem;
 		height: 1rem;
+		background: #fff;
+		border: 2px solid #959595;
+		border-radius: 0.5rem;
 	}
 
 	.switch-label {
@@ -24,8 +24,8 @@
 
 	&.active {
 		.switch-outer {
-			background: #747474;
 			text-align: right;
+			background: #747474;
 		}
 
 		.switch-inner {
