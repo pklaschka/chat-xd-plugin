@@ -51,6 +51,7 @@
 		"jest": "^26.4.2",
 		"jsdoc": "^3.6.6",
 		"prettier": "^2.1.2",
+		"prettier-plugin-organize-imports": "^1.1.1",
 		"sass": "^1.26.11",
 		"sass-loader": "^10.0.2",
 		"sloc": "^0.2.1",

@@ -1,6 +1,6 @@
-import Author from '../../../model/document/author';
-import React from 'react';
 import { md5 } from 'pure-md5';
+import React from 'react';
+import Author from '../../../model/document/author';
 
 export function Avatar(props: { author: Author }) {
 	const hash = md5(props.author.gravatarMail ?? '');

@@ -1,4 +1,4 @@
-import { Logger, WebhookLogger, PlainLogger } from '@fliegwerk/logsemts';
+import { Logger, PlainLogger, WebhookLogger } from '@fliegwerk/logsemts';
 
 const logger = new Logger({
 	loggers: [WebhookLogger({ address: 'http://localhost:8080' }), PlainLogger()]

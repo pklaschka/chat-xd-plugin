@@ -1,10 +1,10 @@
+import React from 'react';
+import { useLocation } from 'react-router-dom';
 import DocumentModel from '../../model/document/document-model';
-import React, { useEffect } from 'react';
+import { Header } from '../general-elements/header/header';
+import ScrollContainer from '../scroll-container/scroll-container';
 import ChatMessageEditor from './editor/editor';
 import './index.scss';
-import ScrollContainer from '../scroll-container/scroll-container';
-import { useLocation } from 'react-router-dom';
-import { Header } from '../general-elements/header/header';
 import MessageBubble from './message-bubble/message-bubble';
 
 export default function Chat({

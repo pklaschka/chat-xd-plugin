@@ -1,14 +1,13 @@
-import Message from '../../../model/document/message';
-import DocumentModel from '../../../model/document/document-model';
-import iconCrosshair from '../../../assets/icons/Smock_Crosshairs_18_N.svg';
-import React from 'react';
-import './message-bubble.scss';
-import { Avatar } from './avatar';
-
-import '@formatjs/intl-relativetimeformat/polyfill';
 import '@formatjs/intl-relativetimeformat/locale-data/de';
 import '@formatjs/intl-relativetimeformat/locale-data/en';
-import { IntlProvider, FormattedRelativeTime } from 'react-intl';
+import '@formatjs/intl-relativetimeformat/polyfill';
+import React from 'react';
+import { FormattedRelativeTime, IntlProvider } from 'react-intl';
+import iconCrosshair from '../../../assets/icons/Smock_Crosshairs_18_N.svg';
+import DocumentModel from '../../../model/document/document-model';
+import Message from '../../../model/document/message';
+import { Avatar } from './avatar';
+import './message-bubble.scss';
 
 interface MessageBubbleParams {
 	message: Message;

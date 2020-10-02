@@ -5,9 +5,9 @@ import React, {
 	useRef,
 	useState
 } from 'react';
-import './scroll-container.scss';
 import useLogger from '../../hooks/useLogger';
 import cap from '../../lib/cap';
+import './scroll-container.scss';
 
 export default function ScrollContainer({
 	children

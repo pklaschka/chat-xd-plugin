@@ -1,7 +1,7 @@
 import React from 'react';
-import iconSettings from '../../../assets/icons/Smock_Settings_18_N.svg';
-import iconBack from '../../../assets/icons/Smock_ArrowLeft_18_N.svg';
 import { Link } from 'react-router-dom';
+import iconBack from '../../../assets/icons/Smock_ArrowLeft_18_N.svg';
+import iconSettings from '../../../assets/icons/Smock_Settings_18_N.svg';
 import './header.scss';
 
 export function Header({

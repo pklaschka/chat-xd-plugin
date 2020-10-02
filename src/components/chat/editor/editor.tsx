@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { Redirect } from 'react-router-dom';
+import useLogger from '../../../hooks/useLogger';
 import DocumentModel from '../../../model/document/document-model';
 import Message from '../../../model/document/message';
 import localSettings from '../../../model/local/local-settings';
 import './editor.scss';
-import { Redirect } from 'react-router-dom';
-import useLogger from '../../../hooks/useLogger';
 
 /**
  * State of the editor component. This determines whether it's ready to chat

@@ -1,9 +1,8 @@
-import Author from './author';
-import Message from './message';
-
 import { editDocument } from 'application';
 import { root, RootNode } from 'scenegraph';
 import useLogger from '../../hooks/useLogger';
+import Author from './author';
+import Message from './message';
 
 /**
  * A callback to edit the model.

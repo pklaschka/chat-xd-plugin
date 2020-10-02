@@ -1,17 +1,17 @@
-import './react-shim';
-import DocumentModel from './model/document/document-model';
-import { render } from 'react-dom';
-import Chat from './components/chat';
-import { Link, MemoryRouter, Route, Switch } from 'react-router-dom';
-import localSettings from './model/local/local-settings';
-import Author from './model/document/author';
 import { useState } from 'react';
-import React = require('react');
-import { Header } from './components/general-elements/header/header';
-import useLogger from './hooks/useLogger';
+import { render } from 'react-dom';
+import { Link, MemoryRouter, Route, Switch } from 'react-router-dom';
 import packageJSON from '../package.json';
+import Chat from './components/chat';
+import { Header } from './components/general-elements/header/header';
 import UserSwitch from './components/general-elements/switch';
 import Onboarding from './components/onboarding';
+import useLogger from './hooks/useLogger';
+import Author from './model/document/author';
+import DocumentModel from './model/document/document-model';
+import localSettings from './model/local/local-settings';
+import './react-shim';
+import React = require('react');
 
 let panel: HTMLElement | null = null;
 let model = new DocumentModel();

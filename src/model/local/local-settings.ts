@@ -1,6 +1,6 @@
 import storageHelper from 'xd-storage-helper';
-import Author from '../document/author';
 import useLogger from '../../hooks/useLogger';
+import Author from '../document/author';
 const logger = useLogger('Local Settings');
 
 export default class LocalSettings {

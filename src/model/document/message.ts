@@ -1,7 +1,7 @@
-import viewport from 'viewport';
+import { editDocument } from 'application';
 import { Bounds } from 'scenegraph';
 import uuid from 'v4-uuid';
-import { editDocument } from 'application';
+import viewport from 'viewport';
 import useLogger from '../../hooks/useLogger';
 
 const logger = useLogger('Message Instance');
