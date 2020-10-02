@@ -1,21 +1,27 @@
 {
 	"name": "xd-plugin-boilerplate",
 	"version": "0.0.1",
-	"description": "A simple plugin, built with the xd-webpack-starter-template package",
 	"private": true,
+	"description": "A simple plugin, built with the xd-webpack-starter-template package",
+	"license": "MIT",
+	"author": "Pablo Klaschka",
 	"scripts": {
-		"start": "npm run debug:watch",
 		"build": "npm run compile && xdpm package dist",
 		"compile": "webpack --config webpack.config.js --mode production",
 		"debug:install": "webpack --config webpack.config.js --mode production && xdpm install dist -o",
 		"debug:watch": "xdpm watch dist | webpack --config webpack.config.js --mode production --watch",
 		"debug:watch-prerelease": "xdpm watch dist -w p | webpack --config webpack.config.js --mode production --watch",
+		"docs": "jsdoc -r src -d docs",
 		"lint": "eslint src/**/*.js --ignore-pattern node_modules/",
 		"prettier:check": "prettier --check .",
 		"prettier:fix": "prettier --write .",
-		"stats": "sloc src",
-		"docs": "jsdoc -r src -d docs"
+		"start": "npm run debug:watch",
+		"stats": "sloc src"
 	},
+	"keywords": [
+		"adobe",
+		"xd"
+	],
 	"dependencies": {
 		"@adobexd/typings": "github:AdobeXD/typings",
 		"@fliegwerk/logsemts": "^0.4.0",
@@ -52,6 +58,7 @@
 		"jsdoc": "^3.6.6",
 		"prettier": "^2.1.2",
 		"prettier-plugin-organize-imports": "^1.1.1",
+		"prettier-plugin-package": "^1.1.0",
 		"sass": "^1.26.11",
 		"sass-loader": "^10.0.2",
 		"sloc": "^0.2.1",
@@ -61,11 +68,5 @@
 		"typescript": "^4.0.3",
 		"webpack": "^4.44.2",
 		"webpack-cli": "^3.3.12"
-	},
-	"keywords": [
-		"adobe",
-		"xd"
-	],
-	"author": "Pablo Klaschka",
-	"license": "MIT"
+	}
 }
