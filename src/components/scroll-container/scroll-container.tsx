@@ -37,25 +37,18 @@ export default function ScrollContainer({
 			(outerContainer.current?.clientHeight || 0);
 		const newX = x + deltaX;
 
-		logger.info('deltaH at event', deltaH);
-
-		setTimeout(
-			() =>
-				logger.info(
-					'deltaH after 100ms',
-					(innerContainer.current?.scrollHeight || 0) -
-						(outerContainer.current?.clientHeight || 0)
-				),
-			100
-		);
-
 		if (newX === oldDeltaH) {
 			logger.debug(
 				'Layout effect: cap, branch latest',
 				cap(0, deltaH, deltaH),
 				deltaH
 			);
-			setX(cap(0, deltaH, deltaH));
+			setTimeout(() => {
+				const deltaH =
+					(innerContainer.current?.scrollHeight || 0) -
+					(outerContainer.current?.clientHeight || 0);
+				setX(cap(0, deltaH, deltaH));
+			}, 100);
 		} else {
 			logger.debug(
 				'Layout effect: cap, branch history',
