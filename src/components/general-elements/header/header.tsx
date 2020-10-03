@@ -14,16 +14,16 @@ export function Header({
 	toLink?: string;
 }) {
 	return (
-		<header>
+		<header className={'flex'}>
 			{backLink && (
-				<Link to={backLink}>
+				<Link to={backLink} title={'Go back'}>
 					<img height={'1em'} src={iconBack} alt="Go Back" />
 				</Link>
 			)}
 			<h1>{title}</h1>
 			<div className="spacer">&nbsp;</div>
 			{toLink && (
-				<Link to={toLink}>
+				<Link to={toLink} title={'Settings'}>
 					<img src={iconSettings} alt="Settings" />
 				</Link>
 			)}

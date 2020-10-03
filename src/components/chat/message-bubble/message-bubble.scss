@@ -4,6 +4,12 @@
 	}
 
 	> * + * {
-		margin-top: 16px;
+		margin-top: 0.75rem;
+	}
+
+	/* Fix weird UXP standard margin of p tag */
+	p {
+		margin-right: 0;
+		margin-left: 0;
 	}
 }

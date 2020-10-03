@@ -33,7 +33,9 @@ export default function MessageBubble(props: MessageBubbleParams) {
 				</h4>
 				<p>{content}</p>
 				<p>
-					<a onClick={() => props.message.scrollTo()}>
+					<a
+						onClick={() => props.message.scrollTo()}
+						title={'Go to viewport position'}>
 						<img src={iconCrosshair} alt={'Viewport location'} />
 					</a>
 				</p>
