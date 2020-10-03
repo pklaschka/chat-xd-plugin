@@ -15,7 +15,7 @@ export default function ScrollContainer({
 	children: ReactNode;
 	model: any;
 }) {
-	const logger = useLogger('ScrollContainer');
+	const logger = {debug: (...args: any[]) => {}}; // useLogger('ScrollContainer');
 
 	const [x, setX] = useState(0);
 	const [deltaX, setDeltaX] = useState(0);
