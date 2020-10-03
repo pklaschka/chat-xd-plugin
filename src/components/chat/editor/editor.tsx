@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import useLogger from '../../../hooks/useLogger';
 import DocumentModel from '../../../model/document/document-model';
@@ -33,6 +33,8 @@ export default function ChatMessageEditor({ model }: { model: DocumentModel }) {
 		LoadedState.LOADING
 	);
 
+	const editorInputRef = useRef<HTMLInputElement>(null);
+
 	/**
 	 * Update/add author data to document and append current message
 	 */
@@ -53,6 +55,11 @@ export default function ChatMessageEditor({ model }: { model: DocumentModel }) {
 				return model;
 			});
 			setMessage('');
+			setTimeout(() => {
+				if (editorInputRef.current) {
+					editorInputRef.current.focus();
+				}
+			}, 100);
 		},
 		[message]
 	);
@@ -81,6 +88,7 @@ export default function ChatMessageEditor({ model }: { model: DocumentModel }) {
 						value={message}
 						onChange={(evt) => setMessage(evt.target.value)}
 						type="text"
+						ref={editorInputRef}
 						name="message"
 						placeholder="Message"
 						required

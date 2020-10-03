@@ -1,15 +1,13 @@
-import { useState } from 'react';
+import { useMemo } from 'react';
 import { render } from 'react-dom';
-import { Link, MemoryRouter, Route, Switch } from 'react-router-dom';
-import packageJSON from '../package.json';
-import Chat from './components/chat';
-import { Header } from './components/general-elements/header/header';
-import UserSwitch from './components/general-elements/switch';
-import Onboarding from './components/onboarding';
+import { MemoryRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { ChatPage } from './components/chat';
+import { OnboardingPage } from './components/onboarding';
+import { SettingsPage } from './components/settings/settings';
+import useAsyncRenderer from './hooks/useAsyncRenderer';
 import useLogger from './hooks/useLogger';
-import Author from './model/document/author';
 import DocumentModel from './model/document/document-model';
-import localSettings from './model/local/local-settings';
+import { default as LocalSettings } from './model/local/local-settings';
 import './react-shim';
 import React = require('react');
 
@@ -19,35 +17,28 @@ let model = new DocumentModel();
 const logger = useLogger('Plugin');
 logger.debug('Plugin loaded');
 
-function DebugAuthorSetup() {
-	const [name, setName] = useState<string>('Pablo');
-	const [gravatarMail, setGravatarMail] = useState<string>(
-		'contact@pabloklaschka.de'
-	);
-	return (
-		<form
-			onSubmit={() =>
-				localSettings.setAuthor(new Author({ name, gravatarMail }))
-			}>
-			<input
-				type="text"
-				value={name}
-				onChange={(evt) => setName(evt.target.value)}
-				name={'name'}
-				placeholder="Name"
-			/>
-			<br />
-			<input
-				type="text"
-				value={gravatarMail}
-				onChange={(evt) => setGravatarMail(evt.target.value)}
-				name={'gravatarMail'}
-				placeholder="Gravatar Email"
-			/>
-			<br />
+function IndexPageRedirect() {
+	const authorPromise = useMemo(() => LocalSettings.hasAuthor(), []);
 
-			<button type={'submit'}>Set Author</button>
-		</form>
+	return useAsyncRenderer(
+		authorPromise,
+		(author) => {
+			logger.debug('author', author);
+			if (!author) return <Redirect to={'/onboarding'} />;
+			else return <Redirect to={'/chat'} />;
+		},
+		(e) => {
+			logger.error('error while trying to determine if an author is set', e);
+			return (
+				<div className={'wrapper'}>
+					<p>
+						An unexpected error has occured. Please reopen the document and try
+						again.
+					</p>
+					<p>If the problem persists, please contact the plugin's author.</p>
+				</div>
+			);
+		}
 	);
 }
 
@@ -57,57 +48,28 @@ function renderApp() {
 		<MemoryRouter>
 			<Switch>
 				<Route exact path="/">
-					<p>Test /</p>
-					<p>
-						<Link to="/chat">Chat</Link>
-					</p>
-					<p>
-						<DebugAuthorSetup />
-					</p>
-					<p>
-						<button onClick={() => localSettings.setAuthor(undefined)}>
-							Unset Author
-						</button>
-					</p>
-					<p>
-						<button
-							onClick={() =>
-								model.update((model) => {
-									model.authors = {};
-									model.messages = [];
-									return model;
-								})
-							}>
-							Reset Document
-						</button>
-						{/*<Redirect to={'/chat'}/>*/}
-					</p>
+					{/*<button*/}
+					{/*	onClick={() =>*/}
+					{/*		model.update((model) => {*/}
+					{/*			model.authors = {};*/}
+					{/*			model.messages = [];*/}
+					{/*			return model;*/}
+					{/*		})*/}
+					{/*	}>*/}
+					{/*	Reset Document*/}
+					{/*</button>*/}
+					<IndexPageRedirect />
 				</Route>
 				<Route exact path="/onboarding">
 					<div className="wrapper">
-						<Onboarding />
+						<OnboardingPage />
 					</div>
 				</Route>
 				<Route exact path="/chat">
-					<Chat model={model} />
+					<ChatPage model={model} />
 				</Route>
 				<Route exact path="/settings">
-					<div className="wrapper">
-						<Header title={'Settings'} backLink={'/chat'} />
-						<h1>User Settings</h1>
-						<DebugAuthorSetup />
-						<h1>Privacy</h1>
-						<UserSwitch value={true} onChange={() => {}}>
-							Use Gravatar Avatars
-						</UserSwitch>
-						<button
-							onClick={() => useLogger('Settings Page').info('Saving settings')}
-							uxp-variant={'cta'}>
-							Save
-						</button>
-						<hr />
-						<p>CHAT FOR XD: {packageJSON.version.toUpperCase()}</p>
-					</div>
+					<SettingsPage />
 				</Route>
 			</Switch>
 		</MemoryRouter>,

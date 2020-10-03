@@ -8,8 +8,8 @@ enum LoadingState {
 
 export default function useAsyncRenderer<T>(
 	promise: Promise<T>,
-	content: (res: T) => Element,
-	error: (reason: any) => Element
+	content: (res: T) => JSX.Element,
+	error: (reason: any) => JSX.Element
 ) {
 	const [value, setValue] = useState<T | undefined>(undefined);
 	const [state, setState] = useState<LoadingState>(0);

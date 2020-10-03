@@ -8,7 +8,7 @@ import Switch from './general-elements/switch';
 
 const numberOfSteps = 4;
 
-export default function Onboarding() {
+export function OnboardingPage() {
 	const logger = useLogger('Onboarding screen');
 	const [currentStep, setCurrentStep] = useState(0);
 	const [state, setState] = useState({
