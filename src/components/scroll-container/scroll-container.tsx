@@ -5,7 +5,6 @@ import React, {
 	useRef,
 	useState
 } from 'react';
-import useLogger from '../../hooks/useLogger';
 import cap from '../../lib/cap';
 import './scroll-container.scss';
 
@@ -15,7 +14,7 @@ export default function ScrollContainer({
 	children: ReactNode;
 	model: any;
 }) {
-	const logger = {debug: (...args: any[]) => {}}; // useLogger('ScrollContainer');
+	const logger = { debug: (...args: any[]) => {} }; // useLogger('ScrollContainer');
 
 	const [x, setX] = useState(0);
 	const [deltaX, setDeltaX] = useState(0);
