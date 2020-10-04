@@ -1,0 +1,25 @@
+/* Fix weird UXP standard margin of p tag */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin-right: 0;
+	margin-left: 0;
+}
+
+.padding {
+	padding: 0.75rem;
+}
+
+.padding-horiz {
+	padding-right: 0.75rem;
+	padding-left: 0.75rem;
+}
+
+.padding-vert {
+	padding-top: 0.75rem;
+	padding-bottom: 0.75rem;
+}

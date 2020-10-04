@@ -6,6 +6,7 @@ import { OnboardingPage } from './components/onboarding';
 import { SettingsPage } from './components/settings/settings';
 import useAsyncRenderer from './hooks/useAsyncRenderer';
 import useLogger from './hooks/useLogger';
+import './main.scss';
 import DocumentModel from './model/document/document-model';
 import { default as LocalSettings } from './model/local/local-settings';
 import './react-shim';
@@ -69,7 +70,7 @@ function renderApp() {
 					<ChatPage model={model} />
 				</Route>
 				<Route exact path="/settings">
-					<SettingsPage />
+					<SettingsPage model={model} />
 				</Route>
 			</Switch>
 		</MemoryRouter>,
