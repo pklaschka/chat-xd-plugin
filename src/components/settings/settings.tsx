@@ -27,7 +27,7 @@ export function SettingsPage(props: { model: DocumentModel }) {
 		props.model.update(async (model: DocumentModel) => {
 			const res = {
 				name: nameInputRef.current?.value ?? '',
-				email: emailInputRef.current?.value ?? '',
+				gravatarMail: emailInputRef.current?.value ?? '',
 				gravatar: gravatarInputRef.current?.checked ?? false
 			};
 			logger.info('Saving user settings', res);
