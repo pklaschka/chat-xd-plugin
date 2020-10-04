@@ -2,7 +2,7 @@
 	"name": "document-chat-for-adobe-xd",
 	"version": "0.2.0",
 	"private": true,
-	"description": "A simple plugin, built with the xd-webpack-starter-template package",
+	"description": "Chat for XD Cloud Documents",
 	"license": "MIT",
 	"author": "Pablo Klaschka",
 	"scripts": {
@@ -20,8 +20,11 @@
 		"version": "node devtools/sync-versions.js"
 	},
 	"keywords": [
-		"adobe",
-		"xd"
+		"chat",
+		"privacy",
+		"cloud documents",
+		"coediting",
+		"collaboration"
 	],
 	"dependencies": {
 		"@adobexd/typings": "github:AdobeXD/typings",
