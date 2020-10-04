@@ -5,7 +5,11 @@ h3,
 h4,
 h5,
 h6,
-p {
+p,
+input,
+textarea,
+select,
+button {
 	margin-right: 0;
 	margin-left: 0;
 }
@@ -22,4 +26,10 @@ p {
 .padding-vert {
 	padding-top: 0.75rem;
 	padding-bottom: 0.75rem;
+}
+
+label,
+input {
+	display: block;
+	width: 100%;
 }

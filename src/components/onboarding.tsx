@@ -51,24 +51,23 @@ export function OnboardingPage() {
 		<>
 			<Header title={'Document Chat'} />
 
-			{/*Steps:*/}
-			{currentStep === 0 && (
-				<>
-					<p>
-						{' '}
-						Welcome to Document Chat for Adobe XD: The privacy-first chatting
-						solution for Adobe XD Cloud documents.
-					</p>
-					<p>Before we begin, we have to ask some quick questions.</p>
-				</>
-			)}
-			{currentStep === 1 && (
-				<>
-					<p>We'll start out simple: What's your name?</p>
-					<form onSubmit={goToNextStep}>
-						<label>
-							Name:
-							<br />
+			<div className="padding-horiz">
+				{/*Steps:*/}
+				{currentStep === 0 && (
+					<>
+						<p>
+							{' '}
+							Welcome to Document Chat for Adobe XD: The privacy-first chatting
+							solution for Adobe XD Cloud documents.
+						</p>
+						<p>Before we begin, we have to ask some quick questions.</p>
+					</>
+				)}
+				{currentStep === 1 && (
+					<>
+						<p>We'll start out simple: What's your name?</p>
+						<form onSubmit={goToNextStep}>
+							<label>Name:</label>
 							<input
 								type="text"
 								value={state.name}
@@ -78,95 +77,97 @@ export function OnboardingPage() {
 									setState({ ...state, name: event.target.value })
 								}
 							/>
-						</label>
-					</form>
-				</>
-			)}
-			{currentStep === 2 && (
-				<>
-					<p>
-						If you want, you can provide a Gravatar e-mail-address so your
-						coworkers get to see a profile picture.
-					</p>
-					<form onSubmit={goToNextStep}>
-						<label>
-							E-Mail-Address:
-							<br />
-							<input
-								type="text"
-								value={state.gravatarMail}
-								placeholder="peter.pan@example.com"
-								autoFocus={true}
-								onChange={(event) =>
-									setState({ ...state, gravatarMail: event.target.value })
-								}
-							/>
-						</label>
-					</form>
-				</>
-			)}
-			{currentStep === 3 && (
-				<>
-					<p>
-						It is optional to show Gravatar avatars. While enhancing your
-						experience, it also means sending data to WordPress. Do you want to
-						see avatars under these circumstances?
-					</p>
-					<Switch
-						onChange={(newVal) => setState({ ...state, gravatar: newVal })}
-						value={state.gravatar}>
-						Use Gravatar avatars
-					</Switch>
-				</>
-			)}
-			{currentStep === numberOfSteps && (
-				<>
-					<p>
-						Last, but not least, the legal stuff. By using this plugin, you
-						agree that you've read and do accept the privacy policy.
-					</p>
-					<p>
-						<a href="https://xdplugins.pabloklaschka.de/privacy-policy">
-							Privacy Policy
-						</a>
-					</p>
-					<p>
-						<strong>
-							Your privacy is very important to us, which is why no data leaves
-							the XD document unless you've opted in at a previous step.
-						</strong>
-					</p>
-					<Switch
-						onChange={(newVal) => setState({ ...state, privacyPolicy: newVal })}
-						value={state.privacyPolicy}>
-						I have read and agree to the privacy policy.
-					</Switch>
-				</>
-			)}
-			{currentStep > numberOfSteps && (
-				<>
-					<p>Loading the plugin...</p>
-				</>
-			)}
+						</form>
+					</>
+				)}
+				{currentStep === 2 && (
+					<>
+						<p>
+							If you want, you can provide a Gravatar e-mail-address so your
+							coworkers get to see a profile picture.
+						</p>
+						<form onSubmit={goToNextStep}>
+							<label>
+								E-Mail-Address:
+								<input
+									type="text"
+									value={state.gravatarMail}
+									placeholder="peter.pan@example.com"
+									autoFocus={true}
+									onChange={(event) =>
+										setState({ ...state, gravatarMail: event.target.value })
+									}
+								/>
+							</label>
+						</form>
+					</>
+				)}
+				{currentStep === 3 && (
+					<>
+						<p>
+							It is optional to show Gravatar avatars. While enhancing your
+							experience, it also means sending data to WordPress. Do you want
+							to see avatars under these circumstances?
+						</p>
+						<Switch
+							onChange={(newVal) => setState({ ...state, gravatar: newVal })}
+							value={state.gravatar}>
+							Use Gravatar avatars
+						</Switch>
+					</>
+				)}
+				{currentStep === numberOfSteps && (
+					<>
+						<p>
+							Last, but not least, the legal stuff. By using this plugin, you
+							agree that you've read and do accept the privacy policy.
+						</p>
+						<p>
+							<a href="https://xdplugins.pabloklaschka.de/privacy-policy">
+								Privacy Policy
+							</a>
+						</p>
+						<p>
+							<strong>
+								Your privacy is very important to us, which is why no data
+								leaves the XD document unless you've opted in at a previous
+								step.
+							</strong>
+						</p>
+						<Switch
+							onChange={(newVal) =>
+								setState({ ...state, privacyPolicy: newVal })
+							}
+							value={state.privacyPolicy}>
+							I have read and agree to the privacy policy.
+						</Switch>
+					</>
+				)}
+				{currentStep > numberOfSteps && (
+					<>
+						<p>Loading the plugin...</p>
+					</>
+				)}
 
-			{currentStep <= numberOfSteps && (
-				<div className="flex">
-					{currentStep > 0 && (
+				{currentStep <= numberOfSteps && (
+					<div className="flex">
+						{currentStep > 0 && (
+							<button
+								uxp-variant={'secondary'}
+								onClick={() => setCurrentStep(currentStep - 1)}>
+								Back
+							</button>
+						)}
+						<div className="spacer">&nbsp;</div>
 						<button
-							uxp-variant={'secondary'}
-							onClick={() => setCurrentStep(currentStep - 1)}>
-							Back
+							uxp-variant={'cta'}
+							onClick={goToNextStep}
+							disabled={!(currentStep < numberOfSteps || state.privacyPolicy)}>
+							{currentStep === 0 ? "Let's do it" : 'Continue'}
 						</button>
-					)}
-					<div className="spacer">&nbsp;</div>
-					<button
-						uxp-variant={'cta'}
-						onClick={goToNextStep}
-						disabled={!(currentStep < numberOfSteps || state.privacyPolicy)}>
-						{currentStep === 0 ? "Let's do it" : 'Continue'}
-					</button>
-				</div>
-			)}
+					</div>
+				)}
+			</div>
 		</>
 	);
 }
