@@ -1,7 +1,10 @@
 import { Logger, PlainLogger, WebhookLogger } from '@fliegwerk/logsemts';
 
 const logger = new Logger({
-	loggers: [WebhookLogger({ address: 'http://localhost:8080' }), PlainLogger()]
+	loggers:
+		process.env.NODE_ENV === 'production'
+			? []
+			: [WebhookLogger({ address: 'http://localhost:8080' }), PlainLogger()]
 });
 
 /**
