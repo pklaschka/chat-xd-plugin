@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="./dist/icons/icon_96.png" alt="Document Chat Logo" />
+    <img src="./dist/icons/icon_144.png" alt="Document Chat Logo" />
 </p>
 
 # Document Chat for Adobe XD
