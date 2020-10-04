@@ -13,11 +13,11 @@
 		"debug:watch-prerelease": "xdpm watch dist -w p | webpack --config webpack.config.js --mode production --watch",
 		"docs": "jsdoc -r src -d docs",
 		"lint": "eslint src/**/*.js --ignore-pattern node_modules/",
-		"postversion": "node devtools/sync-versions.js",
 		"prettier:check": "prettier --check .",
 		"prettier:fix": "prettier --write .",
 		"start": "npm run debug:watch",
-		"stats": "sloc src"
+		"stats": "sloc src",
+		"version": "node devtools/sync-versions.js"
 	},
 	"keywords": [
 		"adobe",
