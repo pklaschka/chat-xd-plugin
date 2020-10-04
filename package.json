@@ -1,6 +1,6 @@
 {
 	"name": "document-chat-for-adobe-xd",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"private": true,
 	"description": "A simple plugin, built with the xd-webpack-starter-template package",
 	"license": "MIT",
