@@ -5,6 +5,10 @@
 		align-items: center;
 		justify-content: flex-start;
 
+		* + h1 {
+			margin-left: 1rem;
+		}
+
 		> .spacer {
 			flex-grow: 1000;
 		}

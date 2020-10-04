@@ -16,9 +16,11 @@ export function Header({
 	return (
 		<header className={'flex'}>
 			{backLink && (
-				<Link to={backLink} title={'Go back'}>
-					<img height={'1em'} src={iconBack} alt="Go Back" />
-				</Link>
+				<>
+					<Link to={backLink} title={'Go back'}>
+						<img height={'1em'} src={iconBack} alt="Go Back" />
+					</Link>
+				</>
 			)}
 			<h1>{title}</h1>
 			<div className="spacer">&nbsp;</div>
