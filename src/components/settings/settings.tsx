@@ -63,7 +63,6 @@ export function SettingsPage(props: { model: DocumentModel }) {
 							defaultValue={author.name}
 							ref={nameInputRef}
 						/>
-						<br />
 						<label htmlFor={'email'}>Gravatar E-Mail Address:</label>
 						<input
 							name={'email'}
