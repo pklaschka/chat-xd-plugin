@@ -40,26 +40,28 @@ export default function ChatMessageEditor({ model }: { model: DocumentModel }) {
 	 */
 	const onSubmit = useCallback(
 		(evt) => {
-			logger.debug('Submitting message');
-			evt.preventDefault();
+			if (message.length) {
+				logger.debug('Submitting message');
+				evt.preventDefault();
 
-			model.update(async (model) => {
-				const author = await localSettings.getAuthor();
+				model.update(async (model) => {
+					const author = await localSettings.getAuthor();
 
-				// Add or update author profile data in document data
-				model.authors[author.uuid] = author;
+					// Add or update author profile data in document data
+					model.authors[author.uuid] = author;
 
-				model.messages.push(
-					new Message({ content: message, authorUUID: author.uuid })
-				);
-				return model;
-			});
-			setMessage('');
-			setTimeout(() => {
-				if (editorInputRef.current) {
-					editorInputRef.current.focus();
-				}
-			}, 100);
+					model.messages.push(
+						new Message({ content: message, authorUUID: author.uuid })
+					);
+					return model;
+				});
+				setMessage('');
+				setTimeout(() => {
+					if (editorInputRef.current) {
+						editorInputRef.current.focus();
+					}
+				}, 100);
+			}
 		},
 		[message]
 	);
