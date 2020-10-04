@@ -66,12 +66,13 @@ export function OnboardingPage() {
 				{currentStep === 1 && (
 					<>
 						<p>We'll start out simple: What's your name?</p>
+						<p>This doesn't have to be you're real name.</p>
 						<form onSubmit={goToNextStep}>
 							<label>Name:</label>
 							<input
 								type="text"
 								value={state.name}
-								placeholder="Peter Pan"
+								placeholder="Anonymous"
 								autoFocus={true}
 								onChange={(event) =>
 									setState({ ...state, name: event.target.value })
@@ -86,13 +87,17 @@ export function OnboardingPage() {
 							If you want, you can provide a Gravatar e-mail-address so your
 							coworkers get to see a profile picture.
 						</p>
+						<p>
+							This is completely optional, but can be used to show your profile
+							picture to your coworkers.
+						</p>
 						<form onSubmit={goToNextStep}>
 							<label>
 								E-Mail-Address:
 								<input
 									type="text"
 									value={state.gravatarMail}
-									placeholder="peter.pan@example.com"
+									placeholder="(none)"
 									autoFocus={true}
 									onChange={(event) =>
 										setState({ ...state, gravatarMail: event.target.value })
