@@ -14,8 +14,6 @@ export default function ScrollContainer({
 	children: ReactNode;
 	model: any;
 }) {
-	const logger = { debug: (...args: any[]) => {} }; // useLogger('ScrollContainer');
-
 	const [x, setX] = useState(0);
 	const [deltaX, setDeltaX] = useState(0);
 	const [oldDeltaH, setOldDeltaH] = useState(0);
@@ -37,11 +35,6 @@ export default function ScrollContainer({
 		const newX = x + deltaX;
 
 		if (newX === oldDeltaH) {
-			logger.debug(
-				'Layout effect: cap, branch latest',
-				cap(0, deltaH, deltaH),
-				deltaH
-			);
 			setTimeout(() => {
 				const deltaH =
 					(innerContainer.current?.scrollHeight || 0) -
@@ -49,11 +42,6 @@ export default function ScrollContainer({
 				setX(cap(0, deltaH, deltaH));
 			}, 100);
 		} else {
-			logger.debug(
-				'Layout effect: cap, branch history',
-				cap(0, newX, deltaH),
-				deltaH
-			);
 			setX(cap(0, newX, deltaH));
 		}
 		setOldDeltaH(deltaH);
@@ -62,7 +50,6 @@ export default function ScrollContainer({
 
 	useLayoutEffect(() => {
 		setTimeout(() => {
-			logger.debug('Layout Effect: Initial old deltaH');
 			const deltaH =
 				(innerContainer.current?.scrollHeight || 0) -
 				(outerContainer.current?.clientHeight || 0);
@@ -70,6 +57,15 @@ export default function ScrollContainer({
 			setX(cap(0, deltaH, deltaH));
 		}, 100);
 	}, [innerContainer, outerContainer]);
+
+	const scrollToBottom = () => {
+		const deltaH =
+			(innerContainer.current?.scrollHeight || 0) -
+			(outerContainer.current?.clientHeight || 0);
+		setDeltaX(0);
+		setX(deltaH);
+		setOldDeltaH(deltaH);
+	};
 
 	return (
 		<div
@@ -82,6 +78,12 @@ export default function ScrollContainer({
 				style={{ top: `${-x}px` }}>
 				{children}
 			</div>
+
+			{x !== oldDeltaH && (
+				<button uxp-variant={'cta'} onClick={scrollToBottom}>
+					Scroll to bottom
+				</button>
+			)}
 		</div>
 	);
 }

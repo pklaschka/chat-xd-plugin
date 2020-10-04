@@ -11,4 +11,11 @@
 		bottom: 0;
 		width: 100%;
 	}
+
+	> button {
+		position: absolute;
+		right: 0.5rem;
+		bottom: 0.5rem;
+		margin: 0;
+	}
 }

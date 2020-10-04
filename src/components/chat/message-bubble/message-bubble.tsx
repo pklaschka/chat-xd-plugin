@@ -1,10 +1,11 @@
 import '@formatjs/intl-relativetimeformat/locale-data/de';
 import '@formatjs/intl-relativetimeformat/locale-data/en';
 import '@formatjs/intl-relativetimeformat/polyfill';
-import React, { useCallback, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { FormattedRelativeTime, IntlProvider } from 'react-intl';
 import iconCrosshair from '../../../assets/icons/Smock_Crosshairs_18_N.svg';
 import iconDelete from '../../../assets/icons/Smock_Delete_18_N.svg';
+import useLogger from '../../../hooks/useLogger';
 import Author from '../../../model/document/author';
 import DocumentModel from '../../../model/document/document-model';
 import Message from '../../../model/document/message';
@@ -19,22 +20,23 @@ interface MessageBubbleParams {
 }
 
 export default function MessageBubble(props: MessageBubbleParams) {
+	const logger = useLogger('MessageBubble:' + props.message.uuid);
 	const { content, date, authorUUID } = props.message;
 
 	const ownMessage = useMemo(() => props.me.uuid === authorUUID, [authorUUID]);
 
-	const deleteMessage = useCallback(
-		() =>
-			props.model.update((model) => {
-				const index = model.messages.findIndex(
-					(value) => value.uuid === props.message.uuid
-				);
-				if (index >= 0) model.messages.splice(index, 1);
+	const deleteMessage = () =>
+		props.model.update((model) => {
+			const index = model.messages.findIndex(
+				(value) => value.uuid === props.message.uuid
+			);
 
-				return model;
-			}),
-		[props.model]
-	);
+			logger.debug(index);
+
+			if (index >= 0) model.messages.splice(index, 1);
+
+			return model;
+		});
 
 	return (
 		<li className="MessageBubble">
