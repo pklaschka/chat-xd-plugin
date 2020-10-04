@@ -151,7 +151,7 @@ export function OnboardingPage() {
 								setState({ ...state, privacyPolicy: newVal })
 							}
 							value={state.privacyPolicy}>
-							I have read and agree to the privacy policy.
+							I have read and accept the privacy policy.
 						</Switch>
 					</>
 				)}

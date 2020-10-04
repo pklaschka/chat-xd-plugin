@@ -28,6 +28,8 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
+      - name: Remove debug.json file for production build
+        run: rm dist/debug.json
       - run: npm ci
       - name: Tests
         run: npm test
