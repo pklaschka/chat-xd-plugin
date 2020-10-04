@@ -1,8 +1,12 @@
+<!--suppress HtmlDeprecatedAttribute -->
 <p align="center">
     <img src="./dist/icons/icon_144.png" alt="Document Chat Logo" />
 </p>
 
 # Document Chat for Adobe XD
+
+> Chat for XD Cloud Documents
+
 Document Chat is the privacy-first chatting solution for collaborative work on XD documents. Ideally used with XD's "Live Coediting" feature.
 
 By saving all the data (like chat messages) in the document itself (instead of external servers), we never send the messages to our own servers. Actually, if you don't explicitly opt into features enhancing your experience (like showing profile pictures from Gravatar), the plugin itself doesn't perform any network requests whatsoever.
