@@ -1,6 +1,7 @@
 import '@formatjs/intl-relativetimeformat/locale-data/de';
 import '@formatjs/intl-relativetimeformat/locale-data/en';
 import '@formatjs/intl-relativetimeformat/polyfill';
+import MarkdownIt from 'markdown-it';
 import React, { useMemo } from 'react';
 import { FormattedRelativeTime, IntlProvider } from 'react-intl';
 import iconCrosshair from '../../../assets/icons/Smock_Crosshairs_18_N.svg';
@@ -12,6 +13,11 @@ import Message from '../../../model/document/message';
 import { Avatar } from './avatar';
 import './message-bubble.scss';
 
+const parser = new MarkdownIt({
+	linkify: true,
+	typographer: true
+});
+
 interface MessageBubbleParams {
 	message: Message;
 	model: DocumentModel;
@@ -22,6 +28,8 @@ interface MessageBubbleParams {
 export default function MessageBubble(props: MessageBubbleParams) {
 	const logger = useLogger('MessageBubble:' + props.message.uuid);
 	const { content, date, authorUUID } = props.message;
+
+	const contentHTML = useMemo(() => parser.renderInline(content), [content]);
 
 	const ownMessage = useMemo(() => props.me.uuid === authorUUID, [authorUUID]);
 
@@ -52,7 +60,10 @@ export default function MessageBubble(props: MessageBubbleParams) {
 						updateIntervalInSeconds={10}
 					/>
 				</h4>
-				<p>{content}</p>
+				<p
+					className="MessageContent"
+					dangerouslySetInnerHTML={{ __html: contentHTML }}
+				/>
 				<p>
 					<a
 						onClick={() => props.message.scrollTo()}

@@ -3,6 +3,23 @@
 		border-radius: 100%;
 	}
 
+	.MessageContent {
+		code {
+			font-family: monospace;
+			background: #f4f4f4;
+		}
+
+		strong {
+			//color: blue;
+			font-weight: bold;
+		}
+
+		em {
+			//color: turquoise;
+			font-style: italic;
+		}
+	}
+
 	> * + * {
 		margin-top: 0.75rem;
 	}

@@ -67,6 +67,10 @@ export default function ScrollContainer({
 		setOldDeltaH(deltaH);
 	};
 
+	useLayoutEffect(() => {
+		setTimeout(() => scrollToBottom(), 500);
+	}, []);
+
 	return (
 		<div
 			className="scroll-container"
