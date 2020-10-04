@@ -60,6 +60,13 @@ export function OnboardingPage() {
 							Welcome to Document Chat for Adobe XD: The privacy-first chatting
 							solution for Adobe XD Cloud documents.
 						</p>
+						<p>
+							<strong>Beta Version Note: </strong>
+							Please note that this plugin is currently in a public beta stage.
+							There are several known issues and some features of the "big
+							release" aren't implemented, yet. I'd love to hear your feedback
+							to help shape the plugin to optimally fit your needs.
+						</p>
 						<p>Before we begin, we have to ask some quick questions.</p>
 					</>
 				)}
