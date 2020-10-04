@@ -51,7 +51,7 @@ export default function MessageBubble(props: MessageBubbleParams) {
 			<IntlProvider locale={'en'}>
 				{props.gravatar && <Avatar author={props.model.authors[authorUUID]} />}
 				<h4>
-					{props.model.authors[authorUUID].name}
+					{props.model.authors[authorUUID].name || 'Anonymous'}
 					&nbsp;&ndash;&nbsp;
 					<FormattedRelativeTime
 						value={(date - Date.now()) / 1000}
