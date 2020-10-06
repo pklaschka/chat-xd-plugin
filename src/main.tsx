@@ -33,7 +33,7 @@ function IndexPageRedirect() {
 			return (
 				<div className={'wrapper'}>
 					<p>
-						An unexpected error has occured. Please reopen the document and try
+						An unexpected error has occurred. Please reopen the document and try
 						again.
 					</p>
 					<p>If the problem persists, please contact the plugin's author.</p>

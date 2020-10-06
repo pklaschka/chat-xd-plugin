@@ -15,7 +15,7 @@ export default function Switch({
 			className={`switch ${value ? 'active' : ''}`}
 			onClick={() => onChange(!value)}>
 			<span className="switch-outer">
-				<span className="switch-inner"></span>
+				<span className="switch-inner" />
 			</span>
 			<span className="switch-label label">{children}</span>
 		</div>
