@@ -14,3 +14,7 @@ const logger = new Logger({
 export default function useLogger(component: string) {
 	return logger.getComponentLogger('Document Chat: ' + component);
 }
+
+window.onerror = function (e) {
+	useLogger('window.onerror').error(e);
+};

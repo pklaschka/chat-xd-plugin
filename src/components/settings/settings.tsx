@@ -1,4 +1,5 @@
 import React, { useCallback, useMemo, useRef } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import useAsyncRenderer from '../../hooks/useAsyncRenderer';
 import useLogger from '../../hooks/useLogger';
 import DocumentModel from '../../model/document/document-model';
@@ -10,6 +11,7 @@ import { SettingsPageFooter } from './settingsPageFooter';
 
 export function SettingsPage(props: { model: DocumentModel }) {
 	const logger = useLogger('SettingsPage');
+	const history = useHistory();
 
 	const authorPromise = useMemo(() => LocalSettings.getAuthor(), []);
 	const gravatarPromise = useMemo(() => LocalSettings.getGravatar(), []);
@@ -41,6 +43,7 @@ export function SettingsPage(props: { model: DocumentModel }) {
 
 			const newAuthor = await LocalSettings.getAuthor();
 			model.authors[newAuthor.uuid] = newAuthor;
+			history.goBack();
 
 			return model;
 		});
@@ -51,7 +54,7 @@ export function SettingsPage(props: { model: DocumentModel }) {
 		([author, gravatar]) => {
 			return (
 				<div className="wrapper SettingsPage">
-					<Header title={'Settings'} backLink={'/chat'} />
+					<Header title={'Settings'} />
 
 					<div className="padding-horiz">
 						<h1>User Settings</h1>
@@ -81,6 +84,9 @@ export function SettingsPage(props: { model: DocumentModel }) {
 							<button onClick={save} uxp-variant={'cta'}>
 								Save
 							</button>
+							<Link to="/chat" style={{ marginLeft: '0.25rem' }}>
+								<button uxp-variant="secondary">Cancel</button>
+							</Link>
 						</div>
 						<SettingsPageFooter />
 					</div>
