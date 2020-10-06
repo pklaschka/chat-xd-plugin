@@ -2,6 +2,7 @@ import '@formatjs/intl-relativetimeformat/locale-data/de';
 import '@formatjs/intl-relativetimeformat/locale-data/en';
 import '@formatjs/intl-relativetimeformat/polyfill';
 import MarkdownIt from 'markdown-it';
+import emoji from 'markdown-it-emoji';
 import React, { useMemo } from 'react';
 import { FormattedRelativeTime, IntlProvider } from 'react-intl';
 import iconCrosshair from '../../../assets/icons/Smock_Crosshairs_18_N.svg';
@@ -16,7 +17,9 @@ import './message-bubble.scss';
 const parser = new MarkdownIt({
 	linkify: true,
 	typographer: true
-});
+})
+	.use(emoji)
+	.disable('image');
 
 interface MessageBubbleParams {
 	message: Message;
@@ -29,7 +32,7 @@ export default function MessageBubble(props: MessageBubbleParams) {
 	const logger = useLogger('MessageBubble:' + props.message.uuid);
 	const { content, date, authorUUID } = props.message;
 
-	const contentHTML = useMemo(() => parser.renderInline(content), [content]);
+	const contentHTML = useMemo(() => parser.render(content), [content]);
 
 	const ownMessage = useMemo(() => props.me.uuid === authorUUID, [authorUUID]);
 
@@ -60,7 +63,7 @@ export default function MessageBubble(props: MessageBubbleParams) {
 						updateIntervalInSeconds={10}
 					/>
 				</h4>
-				<p
+				<div
 					className="MessageContent"
 					dangerouslySetInnerHTML={{ __html: contentHTML }}
 				/>
