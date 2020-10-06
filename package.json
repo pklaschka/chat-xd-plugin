@@ -68,7 +68,7 @@
 		"prettier-plugin-organize-imports": "^1.1.1",
 		"prettier-plugin-package": "^1.1.0",
 		"prettier-plugin-style-order": "^0.2.2",
-		"sass": "^1.26.11",
+		"sass": "^1.26.12",
 		"sass-loader": "^10.0.2",
 		"shelljs": "^0.8.4",
 		"sloc": "^0.2.1",
