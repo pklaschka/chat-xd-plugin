@@ -71,14 +71,16 @@ export default function ChatMessageEditor({ model }: { model: DocumentModel }) {
 		});
 	});
 
-	const onKeyUp = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-		e.stopPropagation();
-		e.preventDefault();
-		if (e.key === 'Enter' && !e.shiftKey) {
-			onSubmit();
-		}
-		// logger.debug('Key up', e.key, e.shiftKey);
-	};
+	const onKeyUp = useCallback(
+		(e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+			e.stopPropagation();
+			e.preventDefault();
+			if (e.key === 'Enter' && !e.shiftKey) {
+				onSubmit();
+			}
+		},
+		[onSubmit]
+	);
 
 	switch (loadedState) {
 		case LoadedState.LOADING:
