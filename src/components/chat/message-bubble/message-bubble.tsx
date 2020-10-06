@@ -2,6 +2,7 @@ import '@formatjs/intl-relativetimeformat/locale-data/de';
 import '@formatjs/intl-relativetimeformat/locale-data/en';
 import '@formatjs/intl-relativetimeformat/polyfill';
 import MarkdownIt from 'markdown-it';
+import emoji from 'markdown-it-emoji';
 import React, { useMemo } from 'react';
 import { FormattedRelativeTime, IntlProvider } from 'react-intl';
 import iconCrosshair from '../../../assets/icons/Smock_Crosshairs_18_N.svg';
@@ -16,7 +17,7 @@ import './message-bubble.scss';
 const parser = new MarkdownIt({
 	linkify: true,
 	typographer: true
-});
+}).use(emoji);
 
 interface MessageBubbleParams {
 	message: Message;
