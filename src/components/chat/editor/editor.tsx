@@ -39,7 +39,7 @@ export default function ChatMessageEditor({ model }: { model: DocumentModel }) {
 	 * Update/add author data to document and append current message
 	 */
 	const onSubmit = useCallback(() => {
-		if (message.length) {
+		if (message.trim().length) {
 			logger.debug('Submitting message', message.trim());
 
 			model.update(async (model) => {
