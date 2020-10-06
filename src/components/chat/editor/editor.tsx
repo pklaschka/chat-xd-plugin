@@ -33,7 +33,7 @@ export default function ChatMessageEditor({ model }: { model: DocumentModel }) {
 		LoadedState.LOADING
 	);
 
-	const editorInputRef = useRef<HTMLInputElement>(null);
+	const editorInputRef = useRef<HTMLTextAreaElement>(null);
 
 	/**
 	 * Update/add author data to document and append current message
@@ -83,13 +83,12 @@ export default function ChatMessageEditor({ model }: { model: DocumentModel }) {
 				<form onSubmit={onSubmit} className={'chat-message-editor'}>
 					<label htmlFor={'message'}>New message (Enter to send):</label>
 					<br />
-					<input
+					<textarea
 						uxp-quiet={'true'}
 						autoFocus={true}
 						id={'message'}
 						value={message}
 						onChange={(evt) => setMessage(evt.target.value)}
-						type="text"
 						ref={editorInputRef}
 						name="message"
 						placeholder="Message"
