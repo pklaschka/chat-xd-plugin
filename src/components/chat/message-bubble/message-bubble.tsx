@@ -17,7 +17,9 @@ import './message-bubble.scss';
 const parser = new MarkdownIt({
 	linkify: true,
 	typographer: true
-}).use(emoji);
+})
+	.use(emoji)
+	.disable('image');
 
 interface MessageBubbleParams {
 	message: Message;
