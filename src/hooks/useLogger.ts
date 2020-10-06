@@ -1,10 +1,15 @@
 import { Logger, PlainLogger, WebhookLogger } from '@fliegwerk/logsemts';
+import { UXPLogger } from '../lib/uxp-logger';
 
 const logger = new Logger({
 	loggers:
 		process.env.CI === 'true'
 			? []
-			: [WebhookLogger({ address: 'http://localhost:8080' }), PlainLogger()]
+			: [
+					WebhookLogger({ address: 'http://localhost:8080' }),
+					PlainLogger(),
+					UXPLogger()
+			  ]
 });
 
 /**
