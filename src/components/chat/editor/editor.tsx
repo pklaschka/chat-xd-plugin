@@ -53,13 +53,13 @@ export default function ChatMessageEditor({ model }: { model: DocumentModel }) {
 				);
 				return model;
 			});
-			setMessage('');
 			setTimeout(() => {
 				if (editorInputRef.current) {
 					editorInputRef.current.focus();
 				}
 			}, 100);
 		}
+		setMessage('');
 	}, [message]);
 
 	/**
