@@ -6,18 +6,18 @@
 	}
 
 	.MessageContent {
+		margin-top: 0;
+
 		code {
-			font-family: monospace;
+			font-family: 'Fira Code', monospace;
 			background: #f4f4f4;
 		}
 
 		strong {
-			//color: blue;
 			font-weight: bold;
 		}
 
 		em {
-			//color: turquoise;
 			font-style: italic;
 		}
 	}

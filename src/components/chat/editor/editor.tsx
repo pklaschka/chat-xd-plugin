@@ -38,33 +38,29 @@ export default function ChatMessageEditor({ model }: { model: DocumentModel }) {
 	/**
 	 * Update/add author data to document and append current message
 	 */
-	const onSubmit = useCallback(
-		(evt) => {
-			if (message.length) {
-				logger.debug('Submitting message');
-				evt.preventDefault();
+	const onSubmit = useCallback(() => {
+		if (message.length) {
+			logger.debug('Submitting message', message.trim());
 
-				model.update(async (model) => {
-					const author = await localSettings.getAuthor();
+			model.update(async (model) => {
+				const author = await localSettings.getAuthor();
 
-					// Add or update author profile data in document data
-					model.authors[author.uuid] = author;
+				// Add or update author profile data in document data
+				model.authors[author.uuid] = author;
 
-					model.messages.push(
-						new Message({ content: message, authorUUID: author.uuid })
-					);
-					return model;
-				});
-				setMessage('');
-				setTimeout(() => {
-					if (editorInputRef.current) {
-						editorInputRef.current.focus();
-					}
-				}, 100);
-			}
-		},
-		[message]
-	);
+				model.messages.push(
+					new Message({ content: message.trim(), authorUUID: author.uuid })
+				);
+				return model;
+			});
+			setMessage('');
+			setTimeout(() => {
+				if (editorInputRef.current) {
+					editorInputRef.current.focus();
+				}
+			}, 100);
+		}
+	}, [message]);
 
 	/**
 	 * Check whether the author data is set up locally:
@@ -74,6 +70,15 @@ export default function ChatMessageEditor({ model }: { model: DocumentModel }) {
 			setLoadedState(hasAuthor ? LoadedState.READY : LoadedState.NO_AUTHOR);
 		});
 	});
+
+	const onKeyUp = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+		e.stopPropagation();
+		e.preventDefault();
+		if (e.key === 'Enter' && !e.shiftKey) {
+			onSubmit();
+		}
+		// logger.debug('Key up', e.key, e.shiftKey);
+	};
 
 	switch (loadedState) {
 		case LoadedState.LOADING:
@@ -89,6 +94,7 @@ export default function ChatMessageEditor({ model }: { model: DocumentModel }) {
 						id={'message'}
 						value={message}
 						onChange={(evt) => setMessage(evt.target.value)}
+						onKeyUp={onKeyUp}
 						ref={editorInputRef}
 						name="message"
 						placeholder="Message"

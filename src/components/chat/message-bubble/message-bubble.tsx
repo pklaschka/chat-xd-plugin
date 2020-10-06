@@ -29,7 +29,7 @@ export default function MessageBubble(props: MessageBubbleParams) {
 	const logger = useLogger('MessageBubble:' + props.message.uuid);
 	const { content, date, authorUUID } = props.message;
 
-	const contentHTML = useMemo(() => parser.renderInline(content), [content]);
+	const contentHTML = useMemo(() => parser.render(content), [content]);
 
 	const ownMessage = useMemo(() => props.me.uuid === authorUUID, [authorUUID]);
 
@@ -60,7 +60,7 @@ export default function MessageBubble(props: MessageBubbleParams) {
 						updateIntervalInSeconds={10}
 					/>
 				</h4>
-				<p
+				<div
 					className="MessageContent"
 					dangerouslySetInnerHTML={{ __html: contentHTML }}
 				/>
