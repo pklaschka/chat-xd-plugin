@@ -12,5 +12,5 @@ export interface XDDialogProps<T> {
 
 	initialState: T;
 
-	children: (state: T, setState: (state: T) => void) => React.ReactNode;
+	children: (state: T, setState: React.Dispatch<React.SetStateAction<T>>) => React.ReactNode;
 }
