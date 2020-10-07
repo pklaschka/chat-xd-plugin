@@ -85,7 +85,7 @@ export function SettingsPage(props: { model: DocumentModel }) {
 								Save
 							</button>
 							<Link to="/chat" style={{ marginLeft: '0.25rem' }}>
-								<button uxp-variant="secondary">Cancel</button>
+								<button uxp-variant="primary">Cancel</button>
 							</Link>
 						</div>
 						<SettingsPageFooter />

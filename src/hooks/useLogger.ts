@@ -1,10 +1,15 @@
 import { Logger, PlainLogger, WebhookLogger } from '@fliegwerk/logsemts';
+import { UXPLogger } from '../lib/uxp-logger';
 
 const logger = new Logger({
 	loggers:
 		process.env.CI === 'true'
 			? []
-			: [WebhookLogger({ address: 'http://localhost:8080' }), PlainLogger()]
+			: [
+					WebhookLogger({ address: 'http://localhost:8080' }),
+					PlainLogger(),
+					UXPLogger()
+			  ]
 });
 
 /**
@@ -14,7 +19,3 @@ const logger = new Logger({
 export default function useLogger(component: string) {
 	return logger.getComponentLogger('Document Chat: ' + component);
 }
-
-window.onerror = function (e) {
-	useLogger('window.onerror').error(e);
-};

@@ -7,10 +7,11 @@ import React, { useMemo } from 'react';
 import { FormattedRelativeTime, IntlProvider } from 'react-intl';
 import iconCrosshair from '../../../assets/icons/Smock_Crosshairs_18_N.svg';
 import iconDelete from '../../../assets/icons/Smock_Delete_18_N.svg';
-import useLogger from '../../../hooks/useLogger';
+import { useCustomRef } from '../../../hooks/useCustomRef';
 import Author from '../../../model/document/author';
 import DocumentModel from '../../../model/document/document-model';
 import Message from '../../../model/document/message';
+import { CANCELED, DialogRef, XDDialog } from '../../general-elements/dialog';
 import { Avatar } from './avatar';
 import './message-bubble.scss';
 
@@ -29,7 +30,7 @@ interface MessageBubbleParams {
 }
 
 export default function MessageBubble(props: MessageBubbleParams) {
-	const logger = useLogger('MessageBubble:' + props.message.uuid);
+	// const logger = useLogger('MessageBubble:' + props.message.uuid);
 	const { content, date, authorUUID } = props.message;
 
 	const contentHTML = useMemo(() => parser.render(content), [content]);
@@ -37,20 +38,36 @@ export default function MessageBubble(props: MessageBubbleParams) {
 	const ownMessage = useMemo(() => props.me.uuid === authorUUID, [authorUUID]);
 
 	const deleteMessage = () =>
-		props.model.update((model) => {
-			const index = model.messages.findIndex(
-				(value) => value.uuid === props.message.uuid
-			);
+		props.model.update(async (model) => {
+			if ((await dialogRef.current?.show()) !== CANCELED) {
+				const index = model.messages.findIndex(
+					(value) => value.uuid === props.message.uuid
+				);
 
-			logger.debug(index);
-
-			if (index >= 0) model.messages.splice(index, 1);
+				if (index >= 0) model.messages.splice(index, 1);
+			}
 
 			return model;
 		});
 
+	const dialogRef = useCustomRef<DialogRef<boolean>>(null);
+
 	return (
 		<li className="MessageBubble">
+			<XDDialog
+				customRef={dialogRef}
+				initialState={true}
+				submitButtonText={'Delete'}
+				submitButtonVariant={'warning'}>
+				{() => (
+					<>
+						<h1>Delete message?</h1>
+						<p>
+							Do you really want to delete this message? This cannot be undone.
+						</p>
+					</>
+				)}
+			</XDDialog>
 			<IntlProvider locale={'en'}>
 				{props.gravatar && <Avatar author={props.model.authors[authorUUID]} />}
 				<h4>
