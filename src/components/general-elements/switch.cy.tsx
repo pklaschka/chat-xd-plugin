@@ -3,7 +3,7 @@ import mount from 'cypress-react-unit-test';
 import React from 'react';
 import Switch from './switch';
 
-describe('ChatMessageEditor', () => {
+describe('Switch', () => {
 	it('works', () => {
 		mount(
 			<Switch onChange={() => {}} value={true}>
