@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { XDDialogProps } from './XDDialogProps';
 
 export const CANCELED = Symbol('Canceled');
@@ -14,6 +14,7 @@ export interface DialogRef<T> {
 
 export function XDDialog<T>(props: XDDialogProps<T>) {
 	const dialogRef = useRef<HTMLDialogElement>(null);
+	const formRef = useRef<HTMLFormElement>(null);
 
 	useEffect(() => {
 		props.customRef.updateRef({
@@ -36,9 +37,14 @@ export function XDDialog<T>(props: XDDialogProps<T>) {
 		dialogRef.current?.close('reasonCanceled');
 	};
 
+	useLayoutEffect(() => {
+		if (formRef.current)
+			formRef.current.onsubmit = () => dialogRef.current?.close('ok');
+	}, [formRef.current]);
+
 	return (
 		<dialog ref={dialogRef}>
-			<form method="dialog">
+			<form method="dialog" ref={formRef}>
 				{props.children(state, setState)}
 				<div className="flex">
 					<div className="spacer">&nbsp;</div>

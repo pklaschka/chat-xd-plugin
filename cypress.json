@@ -1,0 +1,7 @@
+{
+	"experimentalComponentTesting": true,
+	"componentFolder": "src",
+	"nodeVersion": "system",
+	"viewportWidth": 360,
+	"testFiles": "**/*.cy.*"
+}
