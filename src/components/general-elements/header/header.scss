@@ -1,3 +1,5 @@
-.header .flex * + h1 {
-	margin-left: 1rem;
+.wrapper > header .flex {
+	* + h1 {
+		margin-left: 1rem;
+	}
 }
