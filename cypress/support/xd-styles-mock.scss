@@ -1,0 +1,24 @@
+:root {
+	font-size: 14px;
+	font-family: sans-serif;
+}
+
+textarea {
+	font: inherit;
+	resize: none;
+
+	&[uxp-quiet] {
+		border: none;
+		border-bottom: 2px solid #ddd;
+	}
+}
+
+button,
+input[type='button'],
+input[type='submit'],
+input[type='reset'] {
+	padding: 0.5rem 1rem;
+	background: transparent;
+	border: 1px solid black;
+	border-radius: 1.25rem;
+}

@@ -21,3 +21,6 @@ require('./commands');
 
 require('cypress-react-unit-test/support');
 require('./xd-mock');
+
+require('./xd-styles-mock.scss');
+require('../../src/main.scss');

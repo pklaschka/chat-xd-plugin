@@ -37,3 +37,17 @@ input {
 strong {
 	font-weight: bold;
 }
+
+.flex {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+
+	> .spacer {
+		flex-grow: 1000;
+	}
+
+	> :not(.spacer) {
+		flex-grow: 0;
+	}
+}
