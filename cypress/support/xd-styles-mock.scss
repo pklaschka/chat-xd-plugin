@@ -18,7 +18,19 @@ input[type='button'],
 input[type='submit'],
 input[type='reset'] {
 	padding: 0.5rem 1rem;
+	font-weight: bold;
 	background: transparent;
 	border: 1px solid black;
 	border-radius: 1.25rem;
+
+	&[uxp-variant='cta'] {
+		color: white;
+		background: #1473e6;
+		border: 2px solid #1473e6;
+	}
+
+	&[uxp-variant='primary'] {
+		color: #505050;
+		border: 2px solid #505050;
+	}
 }
