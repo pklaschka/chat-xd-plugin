@@ -17,6 +17,7 @@
 		"prettier:fix": "prettier --write .",
 		"start": "npm run debug:watch",
 		"stats": "sloc src",
+		"test": "cypress run",
 		"version": "node devtools/sync-versions.js"
 	},
 	"keywords": [
