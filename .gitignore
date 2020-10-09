@@ -4,5 +4,8 @@ node_modules
 dist/main.js
 dist/assets
 coverage
+.nyc_output
+cypress/screenshots
+cypress/videos
 
 dist.xdx

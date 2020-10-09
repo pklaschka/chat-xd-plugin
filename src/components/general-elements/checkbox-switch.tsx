@@ -20,7 +20,10 @@ export const CheckboxSwitch = React.forwardRef(
 		return (
 			<>
 				<Switch
-					onChange={(newVal) => setState(newVal)}
+					onChange={(newVal) => {
+						onChange && onChange(newVal);
+						return setState(newVal);
+					}}
 					value={state}
 					children={children}
 				/>

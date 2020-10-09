@@ -1,20 +1,5 @@
-.wrapper {
-	> header,
-	.flex {
-		display: flex;
-		align-items: center;
-		justify-content: flex-start;
-
-		* + h1 {
-			margin-left: 1rem;
-		}
-
-		> .spacer {
-			flex-grow: 1000;
-		}
-
-		> :not(.spacer) {
-			flex-grow: 0;
-		}
+.wrapper > header .flex {
+	* + h1 {
+		margin-left: 1rem;
 	}
 }
