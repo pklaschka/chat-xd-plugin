@@ -54,20 +54,6 @@ export default function MessageBubble(props: MessageBubbleParams) {
 
 	return (
 		<li className="MessageBubble">
-			<XDDialog
-				customRef={dialogRef}
-				initialState={true}
-				submitButtonText={'Delete'}
-				submitButtonVariant={'warning'}>
-				{() => (
-					<>
-						<h1>Delete message?</h1>
-						<p>
-							Do you really want to delete this message? This cannot be undone.
-						</p>
-					</>
-				)}
-			</XDDialog>
 			<IntlProvider locale={'en'}>
 				{props.gravatar && <Avatar author={props.model.authors[authorUUID]} />}
 				<h4>
@@ -97,6 +83,21 @@ export default function MessageBubble(props: MessageBubbleParams) {
 						</a>
 					)}
 				</p>
+				<XDDialog
+					customRef={dialogRef}
+					initialState={true}
+					submitButtonText={'Delete'}
+					submitButtonVariant={'warning'}>
+					{() => (
+						<>
+							<h1>Delete message?</h1>
+							<p>
+								Do you really want to delete this message? This cannot be
+								undone.
+							</p>
+						</>
+					)}
+				</XDDialog>
 			</IntlProvider>
 		</li>
 	);
