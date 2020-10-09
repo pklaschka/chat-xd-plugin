@@ -1,4 +1,5 @@
 ## [0.3.1]
+
 - Improved default avatar
 
 Please note that this plugin is still in a prerelease (public beta) stage,
@@ -8,6 +9,7 @@ please don't hesitate to contact me to shape the final plugin to be the best it
 can be.
 
 ## [0.3.0]
+
 - Emoji Support
 - Multi-line-message support
 - Ask for confirmation before deleting a message
