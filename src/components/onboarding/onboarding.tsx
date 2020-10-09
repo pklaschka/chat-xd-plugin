@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import useLogger from '../hooks/useLogger';
-import Author from '../model/document/author';
-import LocalSettings from '../model/local/local-settings';
-import { Header } from './general-elements/header/header';
-import Switch from './general-elements/switch';
+import useLogger from '../../hooks/useLogger';
+import Author from '../../model/document/author';
+import LocalSettings from '../../model/local/local-settings';
+import { Header } from '../general-elements/header/header';
+import Switch from '../general-elements/switch';
 
 const numberOfSteps = 4;
 
