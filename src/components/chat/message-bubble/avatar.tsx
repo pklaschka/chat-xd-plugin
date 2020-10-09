@@ -9,7 +9,7 @@ export function Avatar(props: { author: Author }) {
 			className={'Avatar'}
 			alt={`${props.author.name}'s avatar image`}
 			width={32}
-			src={`https://gravatar.com/avatar/${hash}?s=400&d=robohash&r=x`}
+			src={`https://gravatar.com/avatar/${hash}?s=64&d=mp&r=g`}
 		/>
 	);
 }
