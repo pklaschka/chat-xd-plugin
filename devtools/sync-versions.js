@@ -23,4 +23,5 @@ fs.writeFileSync(manifestPath, newManifest);
 
 console.log(ch.green(`Updated manifest version to ${ch.blue(version)}`));
 
+sh.exec('npm run prettier:check');
 sh.exec(`git add ${manifestPath}`, { silent: true });
