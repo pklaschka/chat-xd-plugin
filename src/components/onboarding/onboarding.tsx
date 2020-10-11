@@ -95,8 +95,10 @@ export function OnboardingPage() {
 							coworkers get to see a profile picture.
 						</p>
 						<p>
-							This is completely optional, but can be used to show your profile
-							picture to your coworkers.
+							<strong>
+								This is completely optional, but can be used to show your
+								profile picture to your coworkers.
+							</strong>
 						</p>
 						<form onSubmit={goToNextStep}>
 							<label>

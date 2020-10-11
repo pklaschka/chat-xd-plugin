@@ -5,7 +5,6 @@ const logger = useLogger('Local Settings');
 
 export default class LocalSettings {
 	static async hasAuthor(): Promise<boolean> {
-		logger.debug('hasAuthor', await storageHelper.get('me', undefined));
 		return (await storageHelper.get('me', undefined)) !== undefined;
 	}
 
