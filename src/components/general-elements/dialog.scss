@@ -1,0 +1,12 @@
+.Dialog {
+	margin: 0 !important;
+	header {
+		position: fixed;
+		top: -500px;
+		right: 0;
+		bottom: 100%;
+		left: 0;
+		background: #2d4e64;
+		border: none;
+	}
+}

@@ -1,4 +1,5 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import './dialog.scss';
 import { XDDialogProps } from './XDDialogProps';
 
 export const CANCELED = Symbol('Canceled');
@@ -43,7 +44,8 @@ export function XDDialog<T>(props: XDDialogProps<T>) {
 	}, [formRef.current]);
 
 	return (
-		<dialog ref={dialogRef}>
+		<dialog ref={dialogRef} className="Dialog">
+			<header>&nbsp;</header>
 			<form method="dialog" ref={formRef}>
 				{props.children(state, setState)}
 				<div className="flex">
