@@ -7,4 +7,4 @@ updates:
       time: '04:00'
     open-pull-requests-limit: 99
     labels:
-      - ":1234: dependencies"
+      - ':1234: dependencies'
