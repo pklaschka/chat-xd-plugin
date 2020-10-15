@@ -8,20 +8,15 @@ export function Avatar(props: { author: Author; gravatar: boolean }) {
 	const initial = props.author.name.charAt(0) || 'A';
 	return props.gravatar ? (
 		<img
+			aria-hidden={true}
 			className={'Avatar'}
 			alt={`${props.author.name}'s avatar image`}
 			width={32}
 			src={`https://gravatar.com/avatar/${hash}?s=64&d=mp&r=g`}
 		/>
 	) : (
-		<div className="Avatar PlaceholderAvatar">
+		<div className="Avatar PlaceholderAvatar" aria-hidden={true}>
 			<span>{initial.toUpperCase()}</span>
 		</div>
-		// <img
-		// 	className={'Avatar'}
-		// 	alt={`Placeholder avatar`}
-		// 	width={32}
-		// 	src={placeholderAvatar}
-		// />
 	);
 }
