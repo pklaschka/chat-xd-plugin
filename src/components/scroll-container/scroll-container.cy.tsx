@@ -2,7 +2,7 @@
 import mount from 'cypress-react-unit-test';
 import React from 'react';
 import DocumentModel from '../../model/document/document-model';
-import '../chat/index.scss';
+import '../chat/chat.scss';
 import ScrollContainer from './scroll-container';
 
 Cypress.Commands.add('mountScrollContainer', () => {

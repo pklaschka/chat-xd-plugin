@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { render } from 'react-dom';
 import { MemoryRouter, Redirect, Route, Switch } from 'react-router-dom';
-import { ChatPage } from './components/chat';
+import { ChatPage } from './components/chat/chat';
 import { OnboardingPage } from './components/onboarding/onboarding';
 import { SettingsPage } from './components/settings/settings';
 import useAsyncRenderer from './hooks/useAsyncRenderer';
