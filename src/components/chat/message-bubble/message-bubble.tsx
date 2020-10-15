@@ -5,8 +5,8 @@ import MarkdownIt from 'markdown-it';
 import emoji from 'markdown-it-emoji';
 import React, { useMemo } from 'react';
 import { FormattedRelativeTime, IntlProvider } from 'react-intl';
-import iconCrosshair from '../../../assets/icons/Smock_Crosshairs_18_N.svg';
-import iconDelete from '../../../assets/icons/Smock_Delete_18_N.svg';
+import iconCrosshair from '../../../assets/icons/Smock_Crosshairs_18_N.png';
+import iconDelete from '../../../assets/icons/Smock_Delete_18_N.png';
 import { useCustomRef } from '../../../hooks/useCustomRef';
 import Author from '../../../model/document/author';
 import DocumentModel from '../../../model/document/document-model';
@@ -73,17 +73,21 @@ export default function MessageBubble(props: MessageBubbleParams) {
 					className="MessageContent"
 					dangerouslySetInnerHTML={{ __html: contentHTML }}
 				/>
-				<p>
-					<a
+				<p className={'MessageActions'}>
+					<button
+						uxp-variant={'action'}
 						onClick={() => props.message.scrollTo()}
 						title={'Go to viewport position'}>
 						<img src={iconCrosshair} alt={'Go to viewport position'} />
-					</a>
+					</button>
 					&nbsp;
 					{ownMessage && (
-						<a onClick={deleteMessage} title={'Delete message'}>
+						<button
+							uxp-variant={'action'}
+							onClick={deleteMessage}
+							title={'Delete message'}>
 							<img src={iconDelete} alt={'Delete message'} />
-						</a>
+						</button>
 					)}
 				</p>
 				<XDDialog
