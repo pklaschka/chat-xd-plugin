@@ -3,13 +3,44 @@ import iconCrosshair from '../../../assets/icons/Smock_Crosshairs_18_N.png';
 import iconDelete from '../../../assets/icons/Smock_Delete_18_N.png';
 import iconEdit from '../../../assets/icons/Smock_Edit_18_N.png';
 
-export function MessageViewer(props: {
+/**
+ * Props for the {@link MessageViewer} component
+ */
+interface MessageViewerProps {
+	/**
+	 * the message's content as HTML
+	 */
 	html: string;
+	/**
+	 * Callback for scrolling to the message's viewport position
+	 */
 	onGoToViewport: () => void;
+	/**
+	 * is this the current user's own message?
+	 */
 	ownMessage: boolean;
+	/**
+	 * Callback for when the edit button gets pressed
+	 */
 	onEdit: () => void;
+	/**
+	 * Callback for when the delete button gets pressed
+	 */
 	onDelete: () => void;
-}) {
+}
+
+/**
+ * A viewer for the messages. Displays additional actions for own messages
+ * @param props
+ *
+ * @example ```
+ * <li className="MessageBubble">
+ *     [...]
+ *     <MessageViewer [...] />
+ *	</li>
+ * ```
+ */
+export function MessageViewer(props: MessageViewerProps) {
 	return (
 		<>
 			<div

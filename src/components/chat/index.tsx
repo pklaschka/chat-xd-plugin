@@ -7,7 +7,7 @@ import { Header } from '../general-elements/header/header';
 import ScrollContainer from '../scroll-container/scroll-container';
 import ChatMessageEditor from './editor/editor';
 import './index.scss';
-import MessageBubble from './message-bubble/message-bubble';
+import { MessageBubble } from './message-bubble/message-bubble';
 
 export function ChatPage({
 	model,

@@ -22,19 +22,48 @@ const parser = new MarkdownIt({
 	.use(emoji)
 	.disable('image');
 
+/**
+ * The parameters for the {@link MessageBubble} component
+ */
 interface MessageBubbleParams {
+	/**
+	 * The message displayed by the {@link MessageBubble}
+	 */
 	message: Message;
+	/**
+	 * The document model in which manipulations can take place
+	 */
 	model: DocumentModel;
+	/**
+	 * The current user. If `me.uuid === message.authorUUID`, additional options for own messages are available
+	 */
 	me: Author;
+	/**
+	 * Whether the Gravatar avatars should gets used
+	 */
 	gravatar: boolean;
 }
 
+/**
+ * The state of the message bubble
+ */
 enum MessageBubbleState {
+	/**
+	 * "Normal" state: Just viewing the message
+	 */
 	NORMAL,
+	/**
+	 * Editing state: Shows editor to edit one's own messages
+	 */
 	EDITING
 }
 
-export default function MessageBubble(props: MessageBubbleParams) {
+/**
+ * A message bubble for a single message
+ *
+ * @param props
+ */
+export function MessageBubble(props: MessageBubbleParams) {
 	const [state, setState] = useState(MessageBubbleState.NORMAL);
 
 	const { content, date, authorUUID } = props.message;

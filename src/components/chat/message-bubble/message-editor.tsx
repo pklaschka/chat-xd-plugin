@@ -1,19 +1,43 @@
 import React, { useCallback, useState } from 'react';
 import useLogger from '../../../hooks/useLogger';
 
+/**
+ * Props for the {@link MessageEditor} component
+ */
 interface MessageEditorProps {
+	/**
+	 * Callback for when the edited message gets submitted
+	 * @param newMessage the new, modified message, with trimmed whitespace at the beginning and end
+	 */
 	onSubmit: (newMessage: string) => void;
+	/**
+	 * Callback for canceling the editing mode
+	 */
 	onCancel: () => void;
+	/**
+	 * The "original" message content (before any edits took place)
+	 */
 	message: string;
 }
 
+/**
+ * An editor for the messages inside the {@link MessageBubble}
+ * @param props
+ *
+ * @example ```
+ * <li className="MessageBubble">
+ *     [...]
+ *     <MessageEditor [...] />
+ *	</li>
+ * ```
+ */
 export function MessageEditor(props: MessageEditorProps) {
 	const [value, setValue] = useState(props.message);
 
 	const onSubmit = useCallback(() => {
 		if (value.trim().length) {
 			useLogger('MessageEditor').debug('onSubmit', value);
-			props.onSubmit(value);
+			props.onSubmit(value.trim());
 		}
 	}, [props.onSubmit, value]);
 
