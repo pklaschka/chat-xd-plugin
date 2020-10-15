@@ -7,6 +7,7 @@ describe('Avatar component', () => {
 	it('works', () => {
 		mount(
 			<Avatar
+				gravatar={true}
 				author={{
 					uuid: '',
 					gravatarMail: 'xdplugins@pabloklaschka.de',
