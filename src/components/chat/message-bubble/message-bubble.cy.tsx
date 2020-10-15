@@ -85,22 +85,6 @@ describe('Message Bubble Component', () => {
 		cy.screenshot();
 	});
 
-	describe('avatar rendering', () => {
-		it('shows the avatar when gravatar is true', () => {
-			// @ts-ignore
-			cy.mountMessageBubble('Hello World', false);
-
-			cy.get('.Avatar').should('exist').and('be.visible');
-		});
-
-		it('does not show the avatar when gravatar is false', () => {
-			// @ts-ignore
-			cy.mountMessageBubble('Hello World', false, false);
-
-			cy.get('.Avatar').should('not.exist');
-		});
-	});
-
 	describe('markdown rendering', () => {
 		afterEach(() => {
 			cy.screenshot();

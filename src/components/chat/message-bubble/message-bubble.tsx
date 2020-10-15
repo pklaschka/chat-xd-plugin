@@ -55,7 +55,10 @@ export default function MessageBubble(props: MessageBubbleParams) {
 	return (
 		<li className="MessageBubble">
 			<IntlProvider locale={'en'}>
-				{props.gravatar && <Avatar author={props.model.authors[authorUUID]} />}
+				<Avatar
+					gravatar={props.gravatar}
+					author={props.model.authors[authorUUID]}
+				/>
 				<h4>
 					{props.model.authors[authorUUID].name || 'Anonymous'}
 					&nbsp;&ndash;&nbsp;
