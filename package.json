@@ -39,7 +39,7 @@
 		"markdown-it-emoji": "^1.4.0",
 		"npm": "^6.14.8",
 		"pure-md5": "^0.1.13",
-		"react": "^16.13.1",
+		"react": "^16.14.0",
 		"react-dom": "^16.13.1",
 		"react-intl": "^5.8.6",
 		"react-router-dom": "^5.2.0",
