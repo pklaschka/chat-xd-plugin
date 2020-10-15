@@ -3,10 +3,8 @@ import '@formatjs/intl-relativetimeformat/locale-data/en';
 import '@formatjs/intl-relativetimeformat/polyfill';
 import MarkdownIt from 'markdown-it';
 import emoji from 'markdown-it-emoji';
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { FormattedRelativeTime, IntlProvider } from 'react-intl';
-import iconCrosshair from '../../../assets/icons/Smock_Crosshairs_18_N.png';
-import iconDelete from '../../../assets/icons/Smock_Delete_18_N.png';
 import { useCustomRef } from '../../../hooks/useCustomRef';
 import Author from '../../../model/document/author';
 import DocumentModel from '../../../model/document/document-model';
@@ -14,6 +12,8 @@ import Message from '../../../model/document/message';
 import { CANCELED, DialogRef, XDDialog } from '../../general-elements/dialog';
 import { Avatar } from './avatar';
 import './message-bubble.scss';
+import { MessageEditor } from './message-editor';
+import { MessageViewer } from './message-viewer';
 
 const parser = new MarkdownIt({
 	linkify: true,
@@ -29,15 +29,20 @@ interface MessageBubbleParams {
 	gravatar: boolean;
 }
 
+enum MessageBubbleState {
+	NORMAL,
+	EDITING
+}
+
 export default function MessageBubble(props: MessageBubbleParams) {
-	// const logger = useLogger('MessageBubble:' + props.message.uuid);
+	const [state, setState] = useState(MessageBubbleState.NORMAL);
+
 	const { content, date, authorUUID } = props.message;
 
 	const contentHTML = useMemo(() => parser.render(content), [content]);
-
 	const ownMessage = useMemo(() => props.me.uuid === authorUUID, [authorUUID]);
 
-	const deleteMessage = () =>
+	const onDelete = () =>
 		props.model.update(async (model) => {
 			if ((await dialogRef.current?.show()) !== CANCELED) {
 				const index = model.messages.findIndex(
@@ -46,6 +51,19 @@ export default function MessageBubble(props: MessageBubbleParams) {
 
 				if (index >= 0) model.messages.splice(index, 1);
 			}
+
+			return model;
+		});
+
+	const onEdit = (newMessage: string) =>
+		props.model.update(async (model) => {
+			const index = model.messages.findIndex(
+				(value) => value.uuid === props.message.uuid
+			);
+
+			if (index >= 0) model.messages[index].content = newMessage.trim();
+
+			setState(MessageBubbleState.NORMAL);
 
 			return model;
 		});
@@ -69,27 +87,22 @@ export default function MessageBubble(props: MessageBubbleParams) {
 						updateIntervalInSeconds={10}
 					/>
 				</h4>
-				<div
-					className="MessageContent"
-					dangerouslySetInnerHTML={{ __html: contentHTML }}
-				/>
-				<p className={'MessageActions'}>
-					<button
-						uxp-variant={'action'}
-						onClick={() => props.message.scrollTo()}
-						title={'Go to viewport position'}>
-						<img src={iconCrosshair} alt={'Go to viewport position'} />
-					</button>
-					&nbsp;
-					{ownMessage && (
-						<button
-							uxp-variant={'action'}
-							onClick={deleteMessage}
-							title={'Delete message'}>
-							<img src={iconDelete} alt={'Delete message'} />
-						</button>
-					)}
-				</p>
+				{state === MessageBubbleState.NORMAL && (
+					<MessageViewer
+						html={contentHTML}
+						ownMessage={ownMessage}
+						onEdit={() => setState(MessageBubbleState.EDITING)}
+						onGoToViewport={() => props.message.scrollTo()}
+						onDelete={onDelete}
+					/>
+				)}
+				{state === MessageBubbleState.EDITING && (
+					<MessageEditor
+						onSubmit={onEdit}
+						onCancel={() => setState(MessageBubbleState.NORMAL)}
+						message={props.message.content}
+					/>
+				)}
 				<XDDialog
 					customRef={dialogRef}
 					initialState={true}
