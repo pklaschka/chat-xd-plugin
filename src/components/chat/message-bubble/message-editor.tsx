@@ -1,4 +1,6 @@
 import React, { useCallback, useState } from 'react';
+import checkmarkIcon from '../../../assets/icons/Smock_Checkmark_18_N.png';
+import cancelIcon from '../../../assets/icons/Smock_Close_18_N.png';
 import useLogger from '../../../hooks/useLogger';
 
 /**
@@ -82,10 +84,10 @@ export function MessageEditor(props: MessageEditorProps) {
 					uxp-variant={'action'}
 					onClick={onSubmit}
 					disabled={!value.trim().length}>
-					Ok
+					<img src={checkmarkIcon} alt={'Confirm edits'} />
 				</button>
 				<button uxp-variant={'action'} onClick={onCancel}>
-					Cancel
+					<img src={cancelIcon} alt={'Cancel'} />
 				</button>
 			</p>
 		</>
