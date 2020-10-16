@@ -7,7 +7,7 @@ import Author from '../../../model/document/author';
 import DocumentModel from '../../../model/document/document-model';
 import Message from '../../../model/document/message';
 import '../chat.scss';
-import MessageBubble from './message-bubble';
+import { MessageBubble } from './message-bubble';
 
 const anyWindow: any = window;
 
