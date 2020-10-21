@@ -120,8 +120,8 @@ export function OnboardingPage() {
 					<>
 						<p>
 							It is optional to show Gravatar avatars. While enhancing your
-							experience, it also means sending data to WordPress. Do you want
-							to see avatars under these circumstances?
+							experience, it also means sending data to their service. Do you
+							want to see avatars under these circumstances?
 						</p>
 						<Switch
 							onChange={(newVal) => setState({ ...state, gravatar: newVal })}
