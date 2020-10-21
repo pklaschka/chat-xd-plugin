@@ -5,6 +5,10 @@
 
 # Document Chat for Adobe XD
 
+![Node CI](https://github.com/pklaschka/chat-xd-plugin/workflows/Node%20CI/badge.svg)
+![End-to-end tests](https://github.com/pklaschka/chat-xd-plugin/workflows/End-to-end%20tests/badge.svg)
+![Lint](https://github.com/pklaschka/chat-xd-plugin/workflows/Lint/badge.svg)
+
 > Chat for XD Cloud Documents
 
 Document Chat is the privacy-first chatting solution for collaborative work on

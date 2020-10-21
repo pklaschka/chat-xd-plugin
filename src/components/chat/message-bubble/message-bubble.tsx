@@ -3,10 +3,8 @@ import '@formatjs/intl-relativetimeformat/locale-data/en';
 import '@formatjs/intl-relativetimeformat/polyfill';
 import MarkdownIt from 'markdown-it';
 import emoji from 'markdown-it-emoji';
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { FormattedRelativeTime, IntlProvider } from 'react-intl';
-import iconCrosshair from '../../../assets/icons/Smock_Crosshairs_18_N.svg';
-import iconDelete from '../../../assets/icons/Smock_Delete_18_N.svg';
 import { useCustomRef } from '../../../hooks/useCustomRef';
 import Author from '../../../model/document/author';
 import DocumentModel from '../../../model/document/document-model';
@@ -14,6 +12,8 @@ import Message from '../../../model/document/message';
 import { CANCELED, DialogRef, XDDialog } from '../../general-elements/dialog';
 import { Avatar } from './avatar';
 import './message-bubble.scss';
+import { MessageEditor } from './message-editor';
+import { MessageViewer } from './message-viewer';
 
 const parser = new MarkdownIt({
 	linkify: true,
@@ -22,22 +22,56 @@ const parser = new MarkdownIt({
 	.use(emoji)
 	.disable('image');
 
+/**
+ * The parameters for the {@link MessageBubble} component
+ */
 interface MessageBubbleParams {
+	/**
+	 * The message displayed by the {@link MessageBubble}
+	 */
 	message: Message;
+	/**
+	 * The document model in which manipulations can take place
+	 */
 	model: DocumentModel;
+	/**
+	 * The current user. If `me.uuid === message.authorUUID`, additional options for own messages are available
+	 */
 	me: Author;
+	/**
+	 * Whether the Gravatar avatars should gets used
+	 */
 	gravatar: boolean;
 }
 
-export default function MessageBubble(props: MessageBubbleParams) {
-	// const logger = useLogger('MessageBubble:' + props.message.uuid);
+/**
+ * The state of the message bubble
+ */
+enum MessageBubbleState {
+	/**
+	 * "Normal" state: Just viewing the message
+	 */
+	NORMAL,
+	/**
+	 * Editing state: Shows editor to edit one's own messages
+	 */
+	EDITING
+}
+
+/**
+ * A message bubble for a single message
+ *
+ * @param props
+ */
+export function MessageBubble(props: MessageBubbleParams) {
+	const [state, setState] = useState(MessageBubbleState.NORMAL);
+
 	const { content, date, authorUUID } = props.message;
 
 	const contentHTML = useMemo(() => parser.render(content), [content]);
-
 	const ownMessage = useMemo(() => props.me.uuid === authorUUID, [authorUUID]);
 
-	const deleteMessage = () =>
+	const onDelete = () =>
 		props.model.update(async (model) => {
 			if ((await dialogRef.current?.show()) !== CANCELED) {
 				const index = model.messages.findIndex(
@@ -46,6 +80,19 @@ export default function MessageBubble(props: MessageBubbleParams) {
 
 				if (index >= 0) model.messages.splice(index, 1);
 			}
+
+			return model;
+		});
+
+	const onEdit = (newMessage: string) =>
+		props.model.update(async (model) => {
+			const index = model.messages.findIndex(
+				(value) => value.uuid === props.message.uuid
+			);
+
+			if (index >= 0) model.messages[index].content = newMessage.trim();
+
+			setState(MessageBubbleState.NORMAL);
 
 			return model;
 		});
@@ -69,23 +116,22 @@ export default function MessageBubble(props: MessageBubbleParams) {
 						updateIntervalInSeconds={10}
 					/>
 				</h4>
-				<div
-					className="MessageContent"
-					dangerouslySetInnerHTML={{ __html: contentHTML }}
-				/>
-				<p>
-					<a
-						onClick={() => props.message.scrollTo()}
-						title={'Go to viewport position'}>
-						<img src={iconCrosshair} alt={'Go to viewport position'} />
-					</a>
-					&nbsp;
-					{ownMessage && (
-						<a onClick={deleteMessage} title={'Delete message'}>
-							<img src={iconDelete} alt={'Delete message'} />
-						</a>
-					)}
-				</p>
+				{state === MessageBubbleState.NORMAL && (
+					<MessageViewer
+						html={contentHTML}
+						ownMessage={ownMessage}
+						onEdit={() => setState(MessageBubbleState.EDITING)}
+						onGoToViewport={() => props.message.scrollTo()}
+						onDelete={onDelete}
+					/>
+				)}
+				{state === MessageBubbleState.EDITING && (
+					<MessageEditor
+						onSubmit={onEdit}
+						onCancel={() => setState(MessageBubbleState.NORMAL)}
+						message={props.message.content}
+					/>
+				)}
 				<XDDialog
 					customRef={dialogRef}
 					initialState={true}

@@ -3,7 +3,30 @@ import React from 'react';
 import Author from '../../../model/document/author';
 import './avatar.scss';
 
-export function Avatar(props: { author: Author; gravatar: boolean }) {
+/**
+ * Props for the {@link Avatar} component
+ */
+interface AvatarProps {
+	/**
+	 * The author whose avatar should get displayed
+	 */
+	author: Author;
+	/**
+	 * Has the user opted into using Gravatar images?
+	 */
+	gravatar: boolean;
+}
+
+/**
+ * An avatar/profile picture.
+ *
+ * Displays either
+ * - a Gravatar avatar if `props.gravatar`
+ * - a placeholder picture (consisting of the initial letter of the author's name) else
+ *
+ * @param props
+ */
+export function Avatar(props: AvatarProps) {
 	const hash = md5(props.author.gravatarMail ?? '');
 	const initial = props.author.name.charAt(0) || 'A';
 	return props.gravatar ? (

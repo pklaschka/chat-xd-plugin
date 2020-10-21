@@ -22,6 +22,12 @@
 		}
 	}
 
+	.MessageActions {
+		button {
+			margin: 0;
+		}
+	}
+
 	> * + * {
 		margin-top: 0.75rem;
 	}

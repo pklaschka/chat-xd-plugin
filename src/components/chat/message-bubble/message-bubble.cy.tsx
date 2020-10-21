@@ -6,8 +6,8 @@ import '../../../main.scss';
 import Author from '../../../model/document/author';
 import DocumentModel from '../../../model/document/document-model';
 import Message from '../../../model/document/message';
-import '../index.scss';
-import MessageBubble from './message-bubble';
+import '../chat.scss';
+import { MessageBubble } from './message-bubble';
 
 const anyWindow: any = window;
 

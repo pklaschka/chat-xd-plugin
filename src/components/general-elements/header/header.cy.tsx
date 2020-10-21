@@ -2,7 +2,7 @@
 import mount from 'cypress-react-unit-test';
 import React from 'react';
 import { HashRouter } from 'react-router-dom';
-import '../../chat/index.scss';
+import '../../chat/chat.scss';
 import { Header } from './header';
 
 function Parent(props: { children: React.ReactNode }) {
