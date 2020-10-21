@@ -1,6 +1,7 @@
 ## [0.4.0]
 
 - added placeholder avatars for users not using Gravatar
+- added ability to edit messages
 
 Please note that this plugin is still in a prerelease (public beta) stage,
 meaning there are still some rough edges here and there, and not every feature

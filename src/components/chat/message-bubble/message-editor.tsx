@@ -63,8 +63,10 @@ export function MessageEditor(props: MessageEditorProps) {
 
 	const onKeyDown = useCallback(
 		(e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-			e.stopPropagation();
-			e.preventDefault();
+			if (e.key === 'Escape') {
+				e.stopPropagation();
+				e.preventDefault();
+			}
 		},
 		[]
 	);
