@@ -79,7 +79,7 @@
 		"sloc": "^0.2.1",
 		"source-map-loader": "^1.1.2",
 		"style-loader": "^2.0.0",
-		"ts-loader": "^8.0.9",
+		"ts-loader": "^8.0.10",
 		"typescript": "^4.0.5",
 		"webpack": "^4.44.2",
 		"webpack-cli": "^4.2.0"
