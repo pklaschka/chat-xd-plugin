@@ -37,7 +37,7 @@
 		"install": "^0.13.0",
 		"markdown-it": "^12.0.4",
 		"markdown-it-emoji": "^2.0.0",
-		"npm": "^6.14.10",
+		"npm": "^6.14.11",
 		"pure-md5": "^0.1.13",
 		"react": "^16.14.0",
 		"react-dom": "^16.14.0",
