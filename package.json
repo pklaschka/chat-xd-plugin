@@ -61,7 +61,7 @@
 		"babel-loader": "^8.2.2",
 		"babel-plugin-transform-react-jsx": "^6.24.1",
 		"chalk": "^4.1.0",
-		"css-loader": "^5.0.1",
+		"css-loader": "^5.0.2",
 		"cypress": "^6.4.0",
 		"cypress-react-unit-test": "^4.17.2",
 		"eslint": "^7.19.0",
