@@ -217,7 +217,7 @@ describe('Message Bubble Component', () => {
 
 			// @ts-ignore
 			cy.mountMessageBubble('Hello World', false, false);
-			cy.get('[title="Delete message"]').should('not.be.visible');
+			cy.get('[title="Delete message"]').should('not.exist');
 		});
 
 		describe('deleting a message', () => {
