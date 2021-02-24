@@ -5,6 +5,7 @@
 
 # Document Chat for Adobe XD
 
+[![mentioned in xd-awesome](https://img.shields.io/badge/mentioned%20in-xd--awesome-%23FF2BC2.svg?colorA=2E001E)](https://github.com/AdobeXD/xd-awesome)
 ![Node CI](https://github.com/pklaschka/chat-xd-plugin/workflows/Node%20CI/badge.svg)
 ![End-to-end tests](https://github.com/pklaschka/chat-xd-plugin/workflows/End-to-end%20tests/badge.svg)
 ![Lint](https://github.com/pklaschka/chat-xd-plugin/workflows/Lint/badge.svg)
