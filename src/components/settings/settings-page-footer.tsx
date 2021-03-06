@@ -1,7 +1,17 @@
 import React from 'react';
 import packageJSON from '../../../package.json';
 
-export function SettingsPageFooter() {
+/**
+ * The footer for the settings page
+ *
+ * @returns The rendered {@link JSX.Element}
+ *
+ * @example
+ * ```tsx
+ * <SettingsPageFooter />
+ * ```
+ */
+export function SettingsPageFooter(): JSX.Element {
 	return (
 		<>
 			<hr />

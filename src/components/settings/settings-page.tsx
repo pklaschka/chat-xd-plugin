@@ -1,53 +1,48 @@
-import React, { useCallback, useMemo, useRef } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React, { useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { useLocalSettingsPromise } from '../../hooks/use-local-settings-promise';
+import { useSaveSettings } from '../../hooks/use-save-settings';
 import useAsyncRenderer from '../../hooks/useAsyncRenderer';
 import useLogger from '../../hooks/useLogger';
 import DocumentModel from '../../model/document/document-model';
-import LocalSettings from '../../model/local/local-settings';
 import { CheckboxSwitch } from '../general-elements/checkbox-switch';
 import { Header } from '../general-elements/header/header';
+import { SettingsPageFooter } from './settings-page-footer';
 import './settings.scss';
-import { SettingsPageFooter } from './settingsPageFooter';
 
-export function SettingsPage(props: { model: DocumentModel }) {
+/**
+ * Props for the {@link SettingsPage} component
+ */
+type SettingsPageProps = { model: DocumentModel };
+
+/**
+ * A component for a settings page
+ *
+ * @param props - props passed to the component
+ *
+ * @returns The rendered {@link JSX.Element}
+ *
+ * @example
+ * ```tsx
+ * <Route exact path="/settings">
+ *     <SettingsPage model={documentModel} />
+ * </Route>
+ * ```
+ */
+export function SettingsPage(props: SettingsPageProps): JSX.Element {
 	const logger = useLogger('SettingsPage');
-	const history = useHistory();
-
-	const authorPromise = useMemo(() => LocalSettings.getAuthor(), []);
-	const gravatarPromise = useMemo(() => LocalSettings.getGravatar(), []);
-
-	const allPromise = useMemo(
-		() => Promise.all([authorPromise, gravatarPromise]),
-		[authorPromise, gravatarPromise]
-	);
+	const allPromise = useLocalSettingsPromise();
 
 	const nameInputRef = useRef<HTMLInputElement>(null);
 	const emailInputRef = useRef<HTMLInputElement>(null);
 	const gravatarInputRef = useRef<HTMLInputElement>(null);
 
-	const save = useCallback(async () => {
-		props.model.update(async (model: DocumentModel) => {
-			const res = {
-				name: nameInputRef.current?.value ?? '',
-				gravatarMail: emailInputRef.current?.value ?? '',
-				gravatar: gravatarInputRef.current?.checked ?? false
-			};
-			logger.info('Saving user settings', res);
-			await LocalSettings.setGravatar(res.gravatar);
-
-			await LocalSettings.setAuthor(
-				Object.assign(await LocalSettings.getAuthor(), res)
-			);
-
-			logger.success('Settings saved successfully');
-
-			const newAuthor = await LocalSettings.getAuthor();
-			model.authors[newAuthor.uuid] = newAuthor;
-			history.goBack();
-
-			return model;
-		});
-	}, [nameInputRef.current, emailInputRef.current, gravatarInputRef.current]);
+	const save = useSaveSettings(
+		props.model,
+		nameInputRef,
+		emailInputRef,
+		gravatarInputRef
+	);
 
 	return useAsyncRenderer(
 		allPromise,

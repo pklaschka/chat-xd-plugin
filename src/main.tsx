@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { MemoryRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { ChatPage } from './components/chat/chat';
 import { OnboardingPage } from './components/onboarding/onboarding';
-import { SettingsPage } from './components/settings/settings';
+import { SettingsPage } from './components/settings/settings-page';
 import useAsyncRenderer from './hooks/useAsyncRenderer';
 import useLogger from './hooks/useLogger';
 import './main.scss';
