@@ -9,6 +9,12 @@ import './chat.scss';
 import ChatMessageEditor from './editor/editor';
 import { MessageBubble } from './message-bubble/message-bubble';
 
+/**
+ * @param root0
+ * @param root0.model
+ * @param root0.dialog
+ * @example
+ */
 export function ChatPage({
 	model,
 	dialog
@@ -30,7 +36,7 @@ export function ChatPage({
 			<div className="wrapper">
 				<Header title={'Document Chat (Beta)'} toLink={'/settings'} />
 				<main>
-					<ScrollContainer model={JSON.stringify(model)}>
+					<ScrollContainer>
 						<ul>
 							{model.messages.map((message, index) => (
 								<MessageBubble
