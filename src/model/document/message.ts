@@ -7,7 +7,7 @@ import useLogger from '../../hooks/useLogger';
 const logger = useLogger('Message Instance');
 
 /**
- * Message data
+ * A model class wrapping data about a message
  */
 export default class Message {
 	public readonly uuid: string = uuid();
@@ -28,6 +28,11 @@ export default class Message {
 
 	/**
 	 * Scroll into the viewport of the current contents
+	 *
+	 * @example
+	 * ```ts
+	 * message.scrollTo();
+	 * ```
 	 */
 	public scrollTo(): void {
 		editDocument(() => {

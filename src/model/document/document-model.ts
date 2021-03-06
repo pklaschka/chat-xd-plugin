@@ -6,7 +6,8 @@ import Message from './message';
 
 /**
  * A callback to edit the model.
- * @param model The current model value
+ *
+ * @param model - The current model value
  * @returns the modified model value.
  */
 export type EditModelCallback = (
@@ -37,7 +38,13 @@ export default class DocumentModel {
 	}
 
 	/**
-	 * Refreshes the model data from the document values. If document values aren't available, the current values get used.
+	 * Refreshes the model data from the document values. If document values
+	 * aren't available, the current values get used.
+	 *
+	 * @example
+	 * ```ts
+	 * model.refresh();
+	 * ```
 	 */
 	public refresh(): void {
 		logger.debug('Refreshing');
@@ -48,7 +55,7 @@ export default class DocumentModel {
 
 		logger.debug('Instantiating authors');
 
-		for (let key in this.authors) {
+		for (const key in this.authors) {
 			this.authors[key] = new Author(this.authors[key]);
 		}
 	}
@@ -62,7 +69,14 @@ export default class DocumentModel {
 	 * calls `require('application').editDocument()`
 	 *
 	 * @see https://adobexdplatform.com/plugin-docs/reference/core/lifecycle.html#initiating-an-edit-operation-from-panel-ui
-	 * @param cb The callback in which the model value gets edited.
+	 * @param cb - The callback in which the model value gets edited.
+	 * @example
+	 * ```ts
+	 * documentModel.update(async (orig) => {
+	 *     orig.messages.push(new Message({ ... }));
+	 *     return orig;
+	 * });
+	 * ```
 	 */
 	public update(cb: EditModelCallback): void {
 		logger.debug('Updating');
