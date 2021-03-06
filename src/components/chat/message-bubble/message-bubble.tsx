@@ -9,7 +9,11 @@ import { useCustomRef } from '../../../hooks/useCustomRef';
 import Author from '../../../model/document/author';
 import DocumentModel from '../../../model/document/document-model';
 import Message from '../../../model/document/message';
-import { CANCELED, DialogRef, XDDialog } from '../../general-elements/dialog';
+import {
+	CANCELED,
+	DialogRef,
+	XDDialog
+} from '../../general-elements/xd-dialog/xd-dialog';
 import { Avatar } from './avatar';
 import './message-bubble.scss';
 import { MessageEditor } from './message-editor';
