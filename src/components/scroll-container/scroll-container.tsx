@@ -8,12 +8,14 @@ import React, {
 import cap from '../../lib/cap';
 import './scroll-container.scss';
 
-export default function ScrollContainer({
-	children
-}: {
-	children: ReactNode;
-	model: any;
-}) {
+/**
+ * A custom scrolling container optimized for chat windows.
+ *
+ * Scrolls down when new messages get appended, if it is previously fully scrolled to the bottom.
+ *
+ * Shows a "scroll to bottom" button, if not fully scrolled to the bottom.
+ */
+export default function ScrollContainer({ children }: { children: ReactNode }) {
 	const [x, setX] = useState(0);
 	const [deltaX, setDeltaX] = useState(0);
 	const [oldDeltaH, setOldDeltaH] = useState(0);
