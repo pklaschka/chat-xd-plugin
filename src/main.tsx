@@ -13,12 +13,25 @@ import './react-shim';
 import React = require('react');
 
 let panel: HTMLElement | null = null;
-let model = new DocumentModel();
+const model = new DocumentModel();
 
 const logger = useLogger('Plugin');
 logger.debug('Plugin loaded');
 
-function IndexPageRedirect() {
+/**
+ * Redirects to the chat if the author is set (i.e., the installation is ready
+ * to go) or to the onboarding if no author data is stored in the local settings
+ *
+ * @returns the redirect component, or, in case of an error, an error message
+ *
+ * @example
+ * ```ts
+ * <Route path="/">
+ *     <IndexPageRedirect />
+ * </Route>
+ * ```
+ */
+function IndexPageRedirect(): JSX.Element {
 	const authorPromise = useMemo(() => LocalSettings.hasAuthor(), []);
 
 	return useAsyncRenderer(
@@ -43,7 +56,16 @@ function IndexPageRedirect() {
 	);
 }
 
-function renderApp() {
+/**
+ * Renders the app into the panel wrapper using `react-dom`
+ *
+ * @example
+ * ```ts
+ * model.refresh(); // refresh the model from document metadata
+ * renderApp(); // re-render the app, based on the new data
+ * ```
+ */
+function renderApp(): void {
 	logger.debug('renderApp()');
 	render(
 		<MemoryRouter>
@@ -78,24 +100,34 @@ function renderApp() {
 	);
 }
 
-function create() {
+/**
+ * Creates the panel wrapper element
+ *
+ * @returns the panel wrapper element
+ *
+ * @example
+ * ```ts
+ * show(evt) { evt.node.appendChild(create()); }
+ * ```
+ */
+function create(): HTMLElement {
 	panel = document.createElement('div');
 	return panel;
 }
 
-// noinspection JSUnusedGlobalSymbols
-const val = {
-	panels: {
-		chatPanel: {
-			show: (event: any) => {
-				if (!panel) event.node.appendChild(create());
-			},
-			update: () => {
-				model.refresh();
-				renderApp();
-			}
-		}
+/**
+ * The definition for the main chat panel
+ */
+const chatPanel: PanelDefinition = {
+	show: (event: ShowPanelEvent) => {
+		if (!panel) event.node.appendChild(create());
+	},
+	update: () => {
+		model.refresh();
+		renderApp();
 	}
 };
 
-export = val;
+export const panels: Record<string, PanelDefinition> = {
+	chatPanel
+};
