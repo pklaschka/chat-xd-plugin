@@ -2,9 +2,15 @@
 // @ts-ignore
 import { mount } from '@cypress/react';
 import React from 'react';
-import { RefObject, useCustomRef } from '../../hooks/useCustomRef';
-import { CANCELED, DialogRef, XDDialog } from './dialog';
+import { RefObject, useCustomRef } from '../../../hooks/useCustomRef';
+import { CANCELED, DialogRef, XDDialog } from './xd-dialog';
 
+/**
+ * @param props
+ * @param props.children
+ * @param props.onResult
+ * @example
+ */
 function Parent<T>(props: {
 	children: (dialogRef: RefObject<DialogRef<T>>) => React.ReactNode;
 	onResult?: (result: T | typeof CANCELED) => void;

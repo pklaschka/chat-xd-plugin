@@ -1,9 +1,12 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import './dialog.scss';
-import { XDDialogProps } from './XDDialogProps';
+import { XDDialogProps } from './xd-dialog-props';
+import './xd-dialog.scss';
 
 export const CANCELED = Symbol('Canceled');
 
+/**
+ *
+ */
 export interface DialogRef<T> {
 	/**
 	 * Resolves when the dialog gets submitted.
@@ -13,6 +16,10 @@ export interface DialogRef<T> {
 	show(): Promise<T | typeof CANCELED>;
 }
 
+/**
+ * @param props
+ * @example
+ */
 export function XDDialog<T>(props: XDDialogProps<T>) {
 	const dialogRef = useRef<HTMLDialogElement>(null);
 	const formRef = useRef<HTMLFormElement>(null);

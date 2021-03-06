@@ -1,7 +1,10 @@
 import React from 'react';
-import { RefObject } from '../../hooks/useCustomRef';
-import { DialogRef } from './dialog';
+import { RefObject } from '../../../hooks/useCustomRef';
+import { DialogRef } from './xd-dialog';
 
+/**
+ *
+ */
 export interface XDDialogProps<T> {
 	submitButtonText?: string;
 	submitButtonVariant?: 'cta' | 'warning' | 'action' | 'primary' | 'secondary';
