@@ -8,7 +8,19 @@ import Switch from '../general-elements/switch';
 
 const numberOfSteps = 4;
 
-export function OnboardingPage() {
+/**
+ * The onboarding page component
+ *
+ * @returns The rendered {@link JSX.Element}
+ *
+ * @example
+ * ```tsx
+ * <Route exact path="/onboarding">
+ *     <OnboardingPage />
+ * </Route>
+ * ```
+ */
+export function OnboardingPage(): JSX.Element {
 	const logger = useLogger('Onboarding screen');
 	const [currentStep, setCurrentStep] = useState(0);
 	const [state, setState] = useState({
