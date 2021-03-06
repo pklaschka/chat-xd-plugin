@@ -1,12 +1,11 @@
 // <reference "cypress" />
-// @ts-ignore
 import { mount, mountHook } from 'cypress-react-unit-test';
 import React from 'react';
 import useAsyncRenderer from './useAsyncRenderer';
 
 describe('useAsyncRenderer', () => {
-	let resolve: Function;
-	let reject: Function;
+	let resolve: (v: any) => void;
+	let reject: (v: any) => void;
 
 	it('works', () => {
 		mountHook(() =>
@@ -48,7 +47,24 @@ describe('useAsyncRenderer', () => {
 	});
 });
 
-function Testbench(props: { promise: Promise<any> }) {
+/**
+ * Params for the {@link Testbench} component
+ */
+type TestbenchParams = { promise: Promise<any> };
+
+/**
+ * A React component for testing the `useAsyncRenderer` hook
+ *
+ * @param props - the props passed to the component
+ *
+ * @returns the rendered {@link JSX.Element}
+ *
+ * @example
+ * ```tsx
+ * mount(<Testbench promise={promise} />);
+ * ```
+ */
+function Testbench(props: TestbenchParams) {
 	return useAsyncRenderer(
 		props.promise,
 		(res) => <code>Resolved: {res.toString()}</code>,
