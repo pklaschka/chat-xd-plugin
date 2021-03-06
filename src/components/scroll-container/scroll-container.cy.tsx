@@ -1,7 +1,6 @@
 /// <reference types="cypress" />
 import mount from 'cypress-react-unit-test';
 import React from 'react';
-import DocumentModel from '../../model/document/document-model';
 import '../chat/chat.scss';
 import ScrollContainer from './scroll-container';
 
@@ -11,7 +10,7 @@ Cypress.Commands.add('mountScrollContainer', () => {
 	mount(
 		<div className="wrapper">
 			<main>
-				<ScrollContainer model={new DocumentModel()}>
+				<ScrollContainer>
 					<ul>
 						{rows.map((value) => (
 							<li key={value}>{value}</li>
