@@ -43,6 +43,7 @@ module.exports = {
 		'jsdoc/require-property-type': 0,
 		'jsdoc/require-returns-type': 0,
 		'jsdoc/require-example': 2,
-		'@typescript-eslint/no-explicit-any': 0
+		'@typescript-eslint/no-explicit-any': 0,
+		'@typescript-eslint/ban-ts-comment': 0
 	}
 };
