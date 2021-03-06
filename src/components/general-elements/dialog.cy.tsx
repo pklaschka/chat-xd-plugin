@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 // @ts-ignore
-import { mount } from 'cypress-react-unit-test';
+import { mount } from '@cypress/react';
 import React from 'react';
 import { RefObject, useCustomRef } from '../../hooks/useCustomRef';
 import { CANCELED, DialogRef, XDDialog } from './dialog';

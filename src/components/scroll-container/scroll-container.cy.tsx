@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-import mount from 'cypress-react-unit-test';
+import { mount } from '@cypress/react';
 import React from 'react';
 import '../chat/chat.scss';
 import ScrollContainer from './scroll-container';

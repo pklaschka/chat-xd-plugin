@@ -1,5 +1,5 @@
 // <reference "cypress" />
-import { mountHook } from 'cypress-react-unit-test';
+import { mountHook } from '@cypress/react';
 import { RefObject, useCustomRef } from './useCustomRef';
 
 describe('useCustomRef', () => {
