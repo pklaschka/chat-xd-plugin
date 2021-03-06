@@ -28,7 +28,7 @@ export const UXPLogger: LogFunctionFactory = () => {
 		});
 	}
 
-	if (file!.isFile) {
+	if (file.isFile) {
 		await file.write(
 			`\r\n[ ${new Date().toISOString()} ]\t[ META ]\t[ NEW SESSION ]\tn/a`,
 			{
