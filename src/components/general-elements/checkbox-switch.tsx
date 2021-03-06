@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import Switch from './switch';
 
+/**
+ * Props passed to the {@link CheckboxSwitch} component
+ */
 interface CheckboxSwitchProps {
-	onChange?: Function;
+	onChange?: (newValue: boolean) => void;
 	[key: string]: any;
 }
 
+/**
+ * A Switch component that uses an `<input type="checkbox" ref={ref} />` under
+ * the hood so that it can easily be used as an uncontrolled component
+ */
 export const CheckboxSwitch = React.forwardRef(
 	(
-		{ onChange, children, defaultValue, ...args }: CheckboxSwitchProps,
+		{ onChange, children, defaultValue }: CheckboxSwitchProps,
 		ref: React.Ref<HTMLInputElement>
 	) => {
 		const [state, setState] = useState(false);
