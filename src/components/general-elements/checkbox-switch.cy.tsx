@@ -1,7 +1,6 @@
 /// <reference types="cypress" />
 import mount from '@cypress/react';
 import React from 'react';
-// @ts-ignore
 import { CheckboxSwitch } from './checkbox-switch';
 
 describe('Checkbox Switch', () => {

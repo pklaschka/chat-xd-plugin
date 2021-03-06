@@ -1,20 +1,37 @@
 /// <reference types="cypress" />
-// @ts-ignore
 import { mount } from '@cypress/react';
 import React from 'react';
 import { RefObject, useCustomRef } from '../../../hooks/useCustomRef';
 import { CANCELED, DialogRef, XDDialog } from './xd-dialog';
 
 /**
- * @param props
- * @param props.children
- * @param props.onResult
- * @example
+ * Props passed to the {@link Testbench} component
  */
-function Parent<T>(props: {
+type TestbenchProps<T> = {
 	children: (dialogRef: RefObject<DialogRef<T>>) => React.ReactNode;
 	onResult?: (result: T | typeof CANCELED) => void;
-}) {
+};
+
+/**
+ * A testbench component for testing the {@link XDDialog} component
+ *
+ * @param props - the props passed to the component
+ * @returns the rendered {@link JSX.Element}
+ *
+ * @example
+ * ```tsx
+ * mount(
+ *     <Testbench>
+ *         {(dialogRef) => (
+ *             <XDDialog customRef={dialogRef} initialState={3}>
+ *                 {() => <h1>Hello world</h1>}
+ *             </XDDialog>
+ *         )}
+ *     </Testbench>
+ * );
+ * ```
+ */
+function Testbench<T>(props: TestbenchProps<T>): JSX.Element {
 	const dialogRef = useCustomRef<DialogRef<T>>(null);
 
 	return (
@@ -38,13 +55,13 @@ function Parent<T>(props: {
 describe('Dialog component', () => {
 	it('works', () => {
 		mount(
-			<Parent>
+			<Testbench>
 				{(dialogRef) => (
 					<XDDialog customRef={dialogRef} initialState={3}>
 						{() => <h1>Hello world</h1>}
 					</XDDialog>
 				)}
-			</Parent>
+			</Testbench>
 		);
 		cy.get('#cy-open-dialog').click();
 
@@ -55,13 +72,13 @@ describe('Dialog component', () => {
 
 	it('shows the dialog when show() gets called', () => {
 		mount(
-			<Parent>
+			<Testbench>
 				{(dialogRef) => (
 					<XDDialog customRef={dialogRef} initialState={3}>
 						{() => <h1>Hello world</h1>}
 					</XDDialog>
 				)}
-			</Parent>
+			</Testbench>
 		);
 		cy.get('dialog').should('not.be.visible');
 		cy.get('#cy-open-dialog').click();
@@ -73,13 +90,13 @@ describe('Dialog component', () => {
 		const onResult = cy.stub().log().as('onResult');
 
 		mount(
-			<Parent onResult={onResult}>
+			<Testbench onResult={onResult}>
 				{(dialogRef) => (
 					<XDDialog customRef={dialogRef} initialState={3}>
 						{() => <h1>Hello world</h1>}
 					</XDDialog>
 				)}
-			</Parent>
+			</Testbench>
 		);
 		cy.get('#cy-open-dialog').click();
 		cy.contains('Cancel')
@@ -93,13 +110,13 @@ describe('Dialog component', () => {
 		const onResult = cy.stub().log().as('onResult');
 
 		mount(
-			<Parent onResult={onResult}>
+			<Testbench onResult={onResult}>
 				{(dialogRef) => (
 					<XDDialog customRef={dialogRef} initialState={3}>
 						{() => <h1>Hello world</h1>}
 					</XDDialog>
 				)}
-			</Parent>
+			</Testbench>
 		);
 		cy.get('#cy-open-dialog').click();
 		cy.contains('Ok')

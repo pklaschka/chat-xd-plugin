@@ -5,7 +5,8 @@ import './xd-dialog.scss';
 export const CANCELED = Symbol('Canceled');
 
 /**
- *
+ * An that gets "filled" into the `customRef` prop passed to a {@link XDDialog}
+ * component.
  */
 export interface DialogRef<T> {
 	/**
@@ -17,10 +18,32 @@ export interface DialogRef<T> {
 }
 
 /**
- * @param props
+ * An element to render a native XD plugin dialog
+ *
+ * @param props - the props passed to the dialog
+ *
+ * @returns the rendered {@link JSX.Element}
+ *
  * @example
+ * ```tsx
+ * <XDDialog
+ *     customRef={dialogRef}
+ *     initialState={true}
+ *     submitButtonText={'Delete'}
+ *     submitButtonVariant={'warning'}>
+ *     {() => (
+ *         <>
+ *             <h1>Delete message?</h1>
+ *             <p>
+ *                 Do you really want to delete this message? This cannot be
+ *                 undone.
+ *             </p>
+ *         </>
+ *     )}
+ * </XDDialog>
+ * ```
  */
-export function XDDialog<T>(props: XDDialogProps<T>) {
+export function XDDialog<T>(props: XDDialogProps<T>): JSX.Element {
 	const dialogRef = useRef<HTMLDialogElement>(null);
 	const formRef = useRef<HTMLFormElement>(null);
 

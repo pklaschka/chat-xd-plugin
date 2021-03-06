@@ -3,7 +3,7 @@ import { RefObject } from '../../../hooks/useCustomRef';
 import { DialogRef } from './xd-dialog';
 
 /**
- *
+ * Props for the {@link XDDialog} component
  */
 export interface XDDialogProps<T> {
 	submitButtonText?: string;
