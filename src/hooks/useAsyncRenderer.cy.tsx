@@ -1,5 +1,5 @@
 // <reference "cypress" />
-import { mount, mountHook } from 'cypress-react-unit-test';
+import { mount, mountHook } from '@cypress/react';
 import React from 'react';
 import useAsyncRenderer from './useAsyncRenderer';
 

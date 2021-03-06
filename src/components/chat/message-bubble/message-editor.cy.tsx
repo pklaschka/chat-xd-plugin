@@ -1,6 +1,6 @@
 // <reference "cypress" />
 // @ts-ignore
-import { mount } from 'cypress-react-unit-test';
+import { mount } from '@cypress/react';
 import React from 'react';
 import { MessageEditor } from './message-editor';
 
