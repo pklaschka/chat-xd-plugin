@@ -1,24 +1,27 @@
 if (window.setTimeout == null) {
-	// @ts-ignore
 	window.setTimeout = function (fn) {
 		fn();
 	};
 }
 
 if (window.clearTimeout == null) {
-	window.clearTimeout = function () {};
+	window.clearTimeout = function () {
+		/* NoOp */
+	};
 }
 
 if (window.cancelAnimationFrame == null) {
-	window.cancelAnimationFrame = function () {};
+	window.cancelAnimationFrame = function () {
+		/* NoOp */
+	};
 }
 if (window.requestAnimationFrame == null) {
-	// @ts-ignore
 	window.requestAnimationFrame = function () {
 		console.log('requestAnimationFrame is not supported yet');
 	};
 }
 if (window.HTMLIFrameElement == null) {
-	// @ts-ignore
-	window.HTMLIFrameElement = class HTMLIFrameElement {};
+	window.HTMLIFrameElement = class HTMLIFrameElement {
+		/* NoOp */
+	};
 }
