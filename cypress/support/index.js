@@ -19,7 +19,7 @@ require('./commands');
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
-require('cypress-react-unit-test/support');
+require('@cypress/react/support');
 require('./xd-mock');
 
 require('./xd-styles-mock.scss');
