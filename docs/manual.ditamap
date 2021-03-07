@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map xml:lang="en">
+    <title>User Manual</title>
+    <topicmeta>
+        <author>Pablo Klaschka</author>
+        <author type="contributor">Pablo Klaschka</author>
+        <critdates>
+            <!--Pablo Klaschka-->
+            <revised modified="2021-03-07"/>
+        </critdates>
+    </topicmeta>
+    <topichead navtitle="Concepts">
+        <topicref href="topics/concepts/document-chat.dita"/>
+        <topicref href="topics/concepts/adobe-xd.dita" collection-type="unordered">
+            <topicref href="topics/concepts/plugins.dita"/>
+            <topicref href="topics/concepts/cloud-documents.dita"/>
+            <topicref href="topics/concepts/coediting.dita"/>
+            <topicref href="topics/concepts/document-metadata.dita"/>
+        </topicref>
+        <topicref href="topics/concepts/gravatar.dita"/>
+        <topicref href="topics/concepts/open-source.dita"/>
+    </topichead>
+    <topichead navtitle="Tasks">
+        <topicref href="topics/tasks/installing-the-plugin.dita" collection-type="choice">
+            <topicref href="topics/tasks/installing-via-the-plugin-manager.dita"/>
+            <topicref href="topics/tasks/installing-from-an-xdx-file.dita"/>
+        </topicref>
+        <topicref href="topics/tasks/opening-the-plugin-panel.dita"/>
+        <topicref href="topics/tasks/enabling-coediting-in-a-document.dita"/>
+        <topicref href="topics/tasks/writing-a-message.dita"/>
+        <topicref href="topics/tasks/editing-a-message.dita"/>
+        <topicref href="topics/tasks/deleting-a-message.dita"/>
+        <topicref href="topics/tasks/jumping-to-a-message-s-viewport-position.dita"/>
+        <topicref href="topics/tasks/adjusting-the-plugin-settings.dita"/>
+    </topichead>
+    <topichead navtitle="Reference">
+        <topicref href="topics/references/plugin-settings.dita"/>
+        <topicref href="topics/references/compatibility-chart.dita"/>
+        <topicref href="topics/references/links-resources.dita"/>
+        <topicref href="topics/attribution.dita"/>
+    </topichead>
+    <reltable>
+        <relrow>
+            <relcell>
+                <topicref href="topics/concepts/cloud-documents.dita"/>
+                <topicref href="topics/concepts/coediting.dita"/>
+            </relcell>
+            <relcell>
+                <topicref href="topics/tasks/enabling-coediting-in-a-document.dita"/>
+            </relcell>
+        </relrow>
+        <relrow>
+            <relcell>
+                <topicref href="topics/concepts/document-metadata.dita"/>
+            </relcell>
+            <relcell>
+                <topicref href="topics/references/plugin-settings.dita"/>
+                <topicref href="topics/tasks/opening-the-plugin-panel.dita"/>
+                <topicref href="topics/tasks/adjusting-the-plugin-settings.dita"/>
+            </relcell>
+        </relrow>
+        <relrow>
+            <relcell>
+                <topicref href="topics/references/plugin-settings.dita"/>
+            </relcell>
+            <relcell>
+                <topicref href="topics/concepts/gravatar.dita"/>
+                <topicref href="topics/tasks/adjusting-the-plugin-settings.dita"/>
+                <topicref href="topics/tasks/opening-the-plugin-panel.dita"/>
+            </relcell>
+        </relrow>
+        <relrow>
+            <relcell>
+                <topicref href="topics/concepts/adobe-xd.dita" />
+            </relcell>
+            <relcell>
+                <topicref href="topics/attribution.dita"/>
+            </relcell>
+        </relrow>
+    </reltable>
+</map>

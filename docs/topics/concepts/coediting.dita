@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="coediting">
+    <title>Coediting</title>
+    <shortdesc><term>Coediting</term> is a feature in Adobe XD that enables more than one user to
+        edit the same document together in real-time.</shortdesc>
+    <prolog>
+        <author type="contributor">Pablo Klaschka</author>
+        <critdates>
+            <!--Pablo Klaschka-->
+            <revised modified="2021-03-07"/>
+        </critdates>
+    </prolog>
+    <conbody>
+        <p>The plugin works ideally in Coediting environments, as messages get saved in the
+            document's metadata and synced using XD (meaning in real time, if users enable
+            coediting).</p>
+    </conbody>
+</concept>

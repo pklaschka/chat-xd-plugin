@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="adobe_xd">
+    <title>Adobe XD</title>
+    <shortdesc><q><term>Adobe XD</term> is a vector-based user experience design tool for web apps
+            and mobile apps, developed and published by Adobe Inc</q> (<cite>Wikipedia contributors.
+            "Adobe XD." <i>Wikipedia, The Free Encyclopedia</i>. Wikipedia, The Free Encyclopedia,
+            23 Jan. 2021. Web. 7 Mar. 2021.</cite>)</shortdesc>
+    <prolog>
+        <author type="contributor">Pablo Klaschka</author>
+        <critdates>
+            <!--Pablo Klaschka-->
+            <revised modified="2021-03-07"/>
+        </critdates>
+    </prolog>
+</concept>

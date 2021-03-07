@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="document_metadata">
+    <title>Document Metadata</title>
+    <shortdesc><term>Document Metadata</term> (also: <term>Plugin Data</term> or just
+            <term>Metadata</term>) is data stored by plugins within a document in an
+            <i>invisible</i> storage.</shortdesc>
+    <prolog>
+        <author type="contributor">Pablo Klaschka</author>
+        <critdates>
+            <!--Pablo Klaschka-->
+            <revised modified="2021-03-07"/>
+        </critdates>
+    </prolog>
+    <conbody>
+        <p>Metadata is comparable to any other content of a document (such as a rectangle, a text, a
+            layer name, etc.), but not visible to the user.</p>
+        <p>Plugin Data gets stored on a per-plugin basis, meaning a plugin can (except in explicit
+            exceptions) only access and / or edit its own data in a document.<note type="warning"
+                >While all plugins can only read their own metadata from a document, it's still easy
+                to extract from XD documents. Consider everyone with access to the document able to
+                access any data stored within the metdata in an un-encrypted way.</note></p>
+    </conbody>
+</concept>

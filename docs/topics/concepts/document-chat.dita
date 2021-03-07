@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="document_chat">
+    <title>Document Chat</title>
+    <shortdesc>A privacy-first chatting solution for Adobe XD Coediting documents. Chats are on a
+        per-document basis and stored within the document itself (instead of some external
+        server).</shortdesc>
+    <prolog>
+        <author type="contributor">Pablo Klaschka</author>
+        <critdates>
+            <!--Pablo Klaschka-->
+            <revised modified="2021-03-07"/>
+        </critdates>
+    </prolog>
+    <conbody>
+        <p>The plugin is free and open source under the GNU GPL v3 licenese.</p>
+        <p>The source code is available on GitHub at <xref
+                href="https://github.com/pklaschka/chat-xd-plugin" format="html" scope="external"
+            />.</p>
+    </conbody>
+</concept>

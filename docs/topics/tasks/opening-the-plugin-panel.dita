@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="opening_the_plugin_panel">
+    <title>Opening the plugin panel</title>
+    <shortdesc></shortdesc>
+    <prolog>
+        <author type="contributor">Pablo Klaschka</author>
+        <critdates>
+            <!--Pablo Klaschka-->
+            <revised modified="2021-03-07"/>
+        </critdates>
+    </prolog>
+    <taskbody>
+        <context>
+            <p></p>
+        </context>
+        <steps>
+            <step>
+                <cmd></cmd>
+            </step>
+        </steps>
+        <postreq id="postreq_e1b_f5n_w4b">
+            <note type="tip">When opening the plugin for the first time, the plugin will ask you to
+                answer some quick questions (configuring the plugin settings). For details on these
+                options, please refer to the reference for <xref
+                    href="../references/plugin-settings.dita"/>.</note>
+        </postreq>
+    </taskbody>
+</task>

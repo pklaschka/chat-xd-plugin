@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="attribution">
+    <title>Attribution</title>
+    <prolog>
+        <author type="creator">Pablo Klaschka</author>
+        <critdates>
+            <created date="2021-03-07"/>
+        </critdates>
+    </prolog>
+    <body>
+        <p><i>Adobe</i>, the <i>Adobe logo</i>, and <i>Adobe XD</i> are either registered trademarks
+            or trademarks of Adobe Systems Incorporated in the United States and/or other
+            countries.</p>
+    </body>
+</topic>

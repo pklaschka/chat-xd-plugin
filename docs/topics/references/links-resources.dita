@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="links_resources">
+    <title>Links &amp; Resources</title>
+    <shortdesc>Useful links and recources regarding the Document Chat plugin</shortdesc>
+    <prolog>
+        <author type="contributor">Pablo Klaschka</author>
+        <critdates>
+            <!--Pablo Klaschka-->
+            <revised modified="2021-03-07"/>
+        </critdates>
+    </prolog>
+    <refbody>
+        <section id="section_r4s_fsn_w4b">
+            <title>General</title>
+            <dl>
+                <dlentry>
+                    <dt>Plugin Homepage</dt>
+                    <dd><xref href="https://xdplugins.pabloklaschka.de/plugins/document-chat"
+                            format="html" scope="external"/></dd>
+                </dlentry>
+                <dlentry>
+                    <dt>GitHub Repository</dt>
+                    <dd><xref href="https://github.com/pklaschka/chat-xd-plugin" format="html"
+                            scope="external"/></dd>
+                </dlentry>
+                <dlentry>
+                    <dt>User forums (GitHub Discussions-based)</dt>
+                    <dd><xref href="https://github.com/pklaschka/chat-xd-plugin/discussions"
+                            format="html" scope="external"/></dd>
+                </dlentry>
+                <dlentry>
+                    <dt>Direct link to plugin in plugin manager</dt>
+                    <dd><xref
+                            href="https://xd.adobelanding.com/en/xd-plugin-download/?name=b60d0ee4"
+                            format="html" scope="external"/></dd>
+                </dlentry>
+            </dl>
+        </section>
+        <section id="section_yyf_hsn_w4b">
+            <title>Legal stuff</title>
+            <dl>
+                <dlentry>
+                    <dt>Legal Notice</dt>
+                    <dd><xref href="https://xdplugins.pabloklaschka.de/legal-notice" format="html"
+                            scope="external"/></dd>
+                </dlentry>
+                <dlentry>
+                    <dt>Privacy Policy</dt>
+                    <dd><xref href="https://xdplugins.pabloklaschka.de/privacy-policy" format="html"
+                            scope="external"/></dd>
+                </dlentry>
+            </dl>
+        </section>
+    </refbody>
+</reference>

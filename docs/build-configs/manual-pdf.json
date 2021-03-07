@@ -1,0 +1,5 @@
+{
+	"input": "../manual.ditamap",
+	"plugins": ["org.dita.pdf2", "../plugins/org.document-chat.pdf"],
+	"transtype": "document-chat-pdf"
+}

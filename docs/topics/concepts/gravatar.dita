@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="gravatar">
+    <title>Gravatar</title>
+    <shortdesc><term>Gravatar</term> is an online service provided by <i>Automattic Inc.</i> that
+        associates email addresses with avatar images (upon registration).</shortdesc>
+    <prolog>
+        <author type="contributor">Pablo Klaschka</author>
+        <critdates>
+            <!--Pablo Klaschka-->
+            <revised modified="2021-03-07"/>
+        </critdates>
+    </prolog>
+    <conbody>
+        <p>This plugins, upon optional acceptance, uses Gravatar to display avatars for plugin
+            users.</p>
+    </conbody>
+    <related-links>
+        <link href="https://gravatar.com/" format="html" scope="external"/>
+    </related-links>
+</concept>
