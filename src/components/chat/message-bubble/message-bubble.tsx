@@ -27,7 +27,7 @@ const parser = new MarkdownIt({
 	.disable('image');
 
 /**
- * The parameters for the {@link MessageBubble} component
+ * The props for the {@link MessageBubble} component
  */
 interface MessageBubbleProps {
 	/**
