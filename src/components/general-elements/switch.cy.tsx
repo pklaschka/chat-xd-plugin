@@ -6,7 +6,11 @@ import Switch from './switch';
 describe('Switch', () => {
 	it('works', () => {
 		mount(
-			<Switch onChange={() => {}} value={true}>
+			<Switch
+				onChange={() => {
+					/* NoOp */
+				}}
+				value={true}>
 				Hello World
 			</Switch>
 		);

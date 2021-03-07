@@ -46,5 +46,6 @@ module.exports = {
 		'@typescript-eslint/no-explicit-any': 0,
 		'@typescript-eslint/ban-ts-comment': 0,
 		'tsdoc-escape-greater-than': 0
-	}
+	},
+	ignorePatterns: ['node_modules', 'dist', 'coverage', '.nyc_output']
 };
