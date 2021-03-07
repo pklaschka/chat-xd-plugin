@@ -13,7 +13,7 @@
         </critdates>
     </prolog>
     <conbody>
-        <p>The plugin is free and open source under the GNU GPL v3 licenese.</p>
+        <p>The plugin is free and open source under the MIT license.</p>
         <p>The source code is available on GitHub at <xref
                 href="https://github.com/pklaschka/chat-xd-plugin" format="html" scope="external"
             />.</p>
