@@ -31,16 +31,19 @@ interface MessageViewerProps {
 
 /**
  * A viewer for the messages. Displays additional actions for own messages
- * @param props
  *
- * @example ```
+ * @param props - the props for the component
+ * @returns the rendered {@link JSX.Element}
+ *
+ * @example
+ * ```tsx
  * <li className="MessageBubble">
  *     [...]
  *     <MessageViewer [...] />
  *	</li>
  * ```
  */
-export function MessageViewer(props: MessageViewerProps) {
+export function MessageViewer(props: MessageViewerProps): JSX.Element {
 	return (
 		<>
 			<div

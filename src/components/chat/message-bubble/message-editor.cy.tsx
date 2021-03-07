@@ -1,5 +1,4 @@
 // <reference "cypress" />
-// @ts-ignore
 import { mount } from '@cypress/react';
 import React from 'react';
 import { MessageEditor } from './message-editor';
@@ -9,15 +8,26 @@ describe('MessageEditor', () => {
 		mount(
 			<MessageEditor
 				message={'Hello world'}
-				onCancel={() => {}}
-				onSubmit={() => {}}
+				onCancel={() => {
+					/* NoOp */
+				}}
+				onSubmit={() => {
+					/* NoOp */
+				}}
 			/>
 		);
 		cy.screenshot();
 	});
 
 	describe('component logic', () => {
-		let onSubmit: (newMessage: string) => {}, onCancel: () => {};
+		let onSubmit: (
+				newMessage: string
+			) => {
+				/* NoOp */
+			},
+			onCancel: () => {
+				/* NoOp */
+			};
 
 		beforeEach(() => {
 			onSubmit = cy.stub().as('onSubmit');

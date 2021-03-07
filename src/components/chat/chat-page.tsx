@@ -1,34 +1,36 @@
-import React, { useMemo } from 'react';
+import React from 'react';
+import { useLocalSettingsPromise } from '../../hooks/use-local-settings-promise';
 import useAsyncRenderer from '../../hooks/useAsyncRenderer';
 import useLogger from '../../hooks/useLogger';
 import DocumentModel from '../../model/document/document-model';
-import LocalSettings from '../../model/local/local-settings';
 import { Header } from '../general-elements/header/header';
 import ScrollContainer from '../scroll-container/scroll-container';
-import './chat.scss';
+import './chat-page.scss';
 import ChatMessageEditor from './editor/editor';
 import { MessageBubble } from './message-bubble/message-bubble';
 
 /**
- * @param root0
- * @param root0.model
- * @param root0.dialog
- * @example
+ * The props for the {@link ChatPage} component
  */
-export function ChatPage({
-	model,
-	dialog
-}: {
+type ChatPageProps = {
 	model: DocumentModel;
-	dialog?: HTMLDialogElement;
-}) {
-	const authorPromise = useMemo(() => LocalSettings.getAuthor(), []);
-	const gravatarPromise = useMemo(() => LocalSettings.getGravatar(), []);
+};
 
-	const allPromise = useMemo(
-		() => Promise.all([authorPromise, gravatarPromise]),
-		[authorPromise, gravatarPromise]
-	);
+/**
+ * The chat page component
+ *
+ * @param props - the props
+ * @returns the rendered {@link JSX.Element}
+ *
+ * @example
+ * ```tsx
+ * <Route exact path="/chat">
+ *     <ChatPage model={documentModel} dialog={dialogElement} />
+ * </Route>
+ * ```
+ */
+export function ChatPage(props: ChatPageProps): JSX.Element {
+	const allPromise = useLocalSettingsPromise();
 
 	return useAsyncRenderer(
 		allPromise,
@@ -38,11 +40,11 @@ export function ChatPage({
 				<main>
 					<ScrollContainer>
 						<ul>
-							{model.messages.map((message, index) => (
+							{props.model.messages.map((message, index) => (
 								<MessageBubble
 									key={index}
 									message={message}
-									model={model}
+									model={props.model}
 									me={author}
 									gravatar={gravatar}
 								/>
@@ -51,8 +53,7 @@ export function ChatPage({
 					</ScrollContainer>
 				</main>
 				<footer>
-					<ChatMessageEditor model={model} />
-					{dialog && <button onClick={() => dialog.close()}>Close</button>}
+					<ChatMessageEditor model={props.model} />
 				</footer>
 			</div>
 		),

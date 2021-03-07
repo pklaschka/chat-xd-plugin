@@ -16,18 +16,38 @@ enum LoadedState {
 	 */
 	LOADING,
 	/**
-	 * No author has been set up => Redirect to setup
+	 * No author has been set up → Redirect to setup
 	 */
 	NO_AUTHOR,
 	/**
-	 * Author is set up => ready to chat
+	 * Author is set up → ready to chat
 	 */
 	READY
 }
 
 const logger = useLogger('Chat Message Editor');
 
-export default function ChatMessageEditor({ model }: { model: DocumentModel }) {
+/**
+ * Props for the {@link ChatMessageEditor} component
+ */
+type ChatMessageEditorProps = { model: DocumentModel };
+
+/**
+ * A component for writing/editing messages.
+ *
+ * Typically placed in the footer.
+ *
+ * @param props - the props
+ * @returns the rendered {@link JSX.Element}
+ *
+ * @example
+ * ```tsx
+ * <ChatMessageEditor model={documentModel} />
+ * ```
+ */
+export default function ChatMessageEditor(
+	props: ChatMessageEditorProps
+): JSX.Element {
 	const [message, setMessage] = useState<string>('');
 	const [loadedState, setLoadedState] = useState<LoadedState>(
 		LoadedState.LOADING
@@ -45,7 +65,7 @@ export default function ChatMessageEditor({ model }: { model: DocumentModel }) {
 		if (message.trim().length) {
 			logger.debug('Submitting message', message.trim());
 
-			model.update(async (model) => {
+			props.model.update(async (model) => {
 				const author = await localSettings.getAuthor();
 
 				// Add or update author profile data in document data

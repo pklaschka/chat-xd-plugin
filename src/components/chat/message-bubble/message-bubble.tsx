@@ -29,7 +29,7 @@ const parser = new MarkdownIt({
 /**
  * The parameters for the {@link MessageBubble} component
  */
-interface MessageBubbleParams {
+interface MessageBubbleProps {
 	/**
 	 * The message displayed by the {@link MessageBubble}
 	 */
@@ -65,9 +65,21 @@ enum MessageBubbleState {
 /**
  * A message bubble for a single message
  *
- * @param props
+ * @param props - the props
+ * @returns the rendered {@link JSX.Element}
+ *
+ * @example
+ * ```tsx
+ * <MessageBubble
+ *     key={index}
+ *     message={message}
+ *     model={props.model}
+ *     me={author}
+ *     gravatar={gravatar}
+ * />
+ * ```
  */
-export function MessageBubble(props: MessageBubbleParams) {
+export function MessageBubble(props: MessageBubbleProps): JSX.Element {
 	const [state, setState] = useState(MessageBubbleState.NORMAL);
 
 	const { content, date, authorUUID } = props.message;

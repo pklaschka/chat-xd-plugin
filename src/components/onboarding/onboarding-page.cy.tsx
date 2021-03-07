@@ -3,7 +3,7 @@
 import { mount } from '@cypress/react';
 import React from 'react';
 import '../../main.scss';
-import '../chat/chat.scss';
+import '../chat/chat-page.scss';
 import { OnboardingPage } from './onboarding-page';
 
 describe('Onboarding component', () => {

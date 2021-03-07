@@ -37,7 +37,7 @@ describe('Avatar component', () => {
 			cy.screenshot();
 		});
 
-		it('should use "A" as initial if the auhtor\'s name is empty', () => {
+		it('should use "A" as initial if the author\'s name is empty', () => {
 			mount(
 				<Avatar gravatar={false} author={Object.assign(user, { name: '' })} />
 			);

@@ -9,7 +9,8 @@ import useLogger from '../../../hooks/useLogger';
 interface MessageEditorProps {
 	/**
 	 * Callback for when the edited message gets submitted
-	 * @param newMessage the new, modified message, with trimmed whitespace at the beginning and end
+	 *
+	 * @param newMessage - the new, modified message, with trimmed whitespace at the beginning and end
 	 */
 	onSubmit: (newMessage: string) => void;
 	/**
@@ -24,16 +25,19 @@ interface MessageEditorProps {
 
 /**
  * An editor for the messages inside the {@link MessageBubble}
- * @param props
  *
- * @example ```
+ * @param props - the props
+ * @returns the rendered {@link JSX.Element}
+ *
+ * @example
+ * ```tsx
  * <li className="MessageBubble">
  *     [...]
  *     <MessageEditor [...] />
  *	</li>
  * ```
  */
-export function MessageEditor(props: MessageEditorProps) {
+export function MessageEditor(props: MessageEditorProps): JSX.Element {
 	const [value, setValue] = useState(props.message);
 
 	const onSubmit = useCallback(() => {

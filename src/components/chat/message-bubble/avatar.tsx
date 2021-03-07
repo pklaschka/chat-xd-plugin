@@ -24,9 +24,16 @@ interface AvatarProps {
  * - a Gravatar avatar if `props.gravatar`
  * - a placeholder picture (consisting of the initial letter of the author's name) else
  *
- * @param props
+ * @param props - the props
+ * @returns the rendered {@link JSX.Element}
+ *
+ * @example
+ * ```tsx
+ * <Avatar author={author} gravatar={true} /> // Gravatar of author (online)
+ * <Avatar author={author} gravatar={false} /> // Initials of author (offline)
+ * ```
  */
-export function Avatar(props: AvatarProps) {
+export function Avatar(props: AvatarProps): JSX.Element {
 	const hash = md5(props.author.gravatarMail ?? '');
 	const initial = props.author.name.charAt(0) || 'A';
 	return props.gravatar ? (
