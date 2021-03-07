@@ -15,26 +15,25 @@ window.logTSV = {
 	async read() {
 		return '';
 	},
-	async write(content) {},
+	async write() {},
 	isFile: true
 };
 
 window.datafolder = {
 	async getEntry(name) {
 		// cy.log('getEntry', name);
-		return name === 'storage.json' ? storageJSON : logTSV;
+		return name === 'storage.json' ? window.storageJSON : window.logTSV;
 	},
-	async createFile(name) {
+	async createFile() {
 		return {
 			isFile: true,
-			async write(content) {
+			async write() {
 				// cy.log(content);
 			}
 		};
 	},
-	async createEntry(name) {
-		// cy.log('createEntry', name);
-		return storageJSON;
+	async createEntry() {
+		return window.storageJSON;
 	}
 };
 
@@ -42,7 +41,7 @@ window.uxp = {
 	storage: {
 		localFileSystem: {
 			async getDataFolder() {
-				return datafolder;
+				return window.datafolder;
 			}
 		},
 		types: {
@@ -67,8 +66,7 @@ window.application = {
 window.viewport = {};
 
 const superShowModal = HTMLDialogElement.prototype.showModal,
-	superCloseModal = HTMLDialogElement.prototype.close,
-	superOnSubmit = HTMLFormElement.prototype.submit;
+	superCloseModal = HTMLDialogElement.prototype.close;
 
 HTMLDialogElement.prototype.showModal = function () {
 	superShowModal.apply(this, arguments);
