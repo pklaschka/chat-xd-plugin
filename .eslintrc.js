@@ -44,6 +44,7 @@ module.exports = {
 		'jsdoc/require-returns-type': 0,
 		'jsdoc/require-example': 2,
 		'@typescript-eslint/no-explicit-any': 0,
-		'@typescript-eslint/ban-ts-comment': 0
+		'@typescript-eslint/ban-ts-comment': 0,
+		'tsdoc-escape-greater-than': 0
 	}
 };

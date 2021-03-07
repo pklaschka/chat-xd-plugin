@@ -1,12 +1,11 @@
 // <reference "cypress" />
-// @ts-ignore
 import { mount } from '@cypress/react';
 import React from 'react';
 import '../../../main.scss';
 import Author from '../../../model/document/author';
 import DocumentModel from '../../../model/document/document-model';
 import Message from '../../../model/document/message';
-import '../chat.scss';
+import '../chat-page.scss';
 import { MessageBubble } from './message-bubble';
 
 const anyWindow: any = window;
@@ -68,7 +67,9 @@ Cypress.Commands.add(
 );
 
 describe('Message Bubble Component', () => {
-	beforeEach(() => {});
+	beforeEach(() => {
+		/* NoOp */
+	});
 
 	it('works', () => {
 		// @ts-ignore

@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 import { mount } from '@cypress/react';
 import React from 'react';
-import '../chat/chat.scss';
+import '../chat/chat-page.scss';
 import ScrollContainer from './scroll-container';
 
 Cypress.Commands.add('mountScrollContainer', () => {

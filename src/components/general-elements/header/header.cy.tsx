@@ -2,7 +2,7 @@
 import mount from '@cypress/react';
 import React from 'react';
 import { HashRouter } from 'react-router-dom';
-import '../../chat/chat.scss';
+import '../../chat/chat-page.scss';
 import { Header } from './header';
 
 /**
