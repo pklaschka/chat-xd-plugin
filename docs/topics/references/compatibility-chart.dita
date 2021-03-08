@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="compatibility_chart">
+    <title>Compatibility chart</title>
+    <shortdesc>Overview of the compatiblity of specific plugin versions with XD
+        versions.</shortdesc>
+    <prolog>
+        <author type="contributor">Pablo Klaschka</author>
+        <critdates>
+            <!--Pablo Klaschka-->
+            <revised modified="2021-03-07"/>
+        </critdates>
+    </prolog>
+    <refbody>
+        <simpletable relcolwidth="1* 1* 1* 1*" id="simpletable_ukk_3rn_w4b">
+            <sthead>
+                <stentry>Plugin Version</stentry>
+                <stentry>Plugin Release Date</stentry>
+                <stentry>Minimum Adobe XD version</stentry>
+                <stentry>XD Release Date</stentry>
+            </sthead>
+            <strow>
+                <stentry>>= 0.4.0</stentry>
+                <stentry>October 2020</stentry>
+                <stentry>>= 25.0</stentry>
+                <stentry>December 2019</stentry>
+            </strow>
+        </simpletable>
+    </refbody>
+</reference>

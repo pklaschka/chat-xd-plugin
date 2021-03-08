@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="plugin_settings">
+    <title>Plugin Settings</title>
+    <shortdesc>Overview of all the configurable plugin settings.</shortdesc>
+    <prolog>
+        <author type="contributor">Pablo Klaschka</author>
+        <critdates>
+            <!--Pablo Klaschka-->
+            <revised modified="2021-03-07"/>
+        </critdates>
+    </prolog>
+    <refbody>
+        <properties id="properties_uhk_psn_w4b">
+            <prophead>
+                <proptypehd>Setting</proptypehd>
+                <propvaluehd>Details</propvaluehd>
+                <propdeschd>Description</propdeschd>
+            </prophead>
+            <property>
+                <proptype>Name</proptype>
+                <propvalue>optional</propvalue>
+                <propdesc>Your name. Doesn't have to be the real one. Can also be blank, in which
+                    case, you'll be chatting as <q>Anonymous</q>. Your co-workers will thank you, if
+                    you give a name, though, and doesn't reach external servers, anyways.</propdesc>
+            </property>
+            <property>
+                <proptype>Gravatar E-Mail Address</proptype>
+                <propvalue>optional</propvalue>
+                <propdesc>Your email address registered with the Gravatar service. If you enter it,
+                    it will get saved in each document you write a message in. Enables co-workers
+                    to, if enabled on their end, see a profile picture in your messages.</propdesc>
+            </property>
+            <property>
+                <proptype>Use Gravatar avatars</proptype>
+                <propvalue>yes or no, no by default</propvalue>
+                <propdesc>If enabled, the plugin will load profile pictures from Gravatar for the
+                    messages you see and display them <b>to you</b> (when you have an internet
+                    connection). This, for technical reasons, requires sending some data (no message
+                    contents or anything like that) to the service providers of Gravatar. As this
+                    feature is nice-to have, but may be a privacy concern for you, it's purely
+                    opt-in (meaning turned off by default).</propdesc>
+            </property>
+        </properties>
+    </refbody>
+</reference>

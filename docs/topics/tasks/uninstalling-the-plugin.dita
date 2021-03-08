@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="uninstalling_the_plugin">
+    <title>Uninstalling the plugin</title>
+    <shortdesc>Uninstalling is just as easy as installing the plugin in the first place.</shortdesc>
+    <prolog>
+        <author type="contributor">Pablo Klaschka</author>
+        <critdates>
+            <!--Pablo Klaschka-->
+            <revised modified="2021-03-08"/>
+        </critdates>
+    </prolog>
+    <taskbody>
+        <context id="context_nsy_pw5_w4b">
+            <note type="important">Please note that uninstalling the plugin doesn't remove the
+                metadata from the documents. Furthermore, after re-installing, the plugin might no
+                longer recognize you as the original message's writer and, thus, deny you editing or
+                deleting these messages.</note>
+        </context>
+        <steps>
+            <step>
+                <cmd>In XD, click <menucascade>
+                        <uicontrol>Plugins</uicontrol>
+                        <uicontrol>Manage Plugins</uicontrol>
+                    </menucascade></cmd>
+            </step>
+            <step>
+                <cmd>Under <uicontrol>Document Chat</uicontrol>, click <menucascade>
+                        <uicontrol><image href="../../material/images/icons/Smock_More_18_N.png"
+                                id="image_jdf_hx5_w4b"/></uicontrol>
+                        <uicontrol>Uninstall</uicontrol>
+                    </menucascade></cmd>
+            </step>
+        </steps>
+        <result id="result_ivf_3x5_w4b">The plugin gets uninstalled.</result>
+    </taskbody>
+</task>

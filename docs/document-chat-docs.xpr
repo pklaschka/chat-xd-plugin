@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <meta>
+        <filters directoryPatterns="" filePatterns="\Qdocument-chat-docs.xpr\E" positiveFilePatterns="" showHiddenFiles="false"/>
+        <options>
+            <serialized xml:space="preserve">
+                <serializableOrderedMap>
+                    <entry>
+                        <String>Filename_generation_from_topic_title_options</String>
+                        <titleBasedFileNameGenerationOptions>
+                            <field name="charToReplaceSpacesWith">
+                                <String>-</String>
+                            </field>
+                            <field name="allLowerCase">
+                                <Boolean>true</Boolean>
+                            </field>
+                            <field name="upperCaseFirstLetter">
+                                <Boolean>false</Boolean>
+                            </field>
+                            <field name="howToGenerateFilenameFromTitle">
+                                <Integer>0</Integer>
+                            </field>
+                        </titleBasedFileNameGenerationOptions>
+                    </entry>
+                    <entry>
+                        <String>ask.open.ditamap.in.dita.manager</String>
+                        <Integer>1</Integer>
+                    </entry>
+                    <entry>
+                        <String>key.dita.option.pane</String>
+                        <Boolean>true</Boolean>
+                    </entry>
+                    <entry>
+                        <String>key.media.tab.defined.working.sets</String>
+                        <mediaWorkingSetPO-array>
+                            <mediaWorkingSetPO>
+                                <field name="workingSetEntries">
+                                    <list>
+                                        <workingSetEntry>
+                                            <field name="entryType">
+                                                <String>Folder_entry_type</String>
+                                            </field>
+                                            <field name="value">
+                                                <String>${pdu}/material/images/icons/</String>
+                                            </field>
+                                        </workingSetEntry>
+                                    </list>
+                                </field>
+                                <field name="wSetName">
+                                    <String>Neues Arbeitsset</String>
+                                </field>
+                                <field name="isSelected">
+                                    <Boolean>true</Boolean>
+                                </field>
+                            </mediaWorkingSetPO>
+                        </mediaWorkingSetPO-array>
+                    </entry>
+                    <entry>
+                        <String>key.topics.option.pane</String>
+                        <Boolean>true</Boolean>
+                    </entry>
+                </serializableOrderedMap>
+            </serialized>
+        </options>
+    </meta>
+    <projectTree name="document-chat-docs.xpr">
+        <folder path="."/>
+    </projectTree>
+</project>

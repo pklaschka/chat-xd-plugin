@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="plugins">
+    <title>Plugins</title>
+    <shortdesc>Plugins are tools using the Extensibility platform provided by Adobe XD to extend the
+        functionality of XD.</shortdesc>
+    <prolog>
+        <author type="contributor">Pablo Klaschka</author>
+        <critdates>
+            <!--Pablo Klaschka-->
+            <revised modified="2021-03-07"/>
+        </critdates>
+    </prolog>
+    <conbody>
+        <note type="note">Plugins can only add functionality supported by the interface provided by
+            the host application (here: Adobe XD). Therefore, capabilities and problems in plugins
+            may sometimes be a result of the host application, with no way for the plugin itself to
+            fix that functionality.</note>
+    </conbody>
+</concept>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="open_source">
+    <title>Open Source</title>
+    <shortdesc><term>Open Source</term> is a type of software distribution where everyone can look
+        at the original source code and, depending on the license, change and redistribute the
+        software under certain conditions.</shortdesc>
+    <prolog>
+        <author type="contributor">Pablo Klaschka</author>
+        <critdates>
+            <!--Pablo Klaschka-->
+            <revised modified="2021-03-07"/>
+        </critdates>
+    </prolog>
+    <conbody>
+        <p>It, furthermore, enables a level of trust in privacy-critical environments as, while
+            open-source doesn't guarantee good privacy handling, it at least enables others to
+            inspect the source code.</p>
+    </conbody>
+</concept>

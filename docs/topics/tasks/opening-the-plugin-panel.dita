@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="opening_the_plugin_panel">
+    <title>Opening the Document Chat panel</title>
+    <shortdesc>To begin using the plugin, you first have to open its panel inside Adobe
+        XD.</shortdesc>
+    <prolog>
+        <author type="contributor">Pablo Klaschka</author>
+        <critdates>
+            <!--Pablo Klaschka-->
+            <revised modified="2021-03-07"/>
+            <!--Pablo Klaschka-->
+            <revised modified="2021-03-08"/>
+        </critdates>
+    </prolog>
+    <taskbody>
+        <steps>
+            <step>
+                <cmd>Press
+                        <uicontrol>Ctrl</uicontrol>+<uicontrol>Shift</uicontrol>+<uicontrol>P</uicontrol>
+                    on Windows or
+                        <uicontrol>Command</uicontrol>+<uicontrol>Shift</uicontrol>+<uicontrol>P</uicontrol>
+                    on macOS to open the plugin panel</cmd>
+                <stepresult>The plugins panel (showing all the available plugins) opens on the
+                    left-hand side of the XD window.</stepresult>
+            </step>
+            <step>
+                <cmd>Click <uicontrol>Document Chat</uicontrol></cmd>
+            </step>
+        </steps>
+        <result id="result_wy1_255_w4b">The Document Chat panel opens.</result>
+        <postreq id="postreq_e1b_f5n_w4b">
+            <note type="tip">When opening the plugin for the first time, the plugin will ask you to
+                answer some quick questions (configuring the plugin settings). For details on these
+                options, please refer to the reference for <xref
+                    href="../references/plugin-settings.dita"/></note>
+        </postreq>
+    </taskbody>
+</task>

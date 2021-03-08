@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="cloud_documents">
+    <title>Cloud Documents</title>
+    <shortdesc>A feature in Adobe XD that enables more than one user to edit the same document,
+        synchronized by saving the document in the <q>cloud</q>.</shortdesc>
+    <prolog>
+        <author type="contributor">Pablo Klaschka</author>
+        <critdates>
+            <!--Pablo Klaschka-->
+            <revised modified="2021-03-07"/>
+        </critdates>
+    </prolog>
+    <conbody>
+        <p>
+            <note type="tip">Cloud Documents, by themselves, don't enable users to edit the same
+                document at the same time. To enable that feature, you need to enable the <xref
+                    href="coediting.dita"/> feature, as well.</note>
+        </p>
+    </conbody>
+</concept>

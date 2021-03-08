@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="org.document-chat.pdf">
+    <target name="dita2document-chat-pdf.init">
+        <property name="customization.dir"
+            location="${dita.plugin.org.document-chat.pdf.dir}/cfg" />
+        <property name="pdf2.i18n.skip" value="true" />
+    </target>
+    <target name="dita2document-chat-pdf" depends="dita2document-chat-pdf.init, dita2pdf2"/>
+</project>

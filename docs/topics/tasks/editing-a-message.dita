@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="editing_a_message">
+    <title>Editing a message</title>
+    <shortdesc>The plugin enables original authors to edit their message at any time.</shortdesc>
+    <prolog>
+        <author type="contributor">Pablo Klaschka</author>
+        <critdates>
+            <!--Pablo Klaschka-->
+            <revised modified="2021-03-08"/>
+        </critdates>
+    </prolog>
+    <taskbody>
+        <steps>
+            <step>
+                <cmd>Press the <uicontrol><image
+                            href="../../material/images/icons/Smock_Edit_18_N.png"
+                            id="image_fhq_fp5_w4b" height="1em"/></uicontrol> button in the message
+                    you'd like to edit</cmd>
+                <stepresult>In the place of the original message text, a text area appears, allowing
+                    you to edit the message.</stepresult>
+            </step>
+            <step>
+                <cmd>Edit the message</cmd>
+                <info>
+                    <note type="tip">The same keyboard shortcuts as for writing a message apply
+                        here. To add a line break, press
+                            <uicontrol>Shift</uicontrol>+<uicontrol>Return</uicontrol>.</note>
+                </info>
+            </step>
+            <step>
+                <cmd>Click the <uicontrol><image
+                            href="../../material/images/icons/Smock_Checkmark_18_N.png"
+                            id="image_tbw_rp5_w4b" height="1em"/></uicontrol> button to save the
+                    message.</cmd>
+                <info>Pressing the <uicontrol><image
+                            href="../../material/images/icons/Smock_Close_18_N.png"
+                            id="image_cr5_5p5_w4b" height="1em"/></uicontrol> button discards any
+                    edits you've done to your message.</info>
+            </step>
+        </steps>
+        <result id="result_ppj_dp5_w4b">
+            <note type="warning">Adobe XD often saves earlier states of cloud documents which you
+                can later return to. As the plugin saves the chat messages in the document's
+                metadata, they may exist in their original state in these earlier versions even
+                after editing them.</note>
+        </result>
+    </taskbody>
+</task>
