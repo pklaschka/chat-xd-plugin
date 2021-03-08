@@ -2,15 +2,32 @@
 <!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
 <task id="deleting_a_message">
     <title>Deleting a message</title>
-    <shortdesc></shortdesc>
+    <shortdesc>The plugin enables original authors to delete their messages at any time.</shortdesc>
+    <prolog>
+        <author type="contributor">Pablo Klaschka</author>
+        <critdates>
+            <!--Pablo Klaschka-->
+            <revised modified="2021-03-08"/>
+        </critdates>
+    </prolog>
     <taskbody>
-        <context>
-            <p></p>
-        </context>
         <steps>
             <step>
-                <cmd></cmd>
+                <cmd>Press the <uicontrol><image
+                            href="../../material/images/icons/Smock_Delete_18_N.png"
+                            id="image_qsh_s45_w4b" height="1em"/></uicontrol> button in the message
+                    you'd like to delete</cmd>
+                <stepresult>A modal asking you whether you want to delete the message
+                    opens.</stepresult>
+            </step>
+            <step>
+                <cmd>Click <uicontrol>Delete</uicontrol></cmd>
             </step>
         </steps>
+        <result id="result_erg_v45_w4b">You've deleted the message.<note type="important">Deleting a
+                message can't be undone.</note><note type="warning">Adobe XD often saves earlier
+                states of cloud documents which you can later return to. As the plugin saves the
+                chat messages in the document's metadata, they may exist in these earlier versions
+                even after deleting them.</note></result>
     </taskbody>
 </task>

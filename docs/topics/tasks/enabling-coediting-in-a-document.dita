@@ -2,15 +2,41 @@
 <!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
 <task id="enabling_coediting_in_a_document">
     <title>Enabling Coediting in a document</title>
-    <shortdesc></shortdesc>
+    <shortdesc>Coediting is essential for ideal use of the plugin.</shortdesc>
+    <prolog>
+        <author type="contributor">Pablo Klaschka</author>
+        <critdates>
+            <!--Pablo Klaschka-->
+            <revised modified="2021-03-08"/>
+        </critdates>
+    </prolog>
     <taskbody>
         <context>
-            <p></p>
+            <p>Coediting enables the document contents of more than one editor to work together in
+                real-time (also syncing the messages in real time). To enable it in your document,
+                follow these steps:</p>
         </context>
         <steps>
             <step>
-                <cmd></cmd>
+                <cmd>Click the <uicontrol><image
+                            href="../../material/images/icons/Smock_UserAdd_18_N.png"
+                            id="image_nc3_4q5_w4b" height="1em"/></uicontrol> button in the
+                    top-right hand corner of your document's XD window</cmd>
+            </step>
+            <step>
+                <cmd>Under <menucascade>
+                        <uicontrol>Invite to document</uicontrol>
+                        <uicontrol>Add people</uicontrol>
+                    </menucascade>, enter the email addresses of your collaborators.</cmd>
+            </step>
+            <step>
+                <cmd>Click <uicontrol>Invite to edit</uicontrol></cmd>
             </step>
         </steps>
+        <result id="result_cq1_yq5_w4b">In recent versions of XD, that's all you need to do to setup
+            coediting. When clicking <uicontrol><image
+                    href="../../material/images/icons/Smock_UserAdd_18_N.png" id="image_j1n_zq5_w4b"
+                    height="1em"/></uicontrol> once again, you should now be able to see
+                <systemoutput>Coediting enabled</systemoutput> at the bottom of the popup.</result>
     </taskbody>
 </task>

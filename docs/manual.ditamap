@@ -8,6 +8,8 @@
         <critdates>
             <!--Pablo Klaschka-->
             <revised modified="2021-03-07"/>
+            <!--Pablo Klaschka-->
+            <revised modified="2021-03-08"/>
         </critdates>
     </topicmeta>
     <topichead navtitle="Concepts">
@@ -33,6 +35,7 @@
         <topicref href="topics/tasks/deleting-a-message.dita"/>
         <topicref href="topics/tasks/jumping-to-a-message-s-viewport-position.dita"/>
         <topicref href="topics/tasks/adjusting-the-plugin-settings.dita"/>
+        <topicref href="topics/tasks/uninstalling-the-plugin.dita"/>
     </topichead>
     <topichead navtitle="Reference">
         <topicref href="topics/references/plugin-settings.dita"/>

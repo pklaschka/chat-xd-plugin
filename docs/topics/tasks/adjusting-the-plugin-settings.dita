@@ -2,14 +2,56 @@
 <!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
 <task id="adjusting_the_plugin_settings">
     <title>Adjusting the plugin settings</title>
-    <shortdesc></shortdesc>
+    <shortdesc>Using the plugin's settings screen, you can adjust all configuration parameters set
+        when using the plugin for the first time.</shortdesc>
+    <prolog>
+        <author type="contributor">Pablo Klaschka</author>
+        <critdates>
+            <!--Pablo Klaschka-->
+            <revised modified="2021-03-08"/>
+        </critdates>
+    </prolog>
     <taskbody>
-        <context>
-            <p></p>
-        </context>
         <steps>
             <step>
-                <cmd></cmd>
+                <cmd>Open the plugin panel</cmd>
+            </step>
+            <step>
+                <cmd>Click the settings button <uicontrol><image
+                            href="../../material/images/icons/Smock_Settings_18_N.png"
+                            id="image_anw_xm5_w4b" height="1em"/></uicontrol> on the top-right hand
+                    corner of the plugin panel</cmd>
+                <stepresult>The settings page of the plugin opens</stepresult>
+            </step>
+            <step>
+                <cmd>Adjust the settings to fit your needs</cmd>
+                <info>For a reference of all available options and their explanations, please refer
+                    to <xref href="../references/plugin-settings.dita"/></info>
+            </step>
+            <step>
+                <cmd>Exit the settings page. Choose one of the below:</cmd>
+                <choicetable relcolwidth="1* 1*" id="choicetable_epd_fn5_w4b">
+                    <chhead>
+                        <choptionhd>Option</choptionhd>
+                        <chdeschd>Result</chdeschd>
+                    </chhead>
+                    <chrow>
+                        <choption>Click <uicontrol>Save</uicontrol></choption>
+                        <chdesc>The plugin saves your new settings and returns you to the
+                            chat.</chdesc>
+                    </chrow>
+                    <chrow>
+                        <choption>Click <uicontrol>Cancel</uicontrol></choption>
+                        <chdesc>The plugin discards your new settings (resetting them to their
+                            earlier state) and returns you to the chat.</chdesc>
+                    </chrow>
+                </choicetable>
+                <info>
+                    <note>The plugin applies changes to the <uicontrol>Name</uicontrol> and
+                            <uicontrol>E-Mail-Address</uicontrol> fields to the currently opened
+                        document. For other documents to update, you need to write another message
+                        within them.</note>
+                </info>
             </step>
         </steps>
     </taskbody>

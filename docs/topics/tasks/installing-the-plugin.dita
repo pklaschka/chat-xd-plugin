@@ -2,14 +2,42 @@
 <!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
 <task id="installing_the_plugin">
     <title>Installing the plugin</title>
-    <shortdesc></shortdesc>
+    <shortdesc>There are two ways of installing the plugin: Via the plugin manager (a sort of app
+        store for XD plugins integrated into XD) or from a <filepath>.xdx</filepath>
+        file.</shortdesc>
+    <prolog>
+        <author type="contributor">Pablo Klaschka</author>
+        <critdates>
+            <!--Pablo Klaschka-->
+            <revised modified="2021-03-08"/>
+        </critdates>
+    </prolog>
     <taskbody>
-        <context>
-            <p></p>
-        </context>
         <steps>
             <step>
-                <cmd></cmd>
+                <cmd>Install the plugin with one of the two methods:</cmd>
+                <choicetable relcolwidth="1* 1*" id="choicetable_atw_ns5_w4b">
+                    <chhead>
+                        <choptionhd>Option</choptionhd>
+                        <chdeschd>Description</chdeschd>
+                    </chhead>
+                    <chrow>
+                        <choption>From the plugin manager</choption>
+                        <chdesc>Recommended for most users. This enables automatic updates of the
+                            plugin and requires plugins (including this one) to undergo a review
+                            process for every published version, decreasing the possibility of
+                            malicious content. Follow the <xref
+                                href="installing-via-the-plugin-manager.dita"/> guide.</chdesc>
+                    </chrow>
+                    <chrow>
+                        <choption>From a <filepath>.xdx</filepath> file</choption>
+                        <chdesc><note type="danger">Only install <filepath>.xdx</filepath> files
+                                from sources you can trust.</note>Useful for prerelease or
+                            customized versions of the plugin that don't get released in the plugin
+                            manager. Follow the <xref href="installing-from-an-xdx-file.dita"/>
+                            guide.</chdesc>
+                    </chrow>
+                </choicetable>
             </step>
         </steps>
     </taskbody>

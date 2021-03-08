@@ -2,15 +2,36 @@
 <!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
 <task id="installing_via_the_plugin_manager">
     <title>Installing via the Plugin Manager</title>
-    <shortdesc></shortdesc>
+    <shortdesc>Installing the plugin via the plugin manager ensures you'll always get the latest
+        stable release and also provides the safest way to install the plugin.</shortdesc>
+    <prolog>
+        <author type="contributor">Pablo Klaschka</author>
+        <critdates>
+            <!--Pablo Klaschka-->
+            <revised modified="2021-03-08"/>
+        </critdates>
+    </prolog>
     <taskbody>
-        <context>
-            <p></p>
-        </context>
         <steps>
             <step>
-                <cmd></cmd>
+                <cmd>In XD, click <menucascade>
+                        <uicontrol>Plugins</uicontrol>
+                        <uicontrol>Browse Plugins</uicontrol>
+                    </menucascade></cmd>
+            </step>
+            <step>
+                <cmd>Search for <userinput>Document Chat</userinput></cmd>
+                <info>Instead, you can also open <xref
+                        href="https://xd.adobelanding.com/en/xd-plugin-download/?name=b60d0ee4"
+                        format="html" scope="external"/> to get to the plugin's entry
+                    directly.</info>
+            </step>
+            <step>
+                <cmd>Under <systemoutput>Document Chat</systemoutput>, click
+                        <uicontrol>Install</uicontrol></cmd>
             </step>
         </steps>
+        <result id="result_wp1_vv5_w4b">The plugin installs and will, within a few seconds, be ready
+            to use.</result>
     </taskbody>
 </task>

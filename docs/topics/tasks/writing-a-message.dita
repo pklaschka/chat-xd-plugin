@@ -3,14 +3,63 @@
 <task id="writing_a_message">
     <title>Writing a message</title>
     <shortdesc></shortdesc>
+    <prolog>
+        <author type="contributor">Pablo Klaschka</author>
+        <critdates>
+            <!--Pablo Klaschka-->
+            <revised modified="2021-03-08"/>
+        </critdates>
+    </prolog>
     <taskbody>
-        <context>
-            <p></p>
-        </context>
         <steps>
             <step>
-                <cmd></cmd>
+                <cmd>Open the Document Chat plugin panel</cmd>
+            </step>
+            <step>
+                <cmd>Click on the <uicontrol>Message</uicontrol> text area</cmd>
+            </step>
+            <step>
+                <cmd>Write your message</cmd>
+                <info>
+                    <p>The Document Chat plugin uses a subset of Markdown for formatting the
+                        messages.</p>
+                    <p>To begin a new paragraph, you actually need a blank line between them. Press
+                            <uicontrol>Shift</uicontrol>+<uicontrol>Return</uicontrol> twice to add
+                        a new paragraph.</p>
+                    <p>To format text bold, wrap it with two asterisks:
+                                <codeph>**<varname>text</varname>**</codeph>.</p>
+                    <p>To format it italic, wrap it in underscores:
+                            <codeph>_<varname>text</varname>_</codeph></p>
+                    <p>To format it as code, wrap it in backticks:
+                            <codeph>`<varname>text</varname>`</codeph></p>
+                    <p>To add links, either write the url (for example,
+                            <codeph>https://xdplugins.pabloklaschka.de</codeph>) or, to add a
+                        customized link text, write it like this: <codeph>[<varname>link
+                                text</varname>](<varname>link target</varname>)</codeph>. For
+                        example: <codeph>[Link
+                        Text](https://xdplugins.pabloklaschka.de)</codeph></p>
+                    <p>Images aren't supported for privacy (as they'd require fetching them from the
+                        internet).</p>
+                </info>
+            </step>
+            <step>
+                <cmd>Press <uicontrol>Enter</uicontrol> to send.</cmd>
             </step>
         </steps>
+        <example>
+            <title>Complex Message Example</title>
+            <p>Below, you can see how you could send a message with rather complex
+                formatting:<codeblock>Hello world <uicontrol>Shift</uicontrol>+<uicontrol>Return</uicontrol>
+<uicontrol>Shift</uicontrol>+<uicontrol>Return</uicontrol>
+This time, **really pay attention** to this 
+[link](https://xdplugins.pabloklaschka.de).
+It is _really_ important! <uicontrol>Return</uicontrol></codeblock>This results in a
+                message that looks like this:</p>
+            <fig id="fig_qfm_21v_w4b">
+                <title>Complex message</title>
+                <image href="../../material/images/example-message.png" id="image_vnz_d1v_w4b"
+                    align="center" scalefit="yes"/>
+            </fig>
+        </example>
     </taskbody>
 </task>

@@ -1,16 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
 <task id="installing_from_an_xdx_file">
-    <title>Installing from an xdx file</title>
-    <shortdesc></shortdesc>
+    <title>Installing from an <filepath>.xdx</filepath> file</title>
+    <shortdesc>Using a <filepath>.xdx</filepath> file, you can download and install the plugin from
+        any source without it being available in the plugin manager. This can be useful for
+        prerelease or customized versions of the plugin.</shortdesc>
+    <prolog>
+        <author type="contributor">Pablo Klaschka</author>
+        <critdates>
+            <!--Pablo Klaschka-->
+            <revised modified="2021-03-08"/>
+        </critdates>
+    </prolog>
     <taskbody>
-        <context>
-            <p></p>
+        <context id="context_qjq_zr5_w4b">
+            <note type="danger">Only install plugins from sources you trust. Anyone can package a
+                    <filepath>.xdx</filepath> file with possibly malicious content, as, when
+                distributed outside the plugin manager, they don't have to undergo any
+                review.</note>
         </context>
         <steps>
             <step>
-                <cmd></cmd>
+                <cmd>Right-click the <filepath>.xdx</filepath> file and click <menucascade>
+                        <uicontrol>Open with</uicontrol>
+                        <uicontrol>Adobe XD</uicontrol>
+                    </menucascade>.</cmd>
+                <stepresult>XD opens and asks whether you want to install the plugin.</stepresult>
+            </step>
+            <step>
+                <cmd>Click <uicontrol>Install</uicontrol></cmd>
+                <stepresult>A window opens to inform you that the plugin is now
+                    installed.</stepresult>
+            </step>
+            <step>
+                <cmd>Click <uicontrol>Ok</uicontrol></cmd>
             </step>
         </steps>
+        <result id="result_d1r_qr5_w4b">The plugin is now installed and ready to use.</result>
+        <tasktroubleshooting id="tasktroubleshooting_wss_rr5_w4b">If you receive an error about the
+            plugin being already installed, uninstall the earlier version first by following the
+                <xref href="uninstalling-the-plugin.dita"/> procedure.</tasktroubleshooting>
     </taskbody>
 </task>

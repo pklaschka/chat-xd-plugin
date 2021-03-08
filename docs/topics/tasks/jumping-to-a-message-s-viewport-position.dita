@@ -2,15 +2,28 @@
 <!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
 <task id="jumping_to_a_message_s_viewport_position">
     <title>Jumping to a message's viewport position</title>
-    <shortdesc></shortdesc>
+    <shortdesc>The plugin saves the viewport position where every message got sent from. This makes
+        it easy to have converstations about specific areas without having to describe what artboard
+        you're writing about.</shortdesc>
+    <prolog>
+        <author type="contributor">Pablo Klaschka</author>
+        <critdates>
+            <!--Pablo Klaschka-->
+            <revised modified="2021-03-08"/>
+        </critdates>
+    </prolog>
     <taskbody>
         <context>
-            <p></p>
+            <p>Currently, the saved position doesn't include the zoom level.</p>
         </context>
         <steps>
             <step>
-                <cmd></cmd>
+                <cmd>Press the <uicontrol><image
+                            href="../../material/images/icons/Smock_Crosshairs_18_N.png"
+                            id="image_eky_455_w4b" height="1em"/></uicontrol> button on the message
+                    you'd like to <i>visit</i> in the viewport</cmd>
             </step>
         </steps>
+        <result id="result_xrg_q55_w4b">The viewport scrolls to the message's location.</result>
     </taskbody>
 </task>
