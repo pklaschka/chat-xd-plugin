@@ -34,6 +34,7 @@ jobs:
       - name: Tests
         run: npm test
       - run: npm run build
+      - run: npm run docs
       - name: Upload build
         id: upload-build
         uses: actions/upload-release-asset@v1
@@ -44,3 +45,13 @@ jobs:
           asset_path: ./dist.xdx
           asset_name: document-chat-${{ github.ref }}.xdx
           asset_content_type: application/zip
+      - name: Upload Manual
+        id: upload-manual
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
+          asset_path: ./docs/build-configs/out/manual.pdf
+          asset_name: document-chat-user-manual.pdf
+          asset_content_type: application/pdf
