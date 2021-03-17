@@ -68,7 +68,7 @@
 		"dita-ot-helper": "^0.13.0",
 		"eslint": "^7.22.0",
 		"eslint-config-prettier": "^8.1.0",
-		"eslint-plugin-jsdoc": "^32.2.0",
+		"eslint-plugin-jsdoc": "^32.3.0",
 		"eslint-plugin-prettier": "^3.3.1",
 		"eslint-plugin-tsdoc": "^0.2.11",
 		"file-loader": "^6.2.0",
