@@ -19,8 +19,8 @@ export function useLocalSettingsPromise(): Promise<[Author, boolean]> {
 	const authorPromise = useMemo(() => LocalSettings.getAuthor(), []);
 	const gravatarPromise = useMemo(() => LocalSettings.getGravatar(), []);
 
-	return useMemo(() => Promise.all([authorPromise, gravatarPromise]), [
-		authorPromise,
-		gravatarPromise
-	]);
+	return useMemo(
+		() => Promise.all([authorPromise, gravatarPromise]),
+		[authorPromise, gravatarPromise]
+	);
 }

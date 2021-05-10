@@ -20,9 +20,7 @@ describe('MessageEditor', () => {
 	});
 
 	describe('component logic', () => {
-		let onSubmit: (
-				newMessage: string
-			) => {
+		let onSubmit: (newMessage: string) => {
 				/* NoOp */
 			},
 			onCancel: () => {

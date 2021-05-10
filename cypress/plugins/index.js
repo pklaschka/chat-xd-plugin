@@ -11,13 +11,14 @@
 
 // This function is called when a project is opened or re-opened (e.g. due to
 // the project's config changing)
+const inject = require('@cypress/react/plugins/load-webpack');
 
 /**
  * @type {Cypress.PluginConfig}
  */
 module.exports = (on, config) => {
-	config.env.webpackFilename = 'webpack.config.js';
-	require('@cypress/react/plugins/load-webpack')(on, config);
+	config.env.webpackFilename = 'webpack.cypress.config.js';
+	inject(on, config, config.env);
 	// IMPORTANT to return the config object
 	// with the any changed environment variables
 	return config;

@@ -55,9 +55,10 @@ export function OnboardingPage(): JSX.Element {
 		}
 	}, [currentStep]);
 
-	const goToNextStep = useCallback(() => setCurrentStep(currentStep + 1), [
-		currentStep
-	]);
+	const goToNextStep = useCallback(
+		() => setCurrentStep(currentStep + 1),
+		[currentStep]
+	);
 
 	return (
 		<>

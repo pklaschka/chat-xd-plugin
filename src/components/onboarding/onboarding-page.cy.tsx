@@ -2,6 +2,7 @@
 // @ts-ignore
 import { mount } from '@cypress/react';
 import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
 import '../../main.scss';
 import '../chat/chat-page.scss';
 import { OnboardingPage } from './onboarding-page';
@@ -9,9 +10,11 @@ import { OnboardingPage } from './onboarding-page';
 describe('Onboarding component', () => {
 	beforeEach(() => {
 		mount(
-			<div className={'wrapper'}>
-				<OnboardingPage />
-			</div>
+			<MemoryRouter>
+				<div className={'wrapper'}>
+					<OnboardingPage />
+				</div>
+			</MemoryRouter>
 		);
 	});
 

@@ -1,6 +1,7 @@
 node_modules
 .idea
 dist/main.js
+dist/main.js.*
 dist/assets
 coverage
 .nyc_output
