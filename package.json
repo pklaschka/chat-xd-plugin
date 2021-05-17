@@ -29,7 +29,7 @@
 	],
 	"dependencies": {
 		"@fliegwerk/logsemts": "^0.4.2",
-		"@formatjs/intl-relativetimeformat": "^8.1.8",
+		"@formatjs/intl-relativetimeformat": "^9.0.0",
 		"babel-core": "^6.26.3",
 		"babel-loader": "^8.2.2",
 		"babel-plugin-transform-react-jsx": "^6.24.1",
