@@ -50,7 +50,7 @@
 		"@cypress/react": "^5.10.0",
 		"@cypress/webpack-dev-server": "^1.7.0",
 		"@types/adobe-xd": "https://github.com/AdobeXD/typings/tarball/master",
-		"@types/markdown-it": "^12.2.1",
+		"@types/markdown-it": "^12.2.3",
 		"@types/markdown-it-emoji": "^2.0.2",
 		"@types/node": "^16.11.10",
 		"@types/punycode": "^2.1.0",
