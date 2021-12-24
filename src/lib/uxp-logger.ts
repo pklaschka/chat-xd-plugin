@@ -10,7 +10,6 @@ let messages: string[] = [];
  *
  * @returns A `LogFunction` that, periodically, saves
  * messages to a file in the plugin's data folder.
- *
  * @example
  * ```ts
  * import { Logger, PlainLogger, WebhookLogger } from '@fliegwerk/logsemts';

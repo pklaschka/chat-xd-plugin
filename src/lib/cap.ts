@@ -5,10 +5,8 @@
  * @param min - minimum
  * @param val - target value
  * @param max - maximum
- *
  * @returns `val`, if it's between `min` and `max`, `min` if `val < min`, and
  * `max` if `val > max`
- *
  * @example
  * ```ts
  * cap(0, 3, 5) // 3

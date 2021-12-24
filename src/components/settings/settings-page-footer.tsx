@@ -5,7 +5,6 @@ import packageJSON from '../../../package.json';
  * The footer for the settings page
  *
  * @returns The rendered {@link JSX.Element}
- *
  * @example
  * ```tsx
  * <SettingsPageFooter />
@@ -20,7 +19,8 @@ export function SettingsPageFooter(): JSX.Element {
 				Developed by Pablo Klaschka. Source code is available on&nbsp;
 				<a
 					title="https://github.com/pklaschka/chat-xd-plugin"
-					href="https://github.com/pklaschka/chat-xd-plugin">
+					href="https://github.com/pklaschka/chat-xd-plugin"
+				>
 					GitHub
 				</a>
 				.
@@ -28,7 +28,8 @@ export function SettingsPageFooter(): JSX.Element {
 			<p>
 				<a
 					href={'https://xdplugins.pabloklaschka.de/privacy'}
-					title={'https://xdplugins.pabloklaschka.de/privacy'}>
+					title={'https://xdplugins.pabloklaschka.de/privacy'}
+				>
 					Privacy Policy
 				</a>
 			</p>

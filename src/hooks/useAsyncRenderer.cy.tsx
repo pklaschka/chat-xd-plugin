@@ -56,9 +56,7 @@ type TestbenchParams = { promise: Promise<any> };
  * A React component for testing the `useAsyncRenderer` hook
  *
  * @param props - the props passed to the component
- *
  * @returns the rendered {@link JSX.Element}
- *
  * @example
  * ```tsx
  * mount(<Testbench promise={promise} />);

@@ -1,5 +1,5 @@
 import { RefObject, useCallback } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import DocumentModel from '../model/document/document-model';
 import LocalSettings from '../model/local/local-settings';
 import useLogger from './useLogger';
@@ -14,9 +14,7 @@ import useLogger from './useLogger';
  * @param nameInputRef - the ref to the name input
  * @param emailInputRef - the ref to the email input
  * @param gravatarInputRef - the ref to the Gravatar input
- *
  * @returns a function to save the current values
- *
  * @example
  * ```tsx
  * const ref1 = useRef<HTMLInputElement>(null);
@@ -45,10 +43,10 @@ export function useSaveSettings(
 	gravatarInputRef: RefObject<HTMLInputElement>
 ): () => Promise<void> {
 	const logger = useLogger('useSafeSettings');
-	const history = useHistory();
+	const navigate = useNavigate();
 
 	return useCallback(async () => {
-		model.update(async (model: DocumentModel) => {
+		model.update(async (currentModel: DocumentModel) => {
 			// Sanitize inputs
 			const res = {
 				name: nameInputRef.current?.value ?? '',
@@ -66,12 +64,12 @@ export function useSaveSettings(
 
 			// Change the author details in the document
 			const newAuthor = await LocalSettings.getAuthor();
-			model.authors[newAuthor.uuid] = newAuthor;
+			currentModel.authors[newAuthor.uuid] = newAuthor;
 
 			// Return to previous page
-			history.goBack();
+			navigate(-1);
 
-			return model;
+			return currentModel;
 		});
 	}, [nameInputRef.current, emailInputRef.current, gravatarInputRef.current]);
 }

@@ -17,7 +17,6 @@ type TestbenchProps<T> = {
  *
  * @param props - the props passed to the component
  * @returns the rendered {@link JSX.Element}
- *
  * @example
  * ```tsx
  * mount(
@@ -43,7 +42,8 @@ function Testbench<T>(props: TestbenchProps<T>): JSX.Element {
 						dialogRef.current
 							?.show()
 							.then((res) => props.onResult && props.onResult(res))
-					}>
+					}
+				>
 					Show Dialog
 				</button>
 			</header>

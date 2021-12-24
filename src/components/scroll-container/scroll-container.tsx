@@ -12,7 +12,6 @@ type ScrollContainerProps = { children: ReactNode };
  *
  * @param props - the props passed to the component
  * @returns the rendered {@link JSX.Element}
- *
  * @example
  * ```tsx
  * <ScrollContainer>
@@ -36,11 +35,13 @@ export default function ScrollContainer(
 		<div
 			className="scroll-container"
 			ref={outerContainerRef}
-			onWheel={(e) => scrollDelta(e.deltaY)}>
+			onWheel={(e) => scrollDelta(e.deltaY)}
+		>
 			<div
 				className="scroll-container-inner"
 				ref={innerContainerRef}
-				style={{ top: `${-x}px` }}>
+				style={{ top: `${-x}px` }}
+			>
 				{props.children}
 			</div>
 

@@ -14,7 +14,6 @@ export default class LocalSettings {
 	 *
 	 * @returns `Promise` that resolves to `true` if the local configuration has
 	 * the author data set, i.e., is "ready to go"
-	 *
 	 * @example
 	 * ```ts
 	 * if (! await LocalSettings.hasAuthor())
@@ -29,7 +28,6 @@ export default class LocalSettings {
 	 * Fetches the local author configuration
 	 *
 	 * @returns `Promise` that resolves to the {@link Author} configuration.
-	 *
 	 * @example
 	 * ```ts
 	 * const author = await LocalSettings.getAuthor();
@@ -44,9 +42,7 @@ export default class LocalSettings {
 	 * Updates the local author configuration
 	 *
 	 * @param author - the new author object
-	 *
 	 * @returns Promise that resolves when the author configuration was saved.
-	 *
 	 * @example
 	 * ```ts
 	 * await LocalSettings.setAuthor(new Author())
@@ -61,9 +57,7 @@ export default class LocalSettings {
 	 * Updates whether or not to show Gravatar avatars.
 	 *
 	 * @param gravatar - `true` to show, `false` to hide Gravatar avatars
-	 *
 	 * @returns Promise that resolves when the setting was saved.
-	 *
 	 * @example
 	 * ```ts
 	 * await LocalSettings.setGravatar(false);
@@ -79,7 +73,6 @@ export default class LocalSettings {
 	 *
 	 * @returns `Promise` that resolves to `true` if the user wishes to show
 	 * avatars and `false` they don't.
-	 *
 	 * @example
 	 * ```ts
 	 * const isGravatarEnabled = await LocalSettings.getGravatar();

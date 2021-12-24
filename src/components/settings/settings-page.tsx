@@ -19,9 +19,7 @@ type SettingsPageProps = { model: DocumentModel };
  * A component for a settings page
  *
  * @param props - props passed to the component
- *
  * @returns The rendered {@link JSX.Element}
- *
  * @example
  * ```tsx
  * <Route exact path="/settings">

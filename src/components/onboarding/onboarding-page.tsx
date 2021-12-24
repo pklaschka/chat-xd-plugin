@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import useLogger from '../../hooks/useLogger';
 import Author from '../../model/document/author';
 import LocalSettings from '../../model/local/local-settings';
@@ -12,7 +12,6 @@ const numberOfSteps = 4;
  * The onboarding page component
  *
  * @returns The rendered {@link JSX.Element}
- *
  * @example
  * ```tsx
  * <Route exact path="/onboarding">
@@ -29,7 +28,7 @@ export function OnboardingPage(): JSX.Element {
 		gravatar: false,
 		privacyPolicy: false
 	});
-	const history = useHistory();
+	const navigate = useNavigate();
 
 	// Submission:
 	useEffect(() => {
@@ -50,7 +49,7 @@ export function OnboardingPage(): JSX.Element {
 
 				await LocalSettings.setGravatar(state.gravatar);
 
-				history.push('/chat');
+				navigate('/chat');
 			})();
 		}
 	}, [currentStep]);
@@ -138,7 +137,8 @@ export function OnboardingPage(): JSX.Element {
 						</p>
 						<Switch
 							onChange={(newVal) => setState({ ...state, gravatar: newVal })}
-							value={state.gravatar}>
+							value={state.gravatar}
+						>
 							Use Gravatar avatars
 						</Switch>
 					</>
@@ -165,7 +165,8 @@ export function OnboardingPage(): JSX.Element {
 							onChange={(newVal) =>
 								setState({ ...state, privacyPolicy: newVal })
 							}
-							value={state.privacyPolicy}>
+							value={state.privacyPolicy}
+						>
 							I have read and accept the privacy policy.
 						</Switch>
 					</>
@@ -181,7 +182,8 @@ export function OnboardingPage(): JSX.Element {
 						{currentStep > 0 && (
 							<button
 								uxp-variant={'secondary'}
-								onClick={() => setCurrentStep(currentStep - 1)}>
+								onClick={() => setCurrentStep(currentStep - 1)}
+							>
 								Back
 							</button>
 						)}
@@ -189,7 +191,8 @@ export function OnboardingPage(): JSX.Element {
 						<button
 							uxp-variant={'cta'}
 							onClick={goToNextStep}
-							disabled={!(currentStep < numberOfSteps || state.privacyPolicy)}>
+							disabled={!(currentStep < numberOfSteps || state.privacyPolicy)}
+						>
 							{currentStep === 0 ? "Let's do it" : 'Continue'}
 						</button>
 					</div>

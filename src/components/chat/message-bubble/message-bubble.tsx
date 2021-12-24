@@ -67,7 +67,6 @@ enum MessageBubbleState {
  *
  * @param props - the props
  * @returns the rendered {@link JSX.Element}
- *
  * @example
  * ```tsx
  * <MessageBubble
@@ -152,7 +151,8 @@ export function MessageBubble(props: MessageBubbleProps): JSX.Element {
 					customRef={dialogRef}
 					initialState={true}
 					submitButtonText={'Delete'}
-					submitButtonVariant={'warning'}>
+					submitButtonVariant={'warning'}
+				>
 					{() => (
 						<>
 							<h1>Delete message?</h1>

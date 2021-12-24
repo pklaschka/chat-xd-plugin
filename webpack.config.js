@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 module.exports = {
 	entry: './src/main.tsx',
 	output: {
@@ -16,6 +17,7 @@ module.exports = {
 		viewport: 'viewport',
 		interactions: 'interactions'
 	},
+	plugins: [new webpack.EnvironmentPlugin({ CI: '"false"' })],
 	module: {
 		rules: [
 			{

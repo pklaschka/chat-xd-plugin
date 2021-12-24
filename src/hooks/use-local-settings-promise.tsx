@@ -7,7 +7,6 @@ import LocalSettings from '../model/local/local-settings';
  * {@link SettingsPage}
  *
  * @returns Promise that resolves with all the settings, once loaded
- *
  * @example
  * ```tsx
  * const settingsPromise = useLocalSettingsPromise();

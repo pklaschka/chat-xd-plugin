@@ -10,7 +10,8 @@ describe('Switch', () => {
 				onChange={() => {
 					/* NoOp */
 				}}
-				value={true}>
+				value={true}
+			>
 				Hello World
 			</Switch>
 		);

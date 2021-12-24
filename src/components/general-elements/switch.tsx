@@ -15,7 +15,6 @@ type SwitchProps = {
  *
  * @param props - the component's props
  * @returns the rendered {@link JSX.Element}
- *
  * @example
  * ```tsx
  * <Switch onChange={setValue} value={value}>Test</Switch>
@@ -26,7 +25,8 @@ export default function Switch(props: SwitchProps): JSX.Element {
 	return (
 		<div
 			className={`switch ${value ? 'active' : ''}`}
-			onClick={() => onChange(!value)}>
+			onClick={() => onChange(!value)}
+		>
 			<span className="switch-outer">
 				<span className="switch-inner" />
 			</span>

@@ -34,7 +34,6 @@ interface MessageViewerProps {
  *
  * @param props - the props for the component
  * @returns the rendered {@link JSX.Element}
- *
  * @example
  * ```tsx
  * <li className="MessageBubble">
@@ -54,7 +53,8 @@ export function MessageViewer(props: MessageViewerProps): JSX.Element {
 				<button
 					uxp-variant={'action'}
 					onClick={props.onGoToViewport}
-					title={'Go to viewport position'}>
+					title={'Go to viewport position'}
+				>
 					<img src={iconCrosshair} alt={'Go to viewport position'} />
 				</button>
 				{props.ownMessage && (
@@ -63,14 +63,16 @@ export function MessageViewer(props: MessageViewerProps): JSX.Element {
 						<button
 							uxp-variant={'action'}
 							onClick={props.onEdit}
-							title={'Edit message'}>
+							title={'Edit message'}
+						>
 							<img src={iconEdit} alt={'Edit message'} />
 						</button>
 						&nbsp;
 						<button
 							uxp-variant={'action'}
 							onClick={props.onDelete}
-							title={'Delete message'}>
+							title={'Delete message'}
+						>
 							<img src={iconDelete} alt={'Delete message'} />
 						</button>
 					</>

@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { render } from 'react-dom';
-import { MemoryRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { MemoryRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { ChatPage } from './components/chat/chat-page';
 import { OnboardingPage } from './components/onboarding/onboarding-page';
 import { SettingsPage } from './components/settings/settings-page';
@@ -23,7 +23,6 @@ logger.debug('Plugin loaded');
  * to go) or to the onboarding if no author data is stored in the local settings
  *
  * @returns the redirect component, or, in case of an error, an error message
- *
  * @example
  * ```ts
  * <Route path="/">
@@ -38,8 +37,8 @@ function IndexPageRedirect(): JSX.Element {
 		authorPromise,
 		(author) => {
 			logger.debug('author', author);
-			if (!author) return <Redirect to={'/onboarding'} />;
-			else return <Redirect to={'/chat'} />;
+			if (!author) return <Navigate to={'/onboarding'} />;
+			else return <Navigate to={'/chat'} />;
 		},
 		(e) => {
 			logger.error('error while trying to determine if an author is set', e);
@@ -69,32 +68,21 @@ function renderApp(): void {
 	logger.debug('renderApp()');
 	render(
 		<MemoryRouter>
-			<Switch>
-				<Route exact path="/">
-					{/*<button*/}
-					{/*	onClick={() =>*/}
-					{/*		model.update((model) => {*/}
-					{/*			model.authors = {};*/}
-					{/*			model.messages = [];*/}
-					{/*			return model;*/}
-					{/*		})*/}
-					{/*	}>*/}
-					{/*	Reset Document*/}
-					{/*</button>*/}
-					<IndexPageRedirect />
+			<Routes>
+				<Route path="/">
+					<Route index element={<IndexPageRedirect />} />
+					<Route
+						path="onboarding"
+						element={
+							<div className="wrapper">
+								<OnboardingPage />
+							</div>
+						}
+					/>
+					<Route path="chat" element={<ChatPage model={model} />} />
+					<Route path="settings" element={<SettingsPage model={model} />} />
 				</Route>
-				<Route exact path="/onboarding">
-					<div className="wrapper">
-						<OnboardingPage />
-					</div>
-				</Route>
-				<Route exact path="/chat">
-					<ChatPage model={model} />
-				</Route>
-				<Route exact path="/settings">
-					<SettingsPage model={model} />
-				</Route>
-			</Switch>
+			</Routes>
 		</MemoryRouter>,
 		panel
 	);
@@ -104,7 +92,6 @@ function renderApp(): void {
  * Creates the panel wrapper element
  *
  * @returns the panel wrapper element
- *
  * @example
  * ```ts
  * show(evt) { evt.node.appendChild(create()); }

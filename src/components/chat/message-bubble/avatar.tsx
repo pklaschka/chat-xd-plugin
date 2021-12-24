@@ -26,7 +26,6 @@ interface AvatarProps {
  *
  * @param props - the props
  * @returns the rendered {@link JSX.Element}
- *
  * @example
  * ```tsx
  * <Avatar author={author} gravatar={true} /> // Gravatar of author (online)

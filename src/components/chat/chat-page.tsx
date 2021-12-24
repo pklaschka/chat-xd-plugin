@@ -21,7 +21,6 @@ type ChatPageProps = {
  *
  * @param props - the props
  * @returns the rendered {@link JSX.Element}
- *
  * @example
  * ```tsx
  * <Route exact path="/chat">

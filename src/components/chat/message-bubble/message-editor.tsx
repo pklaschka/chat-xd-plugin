@@ -28,7 +28,6 @@ interface MessageEditorProps {
  *
  * @param props - the props
  * @returns the rendered {@link JSX.Element}
- *
  * @example
  * ```tsx
  * <li className="MessageBubble">
@@ -89,7 +88,8 @@ export function MessageEditor(props: MessageEditorProps): JSX.Element {
 				<button
 					uxp-variant={'action'}
 					onClick={onSubmit}
-					disabled={!value.trim().length}>
+					disabled={!value.trim().length}
+				>
 					<img src={checkmarkIcon} alt={'Confirm edits'} />
 				</button>
 				<button uxp-variant={'action'} onClick={onCancel}>

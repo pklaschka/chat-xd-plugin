@@ -15,7 +15,6 @@ enum LoadingState {
  * @param promise - the promise whose value gets used
  * @param content - a callback whose return value renders when the promise resolves
  * @param error - a callback whose return value renders when the promise gets rejected.
- *
  * @returns One of the below:
  *
  * - a loading indicator if the `promise` is pending,
@@ -23,7 +22,6 @@ enum LoadingState {
  *   the `promise` resolved
  * - the result of calling the `error` function with the reason, if the
  *   `promise` got rejected
- *
  * @example
  * ```tsx
  * function MyFetchingComponent({url}) {

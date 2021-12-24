@@ -37,7 +37,6 @@ import { CustomScrollController } from './custom-scroll-controller';
  *
  * @returns the {@link CustomScrollController} that can be used to implement a
  * component with custom scrolling.
- *
  * @example
  * ```tsx
  * const {

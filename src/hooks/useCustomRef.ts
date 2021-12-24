@@ -20,10 +20,8 @@ export interface RefObject<T> {
  * A React hook that enables using custom Ref-like objects with arbitrary types.
  *
  * @param initialRefValue - the ref's initial value
- *
  * @returns the object storing the current ref value as well as a function to
  * update that value.
- *
  * @example
  * ```tsx
  * function ComponentA() {

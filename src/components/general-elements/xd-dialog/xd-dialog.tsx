@@ -21,9 +21,7 @@ export interface DialogRef<T> {
  * An element to render a native XD plugin dialog
  *
  * @param props - the props passed to the dialog
- *
  * @returns the rendered {@link JSX.Element}
- *
  * @example
  * ```tsx
  * <XDDialog
@@ -65,12 +63,15 @@ export function XDDialog<T>(props: XDDialogProps<T>): JSX.Element {
 	const [state, setState] = useState<T>(props.initialState);
 
 	const onCancel = () => {
+		// @ts-ignore
 		dialogRef.current?.close('reasonCanceled');
 	};
 
 	useLayoutEffect(() => {
-		if (formRef.current)
+		if (formRef.current) {
+			// @ts-ignore
 			formRef.current.onsubmit = () => dialogRef.current?.close('ok');
+		}
 	}, [formRef.current]);
 
 	return (
@@ -82,14 +83,16 @@ export function XDDialog<T>(props: XDDialogProps<T>): JSX.Element {
 					<div className="spacer">&nbsp;</div>
 					<button
 						type="submit"
-						uxp-variant={props.submitButtonVariant ?? 'cta'}>
+						uxp-variant={props.submitButtonVariant ?? 'cta'}
+					>
 						{props.submitButtonText ?? 'Ok'}
 					</button>
 					<button
 						onClick={onCancel}
 						type="reset"
 						uxp-variant="primary"
-						style={{ marginLeft: '0.25rem' }}>
+						style={{ marginLeft: '0.25rem' }}
+					>
 						{props.cancelButtonText ?? 'Cancel'}
 					</button>
 				</div>

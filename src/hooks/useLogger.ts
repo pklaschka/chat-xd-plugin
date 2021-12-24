@@ -28,10 +28,7 @@ const logger = new Logger({
  * Prefixes `'Document Chat: '` to the `component` name
  *
  * @param component - the component's name
- *
  * @returns the {@link ComponentLogger} for `'Document Chat: ' + component`
- *
- *
  * @example
  * ```tsx
  * function SomeReactComponent() {

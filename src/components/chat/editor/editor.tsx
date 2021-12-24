@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import useLogger from '../../../hooks/useLogger';
 import DocumentModel from '../../../model/document/document-model';
 import Message from '../../../model/document/message';
@@ -39,7 +39,6 @@ type ChatMessageEditorProps = { model: DocumentModel };
  *
  * @param props - the props
  * @returns the rendered {@link JSX.Element}
- *
  * @example
  * ```tsx
  * <ChatMessageEditor model={documentModel} />
@@ -128,6 +127,6 @@ export default function ChatMessageEditor(
 				</form>
 			);
 		default:
-			return <Redirect to={'/'} />;
+			return <Navigate to={'/'} />;
 	}
 }
