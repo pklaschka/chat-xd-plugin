@@ -1,10 +1,8 @@
 {
 	"component": {
-		"integrationFolder": "src",
 		"componentFolder": "src",
 		"testFiles": "**/*.cy.{js,jsx,ts,tsx}"
 	},
 	"viewportWidth": 360,
-	"testFiles": "**/*.cy.*",
 	"projectId": "dqzeub"
 }

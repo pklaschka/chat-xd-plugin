@@ -26,7 +26,7 @@ jobs:
           prerelease: false
       - uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 16
           registry-url: https://registry.npmjs.org/
       - name: Remove debug.json file for production build
         run: rm dist/debug.json

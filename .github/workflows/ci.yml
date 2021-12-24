@@ -11,7 +11,7 @@ jobs:
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
-          node-version: 13.x
+          node-version: 16.x
       - name: npm install, build, and test
         run: |
           npm ci
