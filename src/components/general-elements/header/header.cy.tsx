@@ -50,9 +50,11 @@ describe('Header', () => {
 		);
 		cy.screenshot();
 
-		cy.location().hash().should('be.eql', '#/');
+		console.log('hash', cy.location().toString());
+
+		cy.location('hash').should('be.eql', '');
 
 		cy.get('img').click();
-		cy.location().hash().should('be.eql', '#/settings');
+		cy.location('hash').should('be.eql', '#/settings');
 	});
 });
