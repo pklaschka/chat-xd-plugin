@@ -45,6 +45,7 @@ module.exports = {
 		'jsdoc/require-example': 2,
 		'@typescript-eslint/no-explicit-any': 0,
 		'@typescript-eslint/ban-ts-comment': 0,
+		'@typescript-eslint/no-var-requires': 0,
 		'tsdoc-escape-greater-than': 0
 	},
 	ignorePatterns: ['node_modules', 'dist', 'coverage', '.nyc_output']
