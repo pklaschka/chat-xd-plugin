@@ -7,7 +7,7 @@
 	"author": "Pablo Klaschka",
 	"scripts": {
 		"build": "npm run compile && xdpm package dist",
-		"compile": "cross-env SET NODE_OPTIONS=--openssl-legacy-provider && webpack --config webpack.config.js --mode production",
+		"compile": "webpack --config webpack.config.js --mode production",
 		"debug:install": "webpack --config webpack.config.js --mode production && xdpm install dist -o",
 		"debug:watch": "xdpm watch dist | webpack --config webpack.config.js --mode production --watch",
 		"debug:watch-prerelease": "xdpm watch dist -w p | webpack --config webpack.config.js --mode production --watch",
