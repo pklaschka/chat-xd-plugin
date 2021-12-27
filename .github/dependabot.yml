@@ -8,3 +8,10 @@ updates:
     open-pull-requests-limit: 99
     labels:
       - ':1234: dependencies'
+  - package-ecosystem: 'github-actions' # See documentation for possible values
+    directory: '/' # Location of package manifests
+    schedule:
+      interval: 'weekly'
+    open-pull-requests-limit: 99
+    labels:
+      - ':1234: dependencies'
