@@ -1,6 +1,6 @@
 // <reference "cypress" />
 // @ts-ignore
-import { mount } from '@cypress/react';
+import { mount } from 'cypress/react';
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import '../../main.scss';

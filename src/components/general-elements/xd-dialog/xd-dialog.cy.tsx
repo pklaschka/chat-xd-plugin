@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-import { mount } from '@cypress/react';
+import { mount } from 'cypress/react';
 import React from 'react';
 import { RefObject, useCustomRef } from '../../../hooks/useCustomRef';
 import { CANCELED, DialogRef, XDDialog } from './xd-dialog';
