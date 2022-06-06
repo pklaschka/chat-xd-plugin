@@ -67,7 +67,7 @@
 		"css-loader": "6.7.1",
 		"cypress": "10.0.2",
 		"dita-ot-helper": "0.13.1",
-		"eslint": "8.16.0",
+		"eslint": "8.17.0",
 		"eslint-config-prettier": "8.5.0",
 		"eslint-plugin-jsdoc": "39.3.2",
 		"eslint-plugin-prettier": "4.0.0",
