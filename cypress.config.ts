@@ -5,7 +5,7 @@ export default defineConfig({
 	viewportWidth: 360,
 	projectId: 'dqzeub',
 	component: {
-		setupNodeEvents(on, config) {},
+		// setupNodeEvents(on, config) {},
 		specPattern: 'src/**/*.cy.{js,jsx,ts,tsx}',
 		devServer: {
 			framework: 'react',
