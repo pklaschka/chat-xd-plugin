@@ -70,7 +70,7 @@
 		"eslint": "8.18.0",
 		"eslint-config-prettier": "8.5.0",
 		"eslint-plugin-jsdoc": "39.3.3",
-		"eslint-plugin-prettier": "4.0.0",
+		"eslint-plugin-prettier": "4.1.0",
 		"eslint-plugin-tsdoc": "0.2.16",
 		"file-loader": "6.2.0",
 		"html-webpack-plugin": "5.5.0",
