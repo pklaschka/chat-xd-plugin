@@ -74,7 +74,7 @@
 		"eslint-plugin-tsdoc": "0.2.16",
 		"file-loader": "6.2.0",
 		"html-webpack-plugin": "5.5.0",
-		"jsdoc": "3.6.10",
+		"jsdoc": "3.6.11",
 		"postcss-scss": "4.0.4",
 		"prettier": "2.7.1",
 		"prettier-plugin-organize-imports": "2.3.4",
