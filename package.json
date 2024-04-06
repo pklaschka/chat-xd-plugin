@@ -34,7 +34,7 @@
 		"babel-loader": "8.3.0",
 		"babel-plugin-transform-react-jsx": "6.24.1",
 		"install": "0.13.0",
-		"markdown-it": "13.0.1",
+		"markdown-it": "13.0.2",
 		"markdown-it-emoji": "2.0.2",
 		"npm": "8.19.4",
 		"pure-md5": "0.1.14",
