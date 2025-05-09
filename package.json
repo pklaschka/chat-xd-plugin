@@ -82,7 +82,7 @@
 		"prettier-plugin-style-order": "0.2.2",
 		"sass": "1.83.4",
 		"sass-loader": "13.3.3",
-		"shelljs": "0.8.5",
+		"shelljs": "0.10.0",
 		"sloc": "0.3.2",
 		"source-map-loader": "3.0.2",
 		"style-loader": "3.3.4",
